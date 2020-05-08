@@ -1,0 +1,9 @@
+/* ITINERARI */
+
+.banner-tems {
+  background-image: url("../images/itinerari/itinerari-hero-bg.jpg") !important;
+}
+
+.body-room-2 img {
+  box-shadow: 0px 10px 40px 0px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,160 @@
+/* HOMEPAGE */
+
+.homepage-hero {
+  width: 100%;
+  background-image: url("../images/home/home-hero-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  position: relative;
+  padding-top: calc(64px + 57px);
+  padding-bottom: 64px;
+  text-shadow: 0px 3px 12px #000000;
+}
+@media (min-width: 480px) {
+  .homepage-hero {
+    padding-top: calc(64px + 54px + 30px);
+  }
+}
+@media (min-width: 768px) {
+  .homepage-hero {
+    padding-top: calc((64px)*2 + 80px + 30px);
+    padding-bottom: calc(64px*2);
+  }
+}
+@media (min-width: 992px) {
+  .homepage-hero {
+    padding-top: calc((64px)*3 + 90px + 30px);
+    padding-bottom: calc(64px*3);
+  }
+}
+
+.homepage-hero .wrapper{
+  width: 75%;
+  max-width: 1170px;
+  display: block;
+  margin:0 auto;
+}
+
+.homepage-hero h1 {
+  font: normal normal 400 32px/1.1 'Playfair Display', serif;
+}
+@media (min-width: 768px) {
+  .homepage-hero h1 {
+    font-size: 44px;
+  }
+}
+@media (min-width: 992px) {
+  .homepage-hero h1 {
+    font-size: 57px;
+  }
+}
+@media (min-width: 1200px) {
+  .homepage-hero h1 {
+    font-size: 69px;
+  }
+}
+
+.homepage-hero p {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+@media (min-width: 480px) {
+  .homepage-hero p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .homepage-hero p {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+}
+@media (min-width: 992px) {
+  .homepage-hero p {
+    font-size: 25px;
+    letter-spacing: 5px;
+  }
+}
+
+.chi-sono .line {
+  height: 2px;
+  width: 100px;
+  margin-top: 22px !important;
+  margin-bottom: 40px !important;
+}
+
+@media (min-width: 768px) {
+  .chi-sono {
+    margin-bottom: 14rem !important;
+  }
+
+  .scopri-israele .about-content {
+    margin-bottom: 7rem !important;
+  }
+
+  .chi-sono p,
+  .scopri-israele p {
+    font-size: 18px !important;
+    margin-bottom: 2rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .chi-sono {
+    margin-bottom: 28rem !important;
+  }
+}
+
+.chi-sono img,
+.scopri-israele img,
+iframe {
+  box-shadow: 0px 10px 40px 0px rgba(0,0,0,0.3);
+}
+
+
+.testimonials {
+  background-image: url("../images/home/testimonials-bg.jpg") !important;
+}
+
+.events .line {
+  height: 2px;
+  width: 100px;
+  margin-top: 22px !important;
+  margin-bottom: 40px !important;
+}
+
+.section-contact h2 { color: #8E7037 !important; }
+
+@media (max-width: 767px) {
+  .about-content .about-p {
+    font-size: 14px !important;
+    padding-right: 0 !important;
+    margin-bottom:30px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .testimonials .testimonials-h {
+    min-height: 370px !important;
+  }
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: 15%;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,13 @@
+/* CHI SONO */
+
+.banner-tems {
+  background-image: url("../images/scopri-israele/scopri-israele-hero-bg.jpg") !important;
+}
+
+.section-statistics {
+  background-image: url("../images/scopri-israele/scopri-israele-stats-bg.jpg") !important;
+}
+
+.section-about img {
+  box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.3);
+}

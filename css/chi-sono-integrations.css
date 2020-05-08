@@ -1,0 +1,13 @@
+/* CHI SONO */
+
+.banner-tems {
+  background-image: url("../images/chi-sono/chi-sono-hero-bg.jpg") !important;
+}
+
+.section-statistics {
+  background-image: url("../images/chi-sono/chi-sono-stats-bg.jpg") !important;
+}
+
+.section-about img {
+  box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.3);
+}

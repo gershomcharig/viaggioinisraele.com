@@ -1,0 +1,18 @@
+/* FOOTER by GERSHOM */
+
+.footer-sky {
+  color: #ffffff;
+}
+
+.footer-sky a {
+  color: #8e7037;
+}
+
+.footer-sky a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .list-content { text-align: left !important; }
+}
