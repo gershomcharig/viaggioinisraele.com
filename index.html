@@ -1,372 +1,530 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Viaggio in Israele con Isacco - La tua guida turistica nel paese della spiritualità e dell'avventura</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Isacco è la guida turistica che ti farà scoprire uno dei paesi più antichi e affascinanti del mondo: Israele">
-    <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <!-- CSS LIBRARY -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-    <link rel="shortcut icon" type="text/css" href="images/favicon.png" />
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/footer-integrations.css">
-    <link rel="stylesheet" href="css/homepage-integrations.css">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viaggio in Israele con Isacco — La tua storia comincia qui</title>
+<meta name="description" content="Scopri Israele con Isacco Charig, guida turistica autorizzata in italiano. Itinerari su misura tra Gerusalemme, Galilea, deserto e Mar Morto.">
+<link rel="icon" href="images/favicon.png">
+<script src="js/storytelling-support.js"></script>
 </head>
-
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0B0F2A;color:#F6E7CF;font-family:'Cormorant Garamond',Georgia,serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#F0D395;text-decoration:none}
+a:hover{color:#FFF4E2}
+::selection{background:#D8B26E;color:#0B0F2A}
+input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
+@keyframes tw{0%,100%{opacity:.18}50%{opacity:1}}
+@keyframes drift{0%{transform:translate3d(0,0,0);opacity:0}12%{opacity:.9}100%{transform:translate3d(var(--dx),-70vh,0);opacity:0}}
+@keyframes shoot{0%{transform:translate3d(0,0,0) rotate(-24deg);opacity:0}1%{opacity:1}5%{transform:translate3d(-38vw,17vw,0) rotate(-24deg);opacity:0}100%{opacity:0}}
+@keyframes glow{0%,100%{box-shadow:0 0 14px 4px rgba(240,211,149,.55),0 0 0 1px #F0D395}50%{box-shadow:0 0 28px 10px rgba(240,211,149,.85),0 0 0 1px #F0D395}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" lang="it" style="position:relative;background:#0B0F2A;color:#F6E7CF;font-family:'Cormorant Garamond',Georgia,serif">
 
-    <!-- HEADER -->
-    <header class="header-sky">
-        <div class="container">
-            <!--HEADER-TOP-->
-            <div class="header-top">
-                <div class="header-top-left">
-                    <span><i class="fa fa-envelope-o" aria-hidden="true"></i> i.charig@gmail.com</span>
-                    <span><i class="fa fa-whatsapp" aria-hidden="true"></i> (+972) 54 626 7521</span>
+<header style="position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(1120px,calc(100% - 32px));display:flex;align-items:center;gap:24px;padding:10px 10px 10px 24px;border-radius:999px;background:rgba(11,15,42,.62);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(216,178,110,.28)">
+  <a href="#cap-1" style="margin-right:auto;display:flex;align-items:baseline;gap:10px;color:#F6E7CF">
+    <span style="font-style:italic;font-weight:500;font-size:26px;line-height:1">Isacco</span>
+    <span style="font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.22em;color:#D8B26E">Viaggio in Israele</span>
+  </a>
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <nav style="display:flex;gap:26px;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.16em">
+      <a href="#cap-2" style="color:#E9DDC6" style-hover="color:#F0D395">Il narratore</a>
+      <a href="#cap-4" style="color:#E9DDC6" style-hover="color:#F0D395">La mappa</a>
+      <a href="#cap-8" style="color:#E9DDC6" style-hover="color:#F0D395">Domande</a>
+    </nav>
+  </sc-if>
+  <a href="{{ wa }}" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;font-weight:600;letter-spacing:.14em;color:#0B0F2A;background:#D8B26E;padding:12px 20px;border-radius:999px;white-space:nowrap" style-hover="background:#F0D395;color:#0B0F2A">Scrivimi su WhatsApp</a>
+</header>
+
+<sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
+  <nav style="position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:2px;padding:10px 6px;border-radius:999px;background:rgba(11,15,42,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(216,178,110,.22)">
+    <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="9">
+      <a href="{{ c.href }}" title="{{ c.name }}" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:{{ c.color }};background:{{ c.bg }}" style-hover="color:#F0D395">{{ c.num }}</a>
+    </sc-for>
+  </nav>
+</sc-if>
+
+<section id="cap-1" data-ch="1" data-hero data-screen-label="I La soglia" style="position:relative;height:{{ heroH }}">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(120% 80% at 50% 110%,#3A1F45 0%,#1A1438 38%,#0B0F2A 70%)">
+    <div style="position:absolute;right:8%;top:10%;width:46vmin;height:46vmin;border-radius:50%;background:radial-gradient(circle,rgba(255,240,205,.22) 0%,rgba(255,240,205,.06) 40%,transparent 70%);pointer-events:none"></div>
+    {{ starsHero }}
+    {{ dust }}
+    <div data-arch-clip style="position:absolute;inset:0;overflow:hidden;clip-path:inset(46vh calc(50vw - 17.28vh) 0px calc(50vw - 17.28vh) round 17.28vh 17.28vh 0px 0px)">
+      <img data-hero-img src="images/home/gerusalemme-antica.jpg" alt="Gerusalemme, la Città Vecchia" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.18);transform-origin:50% 70%">
+      <div data-hero-shade style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,42,.55) 0%,rgba(11,15,42,.1) 40%,rgba(11,15,42,.75) 100%);opacity:0"></div>
+    </div>
+    <div data-arch-frame style="position:absolute;left:calc(50vw - 17.28vh);top:46vh;width:34.56vh;height:54vh;border-radius:17.28vh 17.28vh 0 0;border:1px solid #D8B26E;box-shadow:0 0 0 10px rgba(11,15,42,.0),0 0 0 11px rgba(216,178,110,.45),0 0 80px 10px rgba(240,190,120,.22);pointer-events:none"></div>
+
+    <div data-hero-title style="position:absolute;left:0;right:0;top:max(13vh,100px);padding:0 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(10px,2vh,18px)">
+      <div style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo I · La soglia<span style="width:36px;height:1px;background:#D8B26E"></span></div>
+      <h1 style="margin:0;font-weight:400;font-size:clamp(40px,min(8vw,calc((46vh - max(13vh,100px) - 56px) / 1.9)),136px);line-height:.9;letter-spacing:-.015em;color:#F6E7CF;text-shadow:0 4px 40px rgba(11,15,42,.8)"><em style="font-weight:400;color:#F0D395">C’era una volta,</em><br>una terra lontana.</h1>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;max-width:22em;font-size:19px;line-height:1.45;color:#E9DDC6">Isacco Charig, guida autorizzata, ti accompagna in italiano nel viaggio della tua vita.</p>
+      </sc-if>
+    </div>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div data-hero-flank style="position:absolute;left:0;right:0;bottom:7vh;padding:0 clamp(32px,5vw,80px);display:flex;justify-content:space-between;align-items:flex-end;gap:calc(34.56vh + 80px);pointer-events:none">
+        <p style="margin:0;max-width:19em;font-style:italic;font-size:clamp(19px,1.6vw,24px);line-height:1.45;color:#E9DDC6">Al di là del mare, dove il deserto tocca il cielo, tre fedi custodiscono da millenni le loro storie.</p>
+        <div style="max-width:19em;display:flex;flex-direction:column;gap:18px;align-items:flex-end;text-align:right">
+          <p style="margin:0;font-size:clamp(18px,1.4vw,21px);line-height:1.5;color:#E9DDC6">Isacco Charig, guida autorizzata dal Ministero del Turismo israeliano, ti accompagna — in italiano — nel viaggio della tua vita.</p>
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:#D8B26E">Scorri e varca la soglia ↓</span>
+        </div>
+      </div>
+    </sc-if>
+    <div data-hero-cap style="position:absolute;left:0;right:0;bottom:12vh;padding:0 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;opacity:0;pointer-events:none">
+      <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#F0D395">Città Vecchia</span>
+      <span style="font-size:clamp(64px,12vw,200px);line-height:.85;font-weight:400;letter-spacing:-.02em;color:#FFF6E6;text-shadow:0 6px 60px rgba(0,0,0,.5)">Gerusalemme</span>
+      <span style="font-style:italic;font-size:clamp(20px,2vw,28px);color:#F6E7CF">Qui comincia il viaggio.</span>
+    </div>
+  </div>
+</section>
+
+<section id="cap-2" data-ch="2" data-screen-label="II Il narratore" style="position:relative;scroll-margin-top:0;background:#120E2A;padding:clamp(96px,16vh,180px) clamp(24px,6vw,96px);overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(56px,8vw,120px);align-items:center">
+    <div style="position:relative;max-width:460px;width:100%;justify-self:center;padding:40px 0 60px">
+      <div data-rv="0" style="position:relative;aspect-ratio:3/4.3;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 8px #120E2A,0 0 0 9px rgba(216,178,110,.6),0 40px 100px rgba(0,0,0,.5)">
+        <img data-par="0.06" src="images/home/isacco-1.jpg" alt="Isacco Charig" style="position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover">
+      </div>
+      <div style="position:absolute;right:-8%;bottom:0;width:44%">
+        <div data-par="-0.12" style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 6px #120E2A,0 0 0 7px #D8B26E,0 20px 60px rgba(0,0,0,.5)"><img src="images/home/isacco-2.jpg" alt="Isacco con un gruppo di viaggiatori" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      </div>
+      <div style="position:absolute;left:-10%;top:4%;width:30%">
+        <div data-par="0.16" style="aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 5px #120E2A,0 0 0 6px rgba(216,178,110,.7),0 20px 60px rgba(0,0,0,.5)"><img src="images/home/isacco-3.jpg" alt="Isacco durante una visita" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo II · Il narratore</div>
+      <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(42px,5.2vw,78px);line-height:.98;letter-spacing:-.01em;text-wrap:balance">Ogni fiaba ha bisogno di <em style="color:#F0D395">qualcuno che la racconti.</em></h2>
+      <div data-rv="200" style="display:flex;flex-direction:column;gap:18px;font-size:clamp(19px,1.5vw,22px);line-height:1.6;color:#E9DDC6;max-width:32em">
+        <p style="margin:0"><span style="float:left;font-family:'Cinzel',serif;font-size:76px;line-height:.82;padding:8px 12px 0 0;color:#F0D395">M</span>i chiamo Isacco Charig. Sono una guida turistica autorizzata dal Ministero del Turismo israeliano e accompagno i viaggiatori italiani alla scoperta di questa terra.</p>
+        <p style="margin:0">Ai pellegrini offro i luoghi della fede, raccontati con rispetto e con il tempo del raccoglimento. Ai curiosi, una chiave per leggere riti e tradizioni che convivono da millenni. A tutti, la mia lingua: l’italiano.</p>
+      </div>
+      <div data-rv="300" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-top:1px solid rgba(216,178,110,.3);border-bottom:1px solid rgba(216,178,110,.3);margin-top:8px">
+        <div style="padding:18px 16px 18px 0;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;color:#D8B26E">Prima promessa</span><span style="font-size:20px;line-height:1.25">Guida autorizzata dal Ministero</span></div>
+        <div style="padding:18px 16px;display:flex;flex-direction:column;gap:6px;border-left:1px solid rgba(216,178,110,.3)"><span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;color:#D8B26E">Seconda</span><span style="font-size:20px;line-height:1.25">Ogni parola in italiano</span></div>
+        <div style="padding:18px 0 18px 16px;display:flex;flex-direction:column;gap:6px;border-left:1px solid rgba(216,178,110,.3)"><span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;color:#D8B26E">Terza</span><span style="font-size:20px;line-height:1.25">Un viaggio cucito su di te</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cap-3" data-ch="3" data-screen-label="III Le meraviglie" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#120E2A 0%,#2A1840 16%,#62294A 32%,#B85E58 46%,#E5A273 58%,#F2D3A4 72%,#F1E4C6 100%);padding:clamp(120px,18vh,200px) clamp(24px,6vw,96px) clamp(120px,16vh,180px)">
+  <div style="position:absolute;inset:0 0 55% 0;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent);pointer-events:none">{{ starsDawn }}</div>
+  <div style="position:absolute;left:50%;top:30%;width:min(110vw,1100px);aspect-ratio:1;transform:translateX(-50%);pointer-events:none">
+    <div data-par="0.42" style="width:100%;height:100%;border-radius:50%;background:radial-gradient(circle,rgba(255,244,214,1) 0%,rgba(255,226,170,.92) 9%,rgba(250,196,130,.5) 22%,rgba(240,160,110,.18) 40%,transparent 64%)"></div>
+  </div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;min-height:60vh">
+      <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo III · Le meraviglie<span style="width:36px;height:1px;background:#D8B26E"></span></div>
+      <h2 data-rv="100" style="margin:0;max-width:15em;font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.98;letter-spacing:-.015em;color:#F6E7CF;text-wrap:balance">Viaggiare in Israele è camminare <em style="color:#F0D395">dentro la storia.</em></h2>
+    </div>
+    <p data-rv="0" style="margin:18vh auto 10vh;max-width:22em;text-align:center;font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.35;color:#2B1D14">…e quando il sole sorge sulle colline, la terra ti mostra a una a una le sue meraviglie:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+        <sc-for list="{{ wonders }}" as="w" hint-placeholder-count="5">
+          <li data-rv="{{ w.delay }}" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
+            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">{{ w.n }}</span>
+            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">{{ w.t }}</span>
+          </li>
+        </sc-for>
+      </ol>
+      <div style="position:relative;height:clamp(420px,52vw,640px)">
+        <div style="position:absolute;right:0;top:0;width:68%;height:62%">
+          <div data-par="-0.1" style="width:100%;height:100%;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 6px #F2D9AE,0 0 0 7px #8A5A1F,0 30px 80px rgba(80,40,20,.35)"><img src="images/home/scopri-israele-1.jpg" alt="Paesaggio d’Israele" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        </div>
+        <div style="position:absolute;left:0;bottom:0;width:54%;height:50%">
+          <div data-par="0.08" style="width:100%;height:100%;border-radius:6px;overflow:hidden;box-shadow:0 0 0 6px #F1E4C6,0 0 0 7px #8A5A1F,0 30px 80px rgba(80,40,20,.35)"><img src="images/home/scopri-israele-2.jpg" alt="Paesaggio d’Israele" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cap-4" data-ch="4" data-screen-label="IV La mappa" style="position:relative;background:#F1E4C6;color:#2B1D14;padding:clamp(80px,12vh,140px) clamp(24px,6vw,96px) clamp(100px,14vh,160px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,6vh,64px)">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+      <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#8A5A1F"><span style="width:36px;height:1px;background:#8A5A1F"></span>Capitolo IV · La mappa<span style="width:36px;height:1px;background:#8A5A1F"></span></div>
+      <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.95;letter-spacing:-.015em">Otto sentieri, <em style="color:#7A3B22">una sola terra.</em></h2>
+      <p data-rv="200" style="margin:0;max-width:30em;font-size:clamp(19px,1.5vw,22px);line-height:1.55;color:#4A3727">Ogni sentiero è un capitolo. Segui quello che ti chiama, oppure intrecciali: disegneremo insieme la tua storia.</p>
+      <div data-rv="300" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+          <button onClick="{{ f.onClick }}" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid {{ f.border }};color:{{ f.color }};background:{{ f.bg }};transition:background .3s,color .3s">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-map style="position:relative">
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <svg data-route-svg width="10" height="10" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:0">
+          <path data-route-faint d="M0,0" fill="none" style="stroke:rgba(43,29,20,.3);stroke-width:1.5;stroke-dasharray:1 9;stroke-linecap:round"></path>
+          <path data-route d="M0,0" fill="none" style="stroke:#8A5A1F;stroke-width:2.2;stroke-linecap:round"></path>
+        </svg>
+        <div data-lantern style="position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,#FFF6DC 0%,#F0D395 50%,#C8903F 100%);z-index:4;pointer-events:none;animation:glow 2.4s ease-in-out infinite"></div>
+      </sc-if>
+      <div style="position:relative;z-index:1;display:grid;grid-auto-rows:1fr">
+        <sc-for list="{{ stops }}" as="it" hint-placeholder-count="8">
+          <article style="display:grid;grid-template-columns:{{ rowCols }};gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:{{ it.imgOrder }};display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="{{ it.img }}" alt="{{ it.title }}" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
                 </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">{{ it.roman }}</span>
+              </div>
             </div>
-            <!-- END/HEADER-TOP -->
-        </div>
-        <!-- MENU-HEADER -->
-        <div class="menu-header">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header ">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Apri il menu</span>
-                            <span class="icon-bar "></span>
-                            <span class="icon-bar "></span>
-                            <span class="icon-bar "></span>
-                        </button>
-                        <a class="navbar-brand" href="index.html" title="Viaggio in Israele con Isacco"><img src="images/logo-navbar.svg"></a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="chi-sono.html" title="Chi sono">Chi sono</a></li>
-                            <li><a href="scopri-israele.html" title="Scopri Israele">Scopri Israele</a></li>
-                            <li><a href="itinerari.html" title="Itinerari">Itinerari</a></li>
-                            <li><a href="contatti.html" title="Contatti">Contatti</a></li>
-                            <li><a href="/en/" title="English version">English <img src="images/uk.svg"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <!-- END / MENU-HEADER -->
-    </header>
-    <!-- END-HEADER -->
-
-    <!-- HOMEPAGE HERO -->
-    <section class="homepage-hero">
-        <div class="wrapper">
-            <h1>Shalom!</h1>
-            <p>Sono <strong>Isacco</strong>, la guida turistica che ti farà scoprire uno dei paesi
-più antichi e affascinanti del mondo: Israele</p>
-        <div class="wrapper">
-    </section>
-    <!-- END / HOMEPAGE HERO -->
-
-    <!-- ABOUT-US-->
-    <section class="about chi-sono">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
-                    <div class="about-centent">
-                        <h2 class="about-title">Chi sono</h2>
-                        <div class="line"></div>
-                        <p class="about-p">Il mio nome è Isacco Charig. Sono una guida turistica autorizzata dal Ministero del Turismo israeliano e sono specializzato nell’accompagnamento di turisti di origine italiana.</p>
-                        <a href="chi-sono.html" class="read-more">SCOPRI DI PIÙ SU DI ME</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7 ">
-                    <div class="about-img">
-                        <div class="img-1">
-                            <img src="images/home/isacco-1.jpg" class="img-responsive">
-                            <div class="img-2">
-                                <img src="images/home/isacco-2.jpg" class="img-responsive">
-                            </div>
-                            <div class="img-3">
-                                <img src="images/home/isacco-3.jpg" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa {{ it.roman }} · {{ it.path }}</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">{{ it.kicker }}</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">{{ it.title }}</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">{{ it.desc }}</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">{{ it.places }}</p>
+              <a href="{{ it.wa }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" style-hover="color:#2B1D14;border-color:#2B1D14">Chiedi a Isacco di questa tappa →</a>
             </div>
-        </div>
-    </section>
-    <!-- END / ABOUT-US-->
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ABOUT-US-->
-    <section class="about about-v2 scopri-israele">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
-                    <div class="about-content">
-                        <h2 class="about-title text-center">Un viaggio tra cultura e spiritualità</h2>
-                        <div class="line-v2"></div>
-                        <p class="about-p">Fare un viaggio in Israele significa camminare attraverso la storia: dai castelli crociati, eretti contro il vento, ai porti dove marinai, pellegrini e commercianti trascorrevano qualche tempo per poi riprendere il largo, dai paesaggi del deserto, dimora delle tribù nomadi, degli eserciti quasi dimenticati e dei carovanieri, dalle tombe degli sceicchi, con le cupole imbiancate, ai silenti monasteri, e alle antiche sinagoghe, ricche di mosaici colorati.</p>
-                        <a href="scopri-israele.html" class="read-more">SCOPRI ISRAELE</a>
-                    </div>
-                    <div class="about-img">
-                        <div class="img-1">
-                            <img src="images/home/scopri-israele-1.jpg" class="img-responsive">
-                            <div class="img-2">
-                                <img src="images/home/scopri-israele-2.jpg" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section id="cap-5" data-ch="5" data-screen-label="V Una finestra" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#F1E4C6 0%,#EEC796 12%,#D3805E 26%,#7C3350 42%,#2A1840 60%,#0B0F2A 78%);padding:clamp(100px,14vh,160px) clamp(24px,6vw,96px) clamp(100px,14vh,160px)">
+  <div style="position:absolute;inset:40% 0 0 0;pointer-events:none">{{ starsDusk }}</div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <p data-rv="0" style="margin:0 0 30vh;max-width:20em;font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.35;color:#2B1D14">Il giorno scivola verso sera, e il cielo sopra il deserto si tinge di rosa…</p>
+    <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#F0D395"><span style="width:36px;height:1px;background:#F0D395"></span>Capitolo V · Una finestra<span style="width:36px;height:1px;background:#F0D395"></span></div>
+    <h2 data-rv="100" style="margin:22px 0 48px;font-weight:400;font-size:clamp(42px,5.4vw,84px);line-height:.98;letter-spacing:-.015em;color:#F6E7CF;text-wrap:balance">Guarda con i tuoi occhi, <em style="color:#F0D395">prima di partire.</em></h2>
+    <div data-rv="200" style="width:100%;max-width:1040px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;box-shadow:0 0 0 8px rgba(11,15,42,.6),0 0 0 9px rgba(216,178,110,.55),0 50px 120px rgba(0,0,0,.6)">
+      <iframe src="https://www.youtube.com/embed/FYtk8JMMZRE?rel=0" title="Viaggio in Israele con Isacco — video" style="width:100%;height:100%;border:0;display:block" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<div style="position:relative;background:#0B0F2A;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none">{{ starsNight }}</div>
+
+  <section id="cap-6" data-ch="6" data-screen-label="VI Le voci" style="position:relative;padding:clamp(100px,16vh,180px) clamp(24px,6vw,96px)">
+    <figure style="margin:0 auto;max-width:1000px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px">
+      <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo VI · Le voci dei viandanti<span style="width:36px;height:1px;background:#D8B26E"></span></div>
+      <span data-rv="100" style="font-size:180px;line-height:.5;height:70px;color:#D8B26E;font-style:italic">“</span>
+      <blockquote data-rv="150" style="margin:0;font-style:italic;font-size:clamp(28px,3.3vw,50px);line-height:1.22;color:#F6E7CF;text-wrap:pretty">Isacco ha avuto la maestria di educarci a ragionare e a confrontarci <span style="color:#F0D395">senza pregiudizi</span> sulle abitudini ebraiche. La sua cultura lo eleva al ruolo di Maestro: educatore spensierato, colto e discreto.</blockquote>
+      <figcaption data-rv="250" style="display:flex;flex-direction:column;gap:6px;align-items:center"><span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.24em;color:#F6E7CF">Emilio M.</span><span style="font-style:italic;font-size:19px;color:#BDB6CF">Genova</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="cap-7" data-ch="7" data-screen-label="VII L’inizio" style="position:relative;padding:clamp(60px,10vh,120px) clamp(24px,6vw,96px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,8vh,88px)">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+        <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo VII · L’inizio<span style="width:36px;height:1px;background:#D8B26E"></span></div>
+        <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(42px,5.4vw,84px);line-height:.98;letter-spacing:-.015em;text-wrap:balance">Ogni viaggio comincia <em style="color:#F0D395">con un messaggio.</em></h2>
+      </div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(40px,5vw,72px)">
+        <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:16%;right:16%;top:7px;height:1px;background:linear-gradient(90deg,transparent,rgba(216,178,110,.6) 15%,rgba(216,178,110,.6) 85%,transparent)"></div></sc-if>
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+          <div data-rv="{{ s.delay }}" style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+            <span style="width:15px;height:15px;border-radius:50%;background:#FFF6DC;box-shadow:0 0 18px 6px rgba(240,211,149,.6)"></span>
+            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.3em;color:#D8B26E;margin-top:14px">{{ s.n }}</span>
+            <h3 style="margin:0;font-weight:500;font-size:clamp(30px,2.6vw,40px);line-height:1.05">{{ s.t }}</h3>
+            <p style="margin:0;max-width:18em;font-size:20px;line-height:1.5;color:#E0D6C4">{{ s.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="cap-8" data-ch="8" data-screen-label="VIII Domande" style="position:relative;padding:clamp(80px,14vh,160px) clamp(24px,6vw,96px)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo VIII</div>
+        <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(42px,5vw,76px);line-height:.98;letter-spacing:-.015em">Le domande <em style="color:#F0D395">del viandante.</em></h2>
+        <p data-rv="200" style="margin:0;font-size:20px;line-height:1.5;color:#E0D6C4">Non trovi la tua? <a href="{{ wa }}" target="_blank" rel="noopener" style="font-style:italic;border-bottom:1px solid rgba(240,211,149,.5)">Chiedimela su WhatsApp.</a></p>
+      </div>
+      <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(216,178,110,.28)">
+        <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
+          <div style="border-top:1px solid rgba(216,178,110,.28)">
+            <button onClick="{{ q.onClick }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
+              <span>{{ q.q }}</span>
+              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate({{ q.rot }})">+</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">{{ q.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="cap-9" data-ch="9" data-screen-label="IX Il tuo capitolo" style="position:relative;padding:clamp(80px,12vh,140px) clamp(16px,6vw,96px) clamp(80px,10vh,120px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:clamp(40px,6vh,64px)">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+        <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo IX · Il tuo capitolo<span style="width:36px;height:1px;background:#D8B26E"></span></div>
+        <h2 data-rv="100" style="margin:0;max-width:14em;font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.95;letter-spacing:-.015em;text-wrap:balance">Il resto della storia <em style="color:#F0D395">lo scriviamo insieme.</em></h2>
+      </div>
+      <div data-rv="200" style="position:relative;width:100%;max-width:880px;background:#F1E4C6;color:#2B1D14;border-radius:4px;padding:clamp(32px,6vw,72px);box-shadow:0 0 0 1px rgba(138,90,31,.4),0 50px 140px rgba(0,0,0,.55),inset 0 0 120px rgba(160,110,50,.18);transform:rotate(-.6deg)">
+        <div style="position:absolute;right:clamp(20px,4vw,48px);top:clamp(-30px,-3vw,-20px);width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 38% 34%,#B0414A 0%,#8E2B33 55%,#6A1C24 100%);box-shadow:0 8px 24px rgba(0,0,0,.35),inset 0 0 0 6px rgba(0,0,0,.12);display:grid;place-items:center;font-family:'Cinzel',serif;font-size:30px;color:#F3C9B5;transform:rotate(8deg)">I</div>
+        <div style="display:flex;flex-direction:column;gap:22px;font-size:clamp(23px,2.3vw,32px);line-height:1.75">
+          <span style="font-style:italic;font-size:clamp(28px,3vw,40px)">Caro Isacco,</span>
+          <p style="margin:0">mi chiamo <input value="{{ name }}" onChange="{{ onName }}" placeholder="il tuo nome" aria-label="Il tuo nome" style="width:9.5em;max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none"> e vorrei venire in Israele <select value="{{ size }}" onChange="{{ onSize }}" aria-label="Con chi viaggi" style="max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none;cursor:pointer"><sc-for list="{{ sizes }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for></select>, nel periodo <input value="{{ period }}" onChange="{{ onPeriod }}" placeholder="es. Pasqua 2027" aria-label="Periodo" style="width:8em;max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none">.</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span>Sogno soprattutto…</span>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <sc-for list="{{ dreams }}" as="d" hint-placeholder-count="4">
+                <button onClick="{{ d.onClick }}" style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;padding:8px 18px;border-radius:999px;cursor:pointer;border:1px solid {{ d.border }};color:{{ d.color }};background:{{ d.bg }};transition:background .25s,color .25s">{{ d.label }}</button>
+              </sc-for>
             </div>
+          </div>
+          <span style="font-style:italic;margin-top:6px">Con gratitudine, <span style="color:#7A3B22">{{ signature }}</span></span>
         </div>
-    </section>
-    <!-- END/ ABOUT-US-->
-
-    <!-- VIDEO -->
-    <section class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
-                <div class="videoWrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FYtk8JMMZRE?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </div>
+        <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(138,90,31,.3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+          <a href="{{ waLetter }}" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:.16em;color:#FFF4E2;background:#8E2B33;padding:18px 28px;border-radius:999px;box-shadow:0 12px 30px rgba(142,43,51,.35)" style-hover="background:#6A1C24;color:#FFF4E2">Invia la lettera su WhatsApp</a>
+          <span style="font-size:18px;line-height:1.5;color:#4A3727">oppure <a href="mailto:i.charig@gmail.com" style="color:#7A3B22;font-style:italic;border-bottom:1px solid rgba(122,59,34,.4)" style-hover="color:#2B1D14">i.charig@gmail.com</a></span>
         </div>
-    </section>
-    <!-- END / VIDEO -->
+      </div>
+    </div>
+  </section>
 
-    <!-- TESTIMONOALS -->
-    <section class="testimonials">
-        <div class="testimonials-h">
-            <div class="testimonials-content">
-                <div class="container">
-                    <div id="testimonials" class="owl-carousel owl-theme">
-                        <div class="item ">
-                            <div class="img-testimonials"><img src="images/home/testimonial-pic-placeholder.jpg"></div>
-                            <p class="testimonials-p"><span>“</span>Isacco ha avuto la maestria di educarci a ragionare e a confrontarci senza pregiudizi sulle abitudini ebraiche in un’epoca tormentata da turbolenze sociali. Non è facile essere una guida turistica, tuttavia la sua cultura lo eleva al ruolo di Maestro, educatore spensierato, colto e discreto.</p>
-                            <h5 class="sky-h5">EMILIO M.</h5>
-                            <p class="testimonials-p1">Genova</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END / TESTIMONOALS -->
+  <footer style="position:relative;padding:clamp(60px,10vh,120px) clamp(24px,6vw,96px) 36px;display:flex;flex-direction:column;align-items:center;gap:56px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+      <span style="font-style:italic;font-size:clamp(56px,8vw,120px);line-height:.9;color:#F0D395">Fine.</span>
+      <span style="font-style:italic;font-size:clamp(20px,2vw,28px);color:#E0D6C4">…o forse, soltanto l’inizio.</span>
+    </div>
+    <div style="width:100%;max-width:1200px;padding-top:22px;border-top:1px solid rgba(216,178,110,.22);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.16em;color:#BDB6CF">
+      <span>© 2026 Isacco Charig · Guida turistica autorizzata</span>
+      <div style="display:flex;flex-wrap:wrap;gap:24px">
+        <a href="tel:+972546267521" style="color:#BDB6CF" style-hover="color:#F0D395">+972 54 626 7521</a>
+        <a href="mailto:i.charig@gmail.com" style="color:#BDB6CF" style-hover="color:#F0D395">i.charig@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Esperienza&quot;},&quot;stars&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Esperienza&quot;},&quot;chapterNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Esperienza&quot;}}">
+class Component extends DCLogic {
+  state = { filter: 'all', ch: 1, narrow: false, faq: 0, name: '', size: 'con un gruppo di 9–20 persone', period: '', dream: ['i luoghi della fede'] };
+  rootRef = React.createRef();
 
-    <!--OUR-EVENTS-->
-    <section class="events">
-        <div class="container">
-            <h2 class="events-title">Itinerari</h2>
-            <div class="line"></div>
-            <div id="events-v2" class="owl-carousel owl-theme">
-                <div class="item ">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/telaviv-haifa.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#telaviv-haifa">
-                                <p class="sky-p">IN VIAGGIO LUNGO LA COSTA</p>
-                                <h3 class="sky-h3">Da Tel-Aviv a Haifa</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/gerusalemme-antica.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#gerusalemme-antica">
-                                <p class="sky-p">IL VIAGGIO PIÙ SPIRITUALE</p>
-                                <h3 class="sky-h3">Gerusalemme Antica</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/mar-morto.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#mar-morto">
-                                <p class="sky-p">TRA I LUOGHI PIÙ SUGGESTIVI DEL PIANETA</p>
-                                <h3 class="sky-h3">Mar Morto e Masada</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/nazaret.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#nazaret">
-                                <p class="sky-p">LE ORIGINI DELLA CRISTIANITÀ</p>
-                                <h3 class="sky-h3">Nazaret</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/eilat-petra.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#eilat-petra">
-                                <p class="sky-p">LE MERAVIGLIE DEL MAR ROSSO</p>
-                                <h3 class="sky-h3">Eilat e Petra</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/galilea.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#galilea">
-                                <p class="sky-p">VERSO IL MONTE TABOR</p>
-                                <h3 class="sky-h3">Alta e Bassa Galilea</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/gerusalemme-moderna.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#gerusalemme-moderna">
-                                <p class="sky-p">IL VOLTO DI UN PAESE</p>
-                                <h3 class="sky-h3">Gerusalemme Moderna</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="events-item">
-                        <div class="events-img"><img src="images/home/neghev.jpg" class="img-responsive"></div>
-                        <div class="events-content">
-                            <a href="itinerari.html#neghev">
-                                <p class="sky-p">A SPASSO NEL DESERTO</p>
-                                <h3 class="sky-h3">Deserto della Giudea e Neghev</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END / OUR EVENTS -->
+  constructor(p) {
+    super(p);
+    this.starsHero = this.makeStars(150, 7, true, 0.72);
+    this.starsDawn = this.makeStars(70, 21, false, 1);
+    this.starsDusk = this.makeStars(60, 33, false, 1);
+    this.starsNight = this.makeStars(220, 51, true, 1);
+    this.dust = this.makeDust(26, 91);
+  }
 
-    <!-- CONTACT -->
-    <section class="section-contact">
-        <div class="container">
-            <div class="contact">
-                <div class="row">
-                    <div class="col-md-6 col-lg-5">
-                        <div class="text">
-                            <h2>Contattami</h2>
-                            <p>Per metterti in contatto con me compila il modulo a fianco oppure utilizza i riferimenti indicati qui sotto. Ti risponderò il prima possibile.</p>
-                            <ul>
-                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:i.charig@gmail.com">i.charig@gmail.com</a></li>
-                                <li><i class="fa fa-whatsapp" aria-hidden="true"></i>(+972) 54 626 7521</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-lg-offset-1">
-                        <div class="contact-form">
-                            <form action="https://formspree.io/i.charig@gmail.com" method="POST">
-                                <input type="hidden" name="_language" value="it" />
-                                <input type="hidden" name="_next" value="thankyou.html" />
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <input type="text" class="field-text" name="nome" placeholder="Nome">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="field-text" name="email" placeholder="Email">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <input type="text" class="field-text" name="oggetto" placeholder="Oggetto della richiesta">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <textarea cols="30" rows="10" name="messaggio" class="field-textarea" placeholder="Scrivi qui il tuo messaggio per me"></textarea>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="submit" value="INVIA" class="btn btn-room">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END / CONTACT -->
+  rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 
-    <!--FOOTER-->
-    <footer class="footer-sky">
-        <div class="footer-mid">
-            <div class="container">
-                <div class="row padding-footer-mid">
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="footer-logo text-center list-content">
-                            <a href="index.html" title="Viaggio in Israele con Isacco"><img src="images/logo-navbar.svg"></a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-                        <div class="list-content ">
-                            <p>Shalom, il mio nome è Isacco Charig. Sono una guida turistica autorizzata dal Ministero del Turismo israeliano e sono specializzato nell’accompagnamento di turisti di origine italiana.<br>Per conoscere i costi e disponibilità scrivimi una email all’indirizzo <a href="mailto:i.charig@gmail.com">i.charig@gmail.com</a> oppure contattami con Whatsapp al numero <a href="tel:+972546267521"">(+972)546267521</a>.</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-                        <div class="list-content">
-                            <ul>
-                                <li><a href="index.html">Homepage</a></li>
-                                <li><a href="chi-sono.html">Chi sono</a></li>
-                                <li><a href="scopri-israele.html">Scopri Israele</a></li>
-                                <li><a href="itinerari.html">Itinerari</a></li>
-                                <li><a href="contatti.html">Contatti</a></li>
-                                <li><a href="/en/">English <img src="images/uk.svg"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 no-padding">
-                        Copyright © 2022 Isacco Charig — Tutti i diritti sono riservati.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- END / FOOTER-->
+  makeStars(n, seed, shooting, spread) {
+    const r = this.rng(seed), h = React.createElement, kids = [];
+    for (let i = 0; i < n; i++) {
+      const s = r() < 0.08 ? 2.4 + r() * 1.4 : 0.8 + r() * 1.4;
+      kids.push(h('span', { key: i, style: { position: 'absolute', left: (r() * 100) + '%', top: (Math.pow(r(), 1.3) * 100 * spread) + '%', width: s, height: s, borderRadius: '50%', background: '#FFF6E0', boxShadow: s > 2.2 ? '0 0 8px 2px rgba(255,236,200,.6)' : 'none', animation: `tw ${2.5 + r() * 4}s ease-in-out ${r() * 6}s infinite` } }));
+    }
+    if (shooting) kids.push(h('span', { key: 'sh', style: { position: 'absolute', right: '12%', top: '10%', width: 130, height: 1, background: 'linear-gradient(90deg,rgba(255,246,224,1),transparent)', animation: 'shoot 11s linear 3s infinite', opacity: 0 } }));
+    return h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } }, kids);
+  }
 
-    <!--SCOLL TOP-->
-    <a href="#" title="sroll" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
-    <!--END / SROLL TOP-->
+  makeDust(n, seed) {
+    const r = this.rng(seed), h = React.createElement, kids = [];
+    for (let i = 0; i < n; i++) {
+      const s = 1.5 + r() * 2.5;
+      kids.push(h('span', { key: i, style: { position: 'absolute', left: (30 + r() * 40) + '%', bottom: (r() * 20) + '%', width: s, height: s, borderRadius: '50%', background: '#F0D395', boxShadow: '0 0 6px 1px rgba(240,211,149,.7)', '--dx': ((r() - 0.5) * 120) + 'px', animation: `drift ${9 + r() * 9}s linear ${-r() * 18}s infinite` } }));
+    }
+    return h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } }, kids);
+  }
 
-    <!-- LOAD JQUERY -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12464192-5"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  componentDidMount() {
+    this.reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.onScroll = () => { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.update(); }); };
+    this.onResize = () => { this.setNarrow(); this.layoutRoute(); this.update(); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('load', this.onResize);
+    this.setNarrow();
+    this.t = setTimeout(() => { this.initReveal(); this.layoutRoute(); this.update(); }, 60);
+    this.t2 = setTimeout(() => { this.layoutRoute(); this.update(); }, 1200);
+  }
+  componentDidUpdate(pp) {
+    const ps = this.previousLayoutState || {};
+    this.previousLayoutState = this.state;
+    if (ps.filter !== this.state.filter || ps.narrow !== this.state.narrow || pp.motion !== this.props.motion)
+      requestAnimationFrame(() => { this.initReveal(); this.layoutRoute(); this.update(); });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('load', this.onResize);
+    clearTimeout(this.t); clearTimeout(this.t2);
+  }
 
-    gtag('config', 'UA-12464192-5');
-    </script>
-    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.countTo.js"></script>
-    <script type="text/javascript" src="js/jquery.appear.min.js"></script>
-    <script type="text/javascript" src="js/retina.min.js"></script>
-    <!-- Custom jQuery -->
-    <script type="text/javascript" src="js/sky.js"></script>
-   
+  motionOn() { return (this.props.motion ?? true) && !this.reduce; }
+  setNarrow() { const n = window.innerWidth < 860; if (n !== this.state.narrow) this.setState({ narrow: n }); }
+  q(s) { return this.rootRef.current ? this.rootRef.current.querySelector(s) : null; }
+  qa(s) { return this.rootRef.current ? Array.from(this.rootRef.current.querySelectorAll(s)) : []; }
+
+  initReveal() {
+    const vh = innerHeight, on = this.motionOn();
+    this.qa('[data-rv]').forEach(el => {
+      if (el.dataset.rvInit) return;
+      el.dataset.rvInit = '1';
+      if (!on) return;
+      const d = parseInt(el.getAttribute('data-rv') || '0', 10);
+      el.style.transition = `opacity 1.2s ease ${d}ms, transform 1.4s cubic-bezier(.16,.8,.24,1) ${d}ms, filter 1.2s ease ${d}ms`;
+      if (el.getBoundingClientRect().top > vh * 0.92) {
+        el.style.opacity = '0'; el.style.transform = 'translateY(44px)'; el.style.filter = 'blur(6px)';
+        el.setAttribute('data-rv-hidden', '1');
+      }
+    });
+  }
+
+  layoutRoute() {
+    const map = this.q('[data-map]'), svg = this.q('[data-route-svg]'), path = this.q('[data-route]'), faint = this.q('[data-route-faint]');
+    if (!map || !svg || !path) { this.routeLen = 0; return; }
+    const mr = map.getBoundingClientRect(), W = mr.width, H = mr.height;
+    const pts = this.qa('[data-stop]').map(el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2 - mr.left, r.top + r.height / 2 - mr.top]; });
+    const all = [[W / 2, 0], ...pts, [W / 2, H]];
+    let d = `M${all[0][0]},${all[0][1]}`;
+    for (let i = 1; i < all.length; i++) {
+      const [x1, y1] = all[i - 1], [x2, y2] = all[i], dy = (y2 - y1) * 0.55;
+      d += ` C${x1},${y1 + dy} ${x2},${y2 - dy} ${x2},${y2}`;
+    }
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('width', W); svg.setAttribute('height', H);
+    path.setAttribute('d', d); faint.setAttribute('d', d);
+    this.routeLen = path.getTotalLength();
+    path.style.strokeDasharray = this.routeLen;
+  }
+
+  update() {
+    const vh = innerHeight, vw = document.documentElement.clientWidth, on = this.motionOn();
+    const cl = v => Math.max(0, Math.min(1, v)), ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const hero = this.q('[data-hero]');
+    if (hero) {
+      const r = hero.getBoundingClientRect(), total = Math.max(1, hero.offsetHeight - vh);
+      const p = on ? cl(-r.top / total) : 0, e = ease(cl(p / 0.78));
+      const h0 = vh * 0.54, w0 = Math.min(vw * 0.8, h0 * 0.64);
+      const w = w0 + (vw - w0) * e, h = h0 + (vh - h0) * e, L = (vw - w) / 2, T = vh - h;
+      const rad = (w0 / 2) * Math.pow(1 - e, 1.4);
+      const clip = this.q('[data-arch-clip]'), frame = this.q('[data-arch-frame]'), img = this.q('[data-hero-img]');
+      if (clip) clip.style.clipPath = `inset(${T}px ${L}px 0px ${L}px round ${rad}px ${rad}px 0px 0px)`;
+      if (frame) Object.assign(frame.style, { left: L + 'px', top: T + 'px', width: w + 'px', height: h + 'px', borderRadius: `${rad}px ${rad}px 0 0`, opacity: String(1 - e) });
+      if (img) img.style.transform = `scale(${1.18 - 0.18 * e})`;
+      const fade = 1 - cl(p * 3);
+      this.qa('[data-hero-title],[data-hero-flank]').forEach(el => { el.style.opacity = String(fade); el.style.transform = `translateY(${-p * 160}px)`; });
+      const cap = cl((p - 0.72) / 0.2), capEl = this.q('[data-hero-cap]'), shade = this.q('[data-hero-shade]');
+      if (capEl) { capEl.style.opacity = String(cap); capEl.style.transform = `translateY(${(1 - cap) * 40}px)`; }
+      if (shade) shade.style.opacity = String(cap);
+    }
+    if (on) this.qa('[data-par]').forEach(el => {
+      const f = parseFloat(el.dataset.par), r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -vh || r.top > vh * 2) return;
+      el.style.transform = `translate3d(0,${(r.top + r.height / 2 - vh / 2) * f}px,0)`;
+    });
+    this.qa('[data-rv-hidden]').forEach(el => {
+      if (el.getBoundingClientRect().top < vh * 0.9) { el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none'; el.removeAttribute('data-rv-hidden'); }
+    });
+    const map = this.q('[data-map]'), path = this.q('[data-route]'), lantern = this.q('[data-lantern]');
+    if (map && path && this.routeLen) {
+      const r = map.getBoundingClientRect(), p = on ? cl((vh * 0.6 - r.top) / r.height) : 1;
+      path.style.strokeDashoffset = String(this.routeLen * (1 - p));
+      if (lantern) { const pt = path.getPointAtLength(this.routeLen * p); lantern.style.transform = `translate(${pt.x}px,${pt.y}px)`; }
+    }
+    let ch = 1;
+    this.qa('[data-ch]').forEach(el => { if (el.getBoundingClientRect().top < vh * 0.5) ch = +el.dataset.ch; });
+    if (ch !== this.state.ch) this.setState({ ch });
+  }
+
+  renderVals() {
+    const S = this.state, base = 'images/home/';
+    const waOf = t => `https://wa.me/972546267521?text=${encodeURIComponent(t)}`;
+    const R = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
+    const paths = { fede: 'Il sentiero della fede', deserto: 'Il sentiero del deserto', mare: 'Il sentiero del mare' };
+    const raw = [
+      ['gerusalemme-antica', 'fede', 'Il viaggio più spirituale', 'Gerusalemme Antica', 'Dentro le mura, quattro quartieri e tre fedi condividono meno di un chilometro quadrato. Qui ogni pietra custodisce una preghiera.', 'Santo Sepolcro · Via Dolorosa · Muro Occidentale · Monte degli Ulivi'],
+      ['gerusalemme-moderna', 'mare', 'Il volto di un paese', 'Gerusalemme Moderna', 'Accanto alla città eterna vive una capitale giovane: musei, mercati che profumano di spezie e i luoghi della memoria.', 'Museo d’Israele · Yad Vashem · Mercato di Mahane Yehuda'],
+      ['mar-morto', 'deserto', 'Tra i luoghi più suggestivi del pianeta', 'Mar Morto e Masada', 'Nel punto più basso della Terra l’acqua ti sostiene come una mano. Sopra, la fortezza di Erode veglia sul deserto.', 'Masada · Qumran · Ein Gedi'],
+      ['neghev', 'deserto', 'A spasso nel deserto', 'Deserto della Giudea e Neghev', 'Il deserto dei profeti e dei carovanieri: monasteri aggrappati alla roccia, crateri immensi, silenzi che parlano.', 'Wadi Qelt · Mitzpe Ramon · Ein Avdat'],
+      ['eilat-petra', 'deserto', 'Le meraviglie del Mar Rosso', 'Eilat e Petra', 'Dove il deserto si tuffa nel Mar Rosso, coralli e pesci di mille colori. Oltre il confine, la città rosa scolpita dai Nabatei.', 'Eilat · Timna · Petra'],
+      ['telaviv-haifa', 'mare', 'In viaggio lungo la costa', 'Da Tel Aviv a Haifa', 'Lungo il Mediterraneo, i porti antichi di marinai e mercanti e le città moderne che non dormono mai.', 'Giaffa · Cesarea · Acri · Haifa'],
+      ['nazaret', 'fede', 'Le origini della cristianità', 'Nazaret', 'Tra i vicoli della città vecchia, sulle tracce dell’infanzia di Gesù e del luogo dell’Annunciazione.', 'Basilica dell’Annunciazione · Chiesa di San Giuseppe · Cana'],
+      ['galilea', 'fede', 'Verso il Monte Tabor', 'Alta e Bassa Galilea', 'Il lago di Tiberiade, le barche dei pescatori, i colli delle Beatitudini — fino alla vetta del Tabor.', 'Cafarnao · Tabgha · Monte delle Beatitudini · Monte Tabor']
+    ];
+    const all = raw.map((r, i) => ({ img: base + r[0] + '.jpg', theme: r[1], path: paths[r[1]], kicker: r[2], title: r[3], desc: r[4], places: r[5], roman: R[i],
+      wa: waOf(`Shalom Isacco! Vorrei informazioni sull’itinerario “${r[3]}”.`) }));
+    const narrow = S.narrow;
+    const stops = all.filter(it => S.filter === 'all' || it.theme === S.filter)
+      .map((it, i) => ({ ...it, imgOrder: narrow ? 0 : (i % 2 ? 2 : 0) }));
+
+    const filters = [['all', 'Tutti i sentieri'], ['fede', 'La fede'], ['deserto', 'Il deserto'], ['mare', 'Il mare e le città']].map(([k, label]) => {
+      const on = S.filter === k;
+      return { label, onClick: () => this.setState({ filter: k }), color: on ? '#F1E4C6' : '#2B1D14', bg: on ? '#2B1D14' : 'transparent', border: on ? '#2B1D14' : 'rgba(43,29,20,.35)' };
+    });
+
+    const chNames = ['La soglia', 'Il narratore', 'Le meraviglie', 'La mappa', 'Una finestra', 'Le voci', 'L’inizio', 'Domande', 'Il tuo capitolo'];
+    const chapters = chNames.map((name, i) => ({ name, num: R[i], href: '#cap-' + (i + 1), color: S.ch === i + 1 ? '#0B0F2A' : '#BDB6CF', bg: S.ch === i + 1 ? '#D8B26E' : 'transparent' }));
+
+    const faqRaw = [
+      ['Accompagni gruppi di pellegrini e parrocchie?', 'Sì. Accompagno famiglie, piccoli gruppi e gruppi organizzati, adattando ritmo, soste e contenuti alle esigenze di ciascuno.'],
+      ['Si possono prevedere momenti di preghiera?', 'Certo. Nei luoghi santi possiamo inserire momenti di raccoglimento e celebrazioni, da concordare in anticipo con il vostro accompagnatore spirituale.'],
+      ['Non sono credente: questo viaggio fa per me?', 'Assolutamente. Israele è un incrocio di storia, culture e religioni: racconto ogni luogo con rispetto e senza pregiudizi, a chi crede e a chi è semplicemente curioso.'],
+      ['Quanto costa un tour?', 'Dipende da durata, numero di partecipanti e periodo. Scrivimi su WhatsApp o via email e ti invierò costi e disponibilità.'],
+      ['Le visite sono in italiano?', 'Sempre. Sono specializzato nell’accompagnamento di viaggiatori italiani, dall’arrivo alla partenza.']
+    ];
+    const faq = faqRaw.map(([q, a], i) => ({ q, a, open: S.faq === i, rot: S.faq === i ? '45deg' : '0deg', onClick: () => this.setState({ faq: S.faq === i ? -1 : i }) }));
+
+    const dreamOpts = ['i luoghi della fede', 'il deserto e il Mar Morto', 'le città e il mare', 'la storia e l’archeologia'];
+    const dreams = dreamOpts.map(l => {
+      const on = S.dream.includes(l);
+      return { label: l, onClick: () => this.setState(s => ({ dream: on ? s.dream.filter(x => x !== l) : [...s.dream, l] })), color: on ? '#FFF4E2' : '#7A3B22', bg: on ? '#7A3B22' : 'transparent', border: on ? '#7A3B22' : 'rgba(122,59,34,.45)' };
+    });
+    const nm = S.name.trim(), per = S.period.trim();
+    const ds = S.dream.length ? S.dream.join(', ').replace(/, ([^,]*)$/, ' e $1') : '';
+    const letter = `Shalom Isacco! Mi chiamo ${nm || '…'} e vorrei venire in Israele ${S.size}${per ? ', nel periodo: ' + per : ''}.${ds ? ' Sogno soprattutto ' + ds + '.' : ''} Potresti inviarmi una proposta con costi e disponibilità? Grazie!`;
+
+    const motion = this.motionOn ? ((this.props.motion ?? true)) : true;
+    return {
+      rootRef: this.rootRef,
+      wa: waOf('Shalom Isacco! Vorrei informazioni su un viaggio in Israele.'),
+      narrow, wide: !narrow,
+      showNav: !narrow && S.ch > 1 && (this.props.chapterNav ?? true),
+      heroH: motion ? '260vh' : '100vh',
+      starsHero: (this.props.stars ?? true) ? this.starsHero : null,
+      starsDawn: (this.props.stars ?? true) ? this.starsDawn : null,
+      starsDusk: (this.props.stars ?? true) ? this.starsDusk : null,
+      starsNight: (this.props.stars ?? true) ? this.starsNight : null,
+      dust: motion ? this.dust : null,
+      chapters,
+      wonders: [
+        'castelli crociati, eretti contro il vento;',
+        'porti dove marinai, pellegrini e mercanti sostavano prima di riprendere il largo;',
+        'deserti, dimora di tribù nomadi, eserciti dimenticati e carovanieri;',
+        'tombe di sceicchi dalle cupole imbiancate;',
+        'monasteri silenziosi e antiche sinagoghe ricche di mosaici.'
+      ].map((t, i) => ({ t, n: R[i], delay: String(i * 90) })),
+      filters, stops, rowCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)',
+      steps: [
+        { n: 'I', t: 'Scrivimi', d: 'Su WhatsApp o via email: raccontami chi sei, quando vorresti partire e cosa sogni di vedere.', delay: '0' },
+        { n: 'II', t: 'Tracciamo la mappa', d: 'Ti propongo un itinerario su misura, con costi e disponibilità, da rifinire insieme.', delay: '150' },
+        { n: 'III', t: 'Partiamo insieme', d: 'Ti accompagno giorno per giorno, sempre in italiano, nei luoghi che hai scelto.', delay: '300' }
+      ],
+      faq,
+      name: S.name, period: S.period, size: S.size,
+      sizes: ['da solo', 'in coppia', 'con un piccolo gruppo di 3–8 persone', 'con un gruppo di 9–20 persone', 'con un grande gruppo, oltre 20 persone'],
+      onName: e => this.setState({ name: e.target.value }),
+      onPeriod: e => this.setState({ period: e.target.value }),
+      onSize: e => this.setState({ size: e.target.value }),
+      dreams, signature: nm || '…', waLetter: waOf(letter)
+    };
+  }
+}
+</script>
 </body>
-
 </html>
