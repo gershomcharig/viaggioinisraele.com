@@ -6,11 +6,8 @@
 <title>Viaggio in Israele con Isacco — La tua storia comincia qui</title>
 <meta name="description" content="Scopri Israele con Isacco Charig, guida turistica autorizzata in italiano. Itinerari su misura tra Gerusalemme, Galilea, deserto e Mar Morto.">
 <link rel="icon" href="images/favicon.png">
-<script src="js/storytelling-support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<script src="js/home.js" defer></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap">
 <style>
@@ -25,38 +22,90 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
 @keyframes drift{0%{transform:translate3d(0,0,0);opacity:0}12%{opacity:.9}100%{transform:translate3d(var(--dx),-70vh,0);opacity:0}}
 @keyframes shoot{0%{transform:translate3d(0,0,0) rotate(-24deg);opacity:0}1%{opacity:1}5%{transform:translate3d(-38vw,17vw,0) rotate(-24deg);opacity:0}100%{opacity:0}}
 @keyframes glow{0%,100%{box-shadow:0 0 14px 4px rgba(240,211,149,.55),0 0 0 1px #F0D395}50%{box-shadow:0 0 28px 10px rgba(240,211,149,.85),0 0 0 1px #F0D395}}
+
+/* Responsive and progressive enhancement rules; static styles remain inline. */
+[hidden]{display:none!important}
+.narrow-only{display:none!important}
+summary{list-style:none}summary::-webkit-details-marker{display:none}
+details summary span:last-child{transform:rotate(0)!important}
+details[open] summary span:last-child{transform:rotate(45deg)!important}
+:focus-visible{outline:2px solid #8A5A1F!important;outline-offset:4px}
+@media(max-width:859px){.narrow-only{display:contents!important}.wide-only,.chapter-nav{display:none!important}[data-theme]{--route-columns:minmax(0,1fr)}[data-stop]{order:0!important}header{gap:12px!important;padding-left:16px!important}header>a:first-child>span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+[data-hover="0"]:hover{color:#F0D395 !important}
+[data-hover="1"]:hover{color:#F0D395 !important}
+[data-hover="2"]:hover{color:#F0D395 !important}
+[data-hover="3"]:hover{background:#F0D395 !important;color:#0B0F2A !important}
+[data-hover="4"]:hover{color:#F0D395 !important}
+[data-hover="5"]:hover{color:#F0D395 !important}
+[data-hover="6"]:hover{color:#F0D395 !important}
+[data-hover="7"]:hover{color:#F0D395 !important}
+[data-hover="8"]:hover{color:#F0D395 !important}
+[data-hover="9"]:hover{color:#F0D395 !important}
+[data-hover="10"]:hover{color:#F0D395 !important}
+[data-hover="11"]:hover{color:#F0D395 !important}
+[data-hover="12"]:hover{color:#F0D395 !important}
+[data-hover="13"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="14"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="15"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="16"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="17"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="18"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="19"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="20"]:hover{color:#2B1D14 !important;border-color:#2B1D14 !important}
+[data-hover="21"]:hover{background:#6A1C24 !important;color:#FFF4E2 !important}
+[data-hover="22"]:hover{color:#2B1D14 !important}
+[data-hover="23"]:hover{color:#F0D395 !important}
+[data-hover="24"]:hover{color:#F0D395 !important}
 </style>
-</helmet>
-<div ref="{{ rootRef }}" lang="it" style="position:relative;background:#0B0F2A;color:#F6E7CF;font-family:'Cormorant Garamond',Georgia,serif">
+</head>
+<body>
+<div id="page" lang="it" style="position:relative;background:#0B0F2A;color:#F6E7CF;font-family:'Cormorant Garamond',Georgia,serif">
 
 <header style="position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;width:min(1120px,calc(100% - 32px));display:flex;align-items:center;gap:24px;padding:10px 10px 10px 24px;border-radius:999px;background:rgba(11,15,42,.62);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(216,178,110,.28)">
   <a href="#cap-1" style="margin-right:auto;display:flex;align-items:baseline;gap:10px;color:#F6E7CF">
     <span style="font-style:italic;font-weight:500;font-size:26px;line-height:1">Isacco</span>
     <span style="font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.22em;color:#D8B26E">Viaggio in Israele</span>
   </a>
-  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+  <div class="wide-only" style="display:contents">
     <nav style="display:flex;gap:26px;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.16em">
-      <a href="#cap-2" style="color:#E9DDC6" style-hover="color:#F0D395">Il narratore</a>
-      <a href="#cap-4" style="color:#E9DDC6" style-hover="color:#F0D395">La mappa</a>
-      <a href="#cap-8" style="color:#E9DDC6" style-hover="color:#F0D395">Domande</a>
+      <a href="#cap-2" style="color:#E9DDC6" data-hover="0">Il narratore</a>
+      <a href="#cap-4" style="color:#E9DDC6" data-hover="1">La mappa</a>
+      <a href="#cap-8" style="color:#E9DDC6" data-hover="2">Domande</a>
     </nav>
-  </sc-if>
-  <a href="{{ wa }}" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;font-weight:600;letter-spacing:.14em;color:#0B0F2A;background:#D8B26E;padding:12px 20px;border-radius:999px;white-space:nowrap" style-hover="background:#F0D395;color:#0B0F2A">Scrivimi su WhatsApp</a>
+  </div>
+  <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20su%20un%20viaggio%20in%20Israele." target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:12px;font-weight:600;letter-spacing:.14em;color:#0B0F2A;background:#D8B26E;padding:12px 20px;border-radius:999px;white-space:nowrap" data-hover="3">Scrivimi su WhatsApp</a>
 </header>
 
-<sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
+<div class="chapter-nav" style="display:contents" hidden>
   <nav style="position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:2px;padding:10px 6px;border-radius:999px;background:rgba(11,15,42,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(216,178,110,.22)">
-    <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="9">
-      <a href="{{ c.href }}" title="{{ c.name }}" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:{{ c.color }};background:{{ c.bg }}" style-hover="color:#F0D395">{{ c.num }}</a>
-    </sc-for>
-  </nav>
-</sc-if>
 
-<section id="cap-1" data-ch="1" data-hero data-screen-label="I La soglia" style="position:relative;height:{{ heroH }}">
+      <a href="#cap-1" title="La soglia" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#0B0F2A;background:#D8B26E" data-hover="4">I</a>
+
+      <a href="#cap-2" title="Il narratore" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="5">II</a>
+
+      <a href="#cap-3" title="Le meraviglie" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="6">III</a>
+
+      <a href="#cap-4" title="La mappa" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="7">IV</a>
+
+      <a href="#cap-5" title="Una finestra" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="8">V</a>
+
+      <a href="#cap-6" title="Le voci" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="9">VI</a>
+
+      <a href="#cap-7" title="L’inizio" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="10">VII</a>
+
+      <a href="#cap-8" title="Domande" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="11">VIII</a>
+
+      <a href="#cap-9" title="Il tuo capitolo" style="display:grid;place-items:center;width:34px;height:30px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.04em;border-radius:999px;color:#BDB6CF;background:transparent" data-hover="12">IX</a>
+
+  </nav>
+</div>
+
+<section id="cap-1" data-ch="1" data-hero data-screen-label="I La soglia" style="position:relative;height:100vh">
   <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(120% 80% at 50% 110%,#3A1F45 0%,#1A1438 38%,#0B0F2A 70%)">
     <div style="position:absolute;right:8%;top:10%;width:46vmin;height:46vmin;border-radius:50%;background:radial-gradient(circle,rgba(255,240,205,.22) 0%,rgba(255,240,205,.06) 40%,transparent 70%);pointer-events:none"></div>
-    {{ starsHero }}
-    {{ dust }}
+    <div data-decoration="starsHero" aria-hidden="true"></div>
+    <div data-decoration="dust" aria-hidden="true"></div>
     <div data-arch-clip style="position:absolute;inset:0;overflow:hidden;clip-path:inset(46vh calc(50vw - 17.28vh) 0px calc(50vw - 17.28vh) round 17.28vh 17.28vh 0px 0px)">
       <img data-hero-img src="images/home/gerusalemme-antica.jpg" alt="Gerusalemme, la Città Vecchia" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.18);transform-origin:50% 70%">
       <div data-hero-shade style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,42,.55) 0%,rgba(11,15,42,.1) 40%,rgba(11,15,42,.75) 100%);opacity:0"></div>
@@ -66,11 +115,11 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
     <div data-hero-title style="position:absolute;left:0;right:0;top:max(13vh,100px);padding:0 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(10px,2vh,18px)">
       <div style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo I · La soglia<span style="width:36px;height:1px;background:#D8B26E"></span></div>
       <h1 style="margin:0;font-weight:400;font-size:clamp(40px,min(8vw,calc((46vh - max(13vh,100px) - 56px) / 1.9)),136px);line-height:.9;letter-spacing:-.015em;color:#F6E7CF;text-shadow:0 4px 40px rgba(11,15,42,.8)"><em style="font-weight:400;color:#F0D395">C’era una volta,</em><br>una terra lontana.</h1>
-      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <div class="narrow-only" style="display:contents">
         <p style="margin:0;max-width:22em;font-size:19px;line-height:1.45;color:#E9DDC6">Isacco Charig, guida autorizzata, ti accompagna in italiano nel viaggio della tua vita.</p>
-      </sc-if>
+      </div>
     </div>
-    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div class="wide-only" style="display:contents">
       <div data-hero-flank style="position:absolute;left:0;right:0;bottom:7vh;padding:0 clamp(32px,5vw,80px);display:flex;justify-content:space-between;align-items:flex-end;gap:calc(34.56vh + 80px);pointer-events:none">
         <p style="margin:0;max-width:19em;font-style:italic;font-size:clamp(19px,1.6vw,24px);line-height:1.45;color:#E9DDC6">Al di là del mare, dove il deserto tocca il cielo, tre fedi custodiscono da millenni le loro storie.</p>
         <div style="max-width:19em;display:flex;flex-direction:column;gap:18px;align-items:flex-end;text-align:right">
@@ -78,7 +127,7 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
           <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:#D8B26E">Scorri e varca la soglia ↓</span>
         </div>
       </div>
-    </sc-if>
+    </div>
     <div data-hero-cap style="position:absolute;left:0;right:0;bottom:12vh;padding:0 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;opacity:0;pointer-events:none">
       <span style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#F0D395">Città Vecchia</span>
       <span style="font-size:clamp(64px,12vw,200px);line-height:.85;font-weight:400;letter-spacing:-.02em;color:#FFF6E6;text-shadow:0 6px 60px rgba(0,0,0,.5)">Gerusalemme</span>
@@ -117,7 +166,7 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
 </section>
 
 <section id="cap-3" data-ch="3" data-screen-label="III Le meraviglie" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#120E2A 0%,#2A1840 16%,#62294A 32%,#B85E58 46%,#E5A273 58%,#F2D3A4 72%,#F1E4C6 100%);padding:clamp(120px,18vh,200px) clamp(24px,6vw,96px) clamp(120px,16vh,180px)">
-  <div style="position:absolute;inset:0 0 55% 0;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent);pointer-events:none">{{ starsDawn }}</div>
+  <div style="position:absolute;inset:0 0 55% 0;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent);pointer-events:none"><div data-decoration="starsDawn" aria-hidden="true"></div></div>
   <div style="position:absolute;left:50%;top:30%;width:min(110vw,1100px);aspect-ratio:1;transform:translateX(-50%);pointer-events:none">
     <div data-par="0.42" style="width:100%;height:100%;border-radius:50%;background:radial-gradient(circle,rgba(255,244,214,1) 0%,rgba(255,226,170,.92) 9%,rgba(250,196,130,.5) 22%,rgba(240,160,110,.18) 40%,transparent 64%)"></div>
   </div>
@@ -129,12 +178,32 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
     <p data-rv="0" style="margin:18vh auto 10vh;max-width:22em;text-align:center;font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.35;color:#2B1D14">…e quando il sole sorge sulle colline, la terra ti mostra a una a una le sue meraviglie:</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
       <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
-        <sc-for list="{{ wonders }}" as="w" hint-placeholder-count="5">
-          <li data-rv="{{ w.delay }}" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
-            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">{{ w.n }}</span>
-            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">{{ w.t }}</span>
+
+          <li data-rv="0" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
+            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">I</span>
+            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">castelli crociati, eretti contro il vento;</span>
           </li>
-        </sc-for>
+
+          <li data-rv="90" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
+            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">II</span>
+            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">porti dove marinai, pellegrini e mercanti sostavano prima di riprendere il largo;</span>
+          </li>
+
+          <li data-rv="180" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
+            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">III</span>
+            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">deserti, dimora di tribù nomadi, eserciti dimenticati e carovanieri;</span>
+          </li>
+
+          <li data-rv="270" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
+            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">IV</span>
+            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">tombe di sceicchi dalle cupole imbiancate;</span>
+          </li>
+
+          <li data-rv="360" style="display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(43,29,20,.22)">
+            <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.12em;color:#7A3B22">V</span>
+            <span style="font-style:italic;font-size:clamp(26px,2.8vw,42px);line-height:1.12;color:#2B1D14;text-wrap:pretty">monasteri silenziosi e antiche sinagoghe ricche di mosaici.</span>
+          </li>
+
       </ol>
       <div style="position:relative;height:clamp(420px,52vw,640px)">
         <div style="position:absolute;right:0;top:0;width:68%;height:62%">
@@ -155,48 +224,187 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
       <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(44px,6vw,96px);line-height:.95;letter-spacing:-.015em">Otto sentieri, <em style="color:#7A3B22">una sola terra.</em></h2>
       <p data-rv="200" style="margin:0;max-width:30em;font-size:clamp(19px,1.5vw,22px);line-height:1.55;color:#4A3727">Ogni sentiero è un capitolo. Segui quello che ti chiama, oppure intrecciali: disegneremo insieme la tua storia.</p>
       <div data-rv="300" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px">
-        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
-          <button onClick="{{ f.onClick }}" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid {{ f.border }};color:{{ f.color }};background:{{ f.bg }};transition:background .3s,color .3s">{{ f.label }}</button>
-        </sc-for>
+
+          <button data-filter="all" hidden aria-pressed="true" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid #2B1D14;color:#F1E4C6;background:#2B1D14;transition:background .3s,color .3s">Tutti i sentieri</button>
+
+          <button data-filter="fede" hidden aria-pressed="false" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid rgba(43,29,20,.35);color:#2B1D14;background:transparent;transition:background .3s,color .3s">La fede</button>
+
+          <button data-filter="deserto" hidden aria-pressed="false" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid rgba(43,29,20,.35);color:#2B1D14;background:transparent;transition:background .3s,color .3s">Il deserto</button>
+
+          <button data-filter="mare" hidden aria-pressed="false" style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:.14em;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid rgba(43,29,20,.35);color:#2B1D14;background:transparent;transition:background .3s,color .3s">Il mare e le città</button>
+
       </div>
     </div>
 
     <div data-map style="position:relative">
-      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div class="wide-only" style="display:contents">
         <svg data-route-svg width="10" height="10" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:0">
           <path data-route-faint d="M0,0" fill="none" style="stroke:rgba(43,29,20,.3);stroke-width:1.5;stroke-dasharray:1 9;stroke-linecap:round"></path>
           <path data-route d="M0,0" fill="none" style="stroke:#8A5A1F;stroke-width:2.2;stroke-linecap:round"></path>
         </svg>
         <div data-lantern style="position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,#FFF6DC 0%,#F0D395 50%,#C8903F 100%);z-index:4;pointer-events:none;animation:glow 2.4s ease-in-out infinite"></div>
-      </sc-if>
+      </div>
       <div style="position:relative;z-index:1;display:grid;grid-auto-rows:1fr">
-        <sc-for list="{{ stops }}" as="it" hint-placeholder-count="8">
-          <article style="display:grid;grid-template-columns:{{ rowCols }};gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
-            <div data-stop style="order:{{ it.imgOrder }};display:flex;justify-content:center">
+
+          <article data-theme="fede" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,0);display:flex;justify-content:center">
               <div data-rv="0" style="position:relative;width:min(100%,400px)">
                 <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
-                  <img data-par="0.07" src="{{ it.img }}" alt="{{ it.title }}" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                  <img data-par="0.07" src="images/home/gerusalemme-antica.jpg" alt="Gerusalemme Antica" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
                 </div>
-                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">{{ it.roman }}</span>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">I</span>
               </div>
             </div>
             <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
-              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa {{ it.roman }} · {{ it.path }}</span>
-              <span style="font-style:italic;font-size:22px;color:#7A3B22">{{ it.kicker }}</span>
-              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">{{ it.title }}</h3>
-              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">{{ it.desc }}</p>
-              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">{{ it.places }}</p>
-              <a href="{{ it.wa }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" style-hover="color:#2B1D14;border-color:#2B1D14">Chiedi a Isacco di questa tappa →</a>
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa I · Il sentiero della fede</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">Il viaggio più spirituale</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Gerusalemme Antica</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Dentro le mura, quattro quartieri e tre fedi condividono meno di un chilometro quadrato. Qui ogni pietra custodisce una preghiera.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Santo Sepolcro · Via Dolorosa · Muro Occidentale · Monte degli Ulivi</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CGerusalemme%20Antica%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="13">Chiedi a Isacco di questa tappa →</a>
             </div>
           </article>
-        </sc-for>
+
+          <article data-theme="mare" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,2);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/gerusalemme-moderna.jpg" alt="Gerusalemme Moderna" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">II</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa II · Il sentiero del mare</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">Il volto di un paese</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Gerusalemme Moderna</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Accanto alla città eterna vive una capitale giovane: musei, mercati che profumano di spezie e i luoghi della memoria.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Museo d’Israele · Yad Vashem · Mercato di Mahane Yehuda</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CGerusalemme%20Moderna%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="14">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
+          <article data-theme="deserto" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,0);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/mar-morto.jpg" alt="Mar Morto e Masada" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">III</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa III · Il sentiero del deserto</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">Tra i luoghi più suggestivi del pianeta</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Mar Morto e Masada</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Nel punto più basso della Terra l’acqua ti sostiene come una mano. Sopra, la fortezza di Erode veglia sul deserto.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Masada · Qumran · Ein Gedi</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CMar%20Morto%20e%20Masada%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="15">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
+          <article data-theme="deserto" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,2);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/neghev.jpg" alt="Deserto della Giudea e Neghev" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">IV</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa IV · Il sentiero del deserto</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">A spasso nel deserto</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Deserto della Giudea e Neghev</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Il deserto dei profeti e dei carovanieri: monasteri aggrappati alla roccia, crateri immensi, silenzi che parlano.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Wadi Qelt · Mitzpe Ramon · Ein Avdat</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CDeserto%20della%20Giudea%20e%20Neghev%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="16">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
+          <article data-theme="deserto" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,0);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/eilat-petra.jpg" alt="Eilat e Petra" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">V</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa V · Il sentiero del deserto</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">Le meraviglie del Mar Rosso</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Eilat e Petra</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Dove il deserto si tuffa nel Mar Rosso, coralli e pesci di mille colori. Oltre il confine, la città rosa scolpita dai Nabatei.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Eilat · Timna · Petra</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CEilat%20e%20Petra%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="17">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
+          <article data-theme="mare" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,2);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/telaviv-haifa.jpg" alt="Da Tel Aviv a Haifa" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">VI</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa VI · Il sentiero del mare</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">In viaggio lungo la costa</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Da Tel Aviv a Haifa</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Lungo il Mediterraneo, i porti antichi di marinai e mercanti e le città moderne che non dormono mai.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Giaffa · Cesarea · Acri · Haifa</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CDa%20Tel%20Aviv%20a%20Haifa%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="18">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
+          <article data-theme="fede" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,0);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/nazaret.jpg" alt="Nazaret" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">VII</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa VII · Il sentiero della fede</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">Le origini della cristianità</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Nazaret</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Tra i vicoli della città vecchia, sulle tracce dell’infanzia di Gesù e del luogo dell’Annunciazione.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Basilica dell’Annunciazione · Chiesa di San Giuseppe · Cana</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CNazaret%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="19">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
+          <article data-theme="fede" style="display:grid;grid-template-columns:var(--route-columns,minmax(0,1fr) minmax(0,1fr));gap:clamp(40px,8vw,120px);align-items:center;padding:clamp(40px,7vh,80px) 0">
+            <div data-stop style="order:var(--image-order,2);display:flex;justify-content:center">
+              <div data-rv="0" style="position:relative;width:min(100%,400px)">
+                <div style="position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 0 0 7px #F1E4C6,0 0 0 8px #8A5A1F,0 30px 70px rgba(80,40,20,.28)">
+                  <img data-par="0.07" src="images/home/galilea.jpg" alt="Alta e Bassa Galilea" style="position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover">
+                </div>
+                <span style="position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#F1E4C6;border:1px solid #8A5A1F;font-family:'Cinzel',serif;font-size:14px;color:#7A3B22;z-index:2">VIII</span>
+              </div>
+            </div>
+            <div data-rv="150" style="order:1;display:flex;flex-direction:column;gap:14px;max-width:30em">
+              <span style="font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.24em;color:#8A5A1F">Tappa VIII · Il sentiero della fede</span>
+              <span style="font-style:italic;font-size:22px;color:#7A3B22">Verso il Monte Tabor</span>
+              <h3 style="margin:0;font-weight:500;font-size:clamp(38px,4.2vw,62px);line-height:.98;letter-spacing:-.01em">Alta e Bassa Galilea</h3>
+              <p style="margin:4px 0 0;font-size:clamp(19px,1.45vw,21px);line-height:1.55;color:#4A3727;text-wrap:pretty">Il lago di Tiberiade, le barche dei pescatori, i colli delle Beatitudini — fino alla vetta del Tabor.</p>
+              <p style="margin:0;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.12em;line-height:1.9;color:#6B5240">Cafarnao · Tabgha · Monte delle Beatitudini · Monte Tabor</p>
+              <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20sull%E2%80%99itinerario%20%E2%80%9CAlta%20e%20Bassa%20Galilea%E2%80%9D." target="_blank" rel="noopener" style="align-self:flex-start;margin-top:10px;display:flex;align-items:center;gap:12px;font-style:italic;font-size:21px;color:#7A3B22;border-bottom:1px solid rgba(122,59,34,.4);padding-bottom:4px" data-hover="20">Chiedi a Isacco di questa tappa →</a>
+            </div>
+          </article>
+
       </div>
     </div>
   </div>
 </section>
 
 <section id="cap-5" data-ch="5" data-screen-label="V Una finestra" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#F1E4C6 0%,#EEC796 12%,#D3805E 26%,#7C3350 42%,#2A1840 60%,#0B0F2A 78%);padding:clamp(100px,14vh,160px) clamp(24px,6vw,96px) clamp(100px,14vh,160px)">
-  <div style="position:absolute;inset:40% 0 0 0;pointer-events:none">{{ starsDusk }}</div>
+  <div style="position:absolute;inset:40% 0 0 0;pointer-events:none"><div data-decoration="starsDusk" aria-hidden="true"></div></div>
   <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center">
     <p data-rv="0" style="margin:0 0 30vh;max-width:20em;font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.35;color:#2B1D14">Il giorno scivola verso sera, e il cielo sopra il deserto si tinge di rosa…</p>
     <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#F0D395"><span style="width:36px;height:1px;background:#F0D395"></span>Capitolo V · Una finestra<span style="width:36px;height:1px;background:#F0D395"></span></div>
@@ -208,7 +416,7 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
 </section>
 
 <div style="position:relative;background:#0B0F2A;overflow:hidden">
-  <div style="position:absolute;inset:0;pointer-events:none">{{ starsNight }}</div>
+  <div style="position:absolute;inset:0;pointer-events:none"><div data-decoration="starsNight" aria-hidden="true"></div></div>
 
   <section id="cap-6" data-ch="6" data-screen-label="VI Le voci" style="position:relative;padding:clamp(100px,16vh,180px) clamp(24px,6vw,96px)">
     <figure style="margin:0 auto;max-width:1000px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px">
@@ -226,15 +434,29 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
         <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(42px,5.4vw,84px);line-height:.98;letter-spacing:-.015em;text-wrap:balance">Ogni viaggio comincia <em style="color:#F0D395">con un messaggio.</em></h2>
       </div>
       <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(40px,5vw,72px)">
-        <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;left:16%;right:16%;top:7px;height:1px;background:linear-gradient(90deg,transparent,rgba(216,178,110,.6) 15%,rgba(216,178,110,.6) 85%,transparent)"></div></sc-if>
-        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
-          <div data-rv="{{ s.delay }}" style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+        <div class="wide-only" style="display:contents"><div style="position:absolute;left:16%;right:16%;top:7px;height:1px;background:linear-gradient(90deg,transparent,rgba(216,178,110,.6) 15%,rgba(216,178,110,.6) 85%,transparent)"></div></div>
+
+          <div data-rv="0" style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
             <span style="width:15px;height:15px;border-radius:50%;background:#FFF6DC;box-shadow:0 0 18px 6px rgba(240,211,149,.6)"></span>
-            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.3em;color:#D8B26E;margin-top:14px">{{ s.n }}</span>
-            <h3 style="margin:0;font-weight:500;font-size:clamp(30px,2.6vw,40px);line-height:1.05">{{ s.t }}</h3>
-            <p style="margin:0;max-width:18em;font-size:20px;line-height:1.5;color:#E0D6C4">{{ s.d }}</p>
+            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.3em;color:#D8B26E;margin-top:14px">I</span>
+            <h3 style="margin:0;font-weight:500;font-size:clamp(30px,2.6vw,40px);line-height:1.05">Scrivimi</h3>
+            <p style="margin:0;max-width:18em;font-size:20px;line-height:1.5;color:#E0D6C4">Su WhatsApp o via email: raccontami chi sei, quando vorresti partire e cosa sogni di vedere.</p>
           </div>
-        </sc-for>
+
+          <div data-rv="150" style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+            <span style="width:15px;height:15px;border-radius:50%;background:#FFF6DC;box-shadow:0 0 18px 6px rgba(240,211,149,.6)"></span>
+            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.3em;color:#D8B26E;margin-top:14px">II</span>
+            <h3 style="margin:0;font-weight:500;font-size:clamp(30px,2.6vw,40px);line-height:1.05">Tracciamo la mappa</h3>
+            <p style="margin:0;max-width:18em;font-size:20px;line-height:1.5;color:#E0D6C4">Ti propongo un itinerario su misura, con costi e disponibilità, da rifinire insieme.</p>
+          </div>
+
+          <div data-rv="300" style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+            <span style="width:15px;height:15px;border-radius:50%;background:#FFF6DC;box-shadow:0 0 18px 6px rgba(240,211,149,.6)"></span>
+            <span style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.3em;color:#D8B26E;margin-top:14px">III</span>
+            <h3 style="margin:0;font-weight:500;font-size:clamp(30px,2.6vw,40px);line-height:1.05">Partiamo insieme</h3>
+            <p style="margin:0;max-width:18em;font-size:20px;line-height:1.5;color:#E0D6C4">Ti accompagno giorno per giorno, sempre in italiano, nei luoghi che hai scelto.</p>
+          </div>
+
       </div>
     </div>
   </section>
@@ -244,20 +466,55 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
       <div style="display:flex;flex-direction:column;gap:22px">
         <div data-rv="0" style="display:flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:.32em;color:#D8B26E"><span style="width:36px;height:1px;background:#D8B26E"></span>Capitolo VIII</div>
         <h2 data-rv="100" style="margin:0;font-weight:400;font-size:clamp(42px,5vw,76px);line-height:.98;letter-spacing:-.015em">Le domande <em style="color:#F0D395">del viandante.</em></h2>
-        <p data-rv="200" style="margin:0;font-size:20px;line-height:1.5;color:#E0D6C4">Non trovi la tua? <a href="{{ wa }}" target="_blank" rel="noopener" style="font-style:italic;border-bottom:1px solid rgba(240,211,149,.5)">Chiedimela su WhatsApp.</a></p>
+        <p data-rv="200" style="margin:0;font-size:20px;line-height:1.5;color:#E0D6C4">Non trovi la tua? <a href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20su%20un%20viaggio%20in%20Israele." target="_blank" rel="noopener" style="font-style:italic;border-bottom:1px solid rgba(240,211,149,.5)">Chiedimela su WhatsApp.</a></p>
       </div>
       <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(216,178,110,.28)">
-        <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
-          <div style="border-top:1px solid rgba(216,178,110,.28)">
-            <button onClick="{{ q.onClick }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
-              <span>{{ q.q }}</span>
-              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate({{ q.rot }})">+</span>
-            </button>
-            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
-              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">{{ q.a }}</p>
-            </sc-if>
-          </div>
-        </sc-for>
+
+          <details name="faq" open style="border-top:1px solid rgba(216,178,110,.28)">
+            <summary style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
+              <span>Accompagni gruppi di pellegrini e parrocchie?</span>
+              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate(45deg)">+</span>
+            </summary>
+
+              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">Sì. Accompagno famiglie, piccoli gruppi e gruppi organizzati, adattando ritmo, soste e contenuti alle esigenze di ciascuno.</p>
+
+          </details>
+          <details name="faq" style="border-top:1px solid rgba(216,178,110,.28)">
+            <summary style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
+              <span>Si possono prevedere momenti di preghiera?</span>
+              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate(0deg)">+</span>
+            </summary>
+
+              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">Certo. Nei luoghi santi possiamo inserire momenti di raccoglimento e celebrazioni, da concordare in anticipo con il vostro accompagnatore spirituale.</p>
+
+          </details>
+          <details name="faq" style="border-top:1px solid rgba(216,178,110,.28)">
+            <summary style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
+              <span>Non sono credente: questo viaggio fa per me?</span>
+              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate(0deg)">+</span>
+            </summary>
+
+              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">Assolutamente. Israele è un incrocio di storia, culture e religioni: racconto ogni luogo con rispetto e senza pregiudizi, a chi crede e a chi è semplicemente curioso.</p>
+
+          </details>
+          <details name="faq" style="border-top:1px solid rgba(216,178,110,.28)">
+            <summary style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
+              <span>Quanto costa un tour?</span>
+              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate(0deg)">+</span>
+            </summary>
+
+              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">Dipende da durata, numero di partecipanti e periodo. Scrivimi su WhatsApp o via email e ti invierò costi e disponibilità.</p>
+
+          </details>
+          <details name="faq" style="border-top:1px solid rgba(216,178,110,.28)">
+            <summary style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;background:transparent;border:0;cursor:pointer;text-align:left;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1.2;color:#F6E7CF">
+              <span>Le visite sono in italiano?</span>
+              <span style="flex:none;font-size:30px;font-weight:400;color:#D8B26E;transition:transform .3s;transform:rotate(0deg)">+</span>
+            </summary>
+
+              <p style="margin:0 0 26px;max-width:34em;font-size:20px;line-height:1.6;color:#E0D6C4">Sempre. Sono specializzato nell’accompagnamento di viaggiatori italiani, dall’arrivo alla partenza.</p>
+
+          </details>
       </div>
     </div>
   </section>
@@ -272,20 +529,26 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
         <div style="position:absolute;right:clamp(20px,4vw,48px);top:clamp(-30px,-3vw,-20px);width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 38% 34%,#B0414A 0%,#8E2B33 55%,#6A1C24 100%);box-shadow:0 8px 24px rgba(0,0,0,.35),inset 0 0 0 6px rgba(0,0,0,.12);display:grid;place-items:center;font-family:'Cinzel',serif;font-size:30px;color:#F3C9B5;transform:rotate(8deg)">I</div>
         <div style="display:flex;flex-direction:column;gap:22px;font-size:clamp(23px,2.3vw,32px);line-height:1.75">
           <span style="font-style:italic;font-size:clamp(28px,3vw,40px)">Caro Isacco,</span>
-          <p style="margin:0">mi chiamo <input value="{{ name }}" onChange="{{ onName }}" placeholder="il tuo nome" aria-label="Il tuo nome" style="width:9.5em;max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none"> e vorrei venire in Israele <select value="{{ size }}" onChange="{{ onSize }}" aria-label="Con chi viaggi" style="max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none;cursor:pointer"><sc-for list="{{ sizes }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for></select>, nel periodo <input value="{{ period }}" onChange="{{ onPeriod }}" placeholder="es. Pasqua 2027" aria-label="Periodo" style="width:8em;max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none">.</p>
+          <p style="margin:0">mi chiamo <input value="" id="traveller-name" disabled placeholder="il tuo nome" aria-label="Il tuo nome" style="width:9.5em;max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none"> e vorrei venire in Israele <select value="con un gruppo di 9–20 persone" id="travel-size" disabled aria-label="Con chi viaggi" style="max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none;cursor:pointer"><option value="da solo">da solo</option><option value="in coppia">in coppia</option><option value="con un piccolo gruppo di 3–8 persone">con un piccolo gruppo di 3–8 persone</option><option selected value="con un gruppo di 9–20 persone">con un gruppo di 9–20 persone</option><option value="con un grande gruppo, oltre 20 persone">con un grande gruppo, oltre 20 persone</option></select>, nel periodo <input value="" id="travel-period" disabled placeholder="es. Pasqua 2027" aria-label="Periodo" style="width:8em;max-width:100%;border:0;border-bottom:1px dashed #8A5A1F;background:transparent;font:inherit;font-style:italic;color:#7A3B22;padding:0 4px;outline:none">.</p>
           <div style="display:flex;flex-direction:column;gap:14px">
             <span>Sogno soprattutto…</span>
             <div style="display:flex;flex-wrap:wrap;gap:10px">
-              <sc-for list="{{ dreams }}" as="d" hint-placeholder-count="4">
-                <button onClick="{{ d.onClick }}" style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;padding:8px 18px;border-radius:999px;cursor:pointer;border:1px solid {{ d.border }};color:{{ d.color }};background:{{ d.bg }};transition:background .25s,color .25s">{{ d.label }}</button>
-              </sc-for>
+
+                <button data-dream="i luoghi della fede" aria-pressed="true" disabled style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;padding:8px 18px;border-radius:999px;cursor:pointer;border:1px solid #7A3B22;color:#FFF4E2;background:#7A3B22;transition:background .25s,color .25s">i luoghi della fede</button>
+
+                <button data-dream="il deserto e il Mar Morto" aria-pressed="false" disabled style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;padding:8px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(122,59,34,.45);color:#7A3B22;background:transparent;transition:background .25s,color .25s">il deserto e il Mar Morto</button>
+
+                <button data-dream="le città e il mare" aria-pressed="false" disabled style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;padding:8px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(122,59,34,.45);color:#7A3B22;background:transparent;transition:background .25s,color .25s">le città e il mare</button>
+
+                <button data-dream="la storia e l’archeologia" aria-pressed="false" disabled style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;padding:8px 18px;border-radius:999px;cursor:pointer;border:1px solid rgba(122,59,34,.45);color:#7A3B22;background:transparent;transition:background .25s,color .25s">la storia e l’archeologia</button>
+
             </div>
           </div>
-          <span style="font-style:italic;margin-top:6px">Con gratitudine, <span style="color:#7A3B22">{{ signature }}</span></span>
+          <span style="font-style:italic;margin-top:6px">Con gratitudine, <span style="color:#7A3B22"><span data-signature>…</span></span></span>
         </div>
         <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(138,90,31,.3);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
-          <a href="{{ waLetter }}" target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:.16em;color:#FFF4E2;background:#8E2B33;padding:18px 28px;border-radius:999px;box-shadow:0 12px 30px rgba(142,43,51,.35)" style-hover="background:#6A1C24;color:#FFF4E2">Invia la lettera su WhatsApp</a>
-          <span style="font-size:18px;line-height:1.5;color:#4A3727">oppure <a href="mailto:i.charig@gmail.com" style="color:#7A3B22;font-style:italic;border-bottom:1px solid rgba(122,59,34,.4)" style-hover="color:#2B1D14">i.charig@gmail.com</a></span>
+          <a data-letter href="https://wa.me/972546267521?text=Shalom%20Isacco!%20Vorrei%20informazioni%20su%20un%20viaggio%20in%20Israele." target="_blank" rel="noopener" style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;letter-spacing:.16em;color:#FFF4E2;background:#8E2B33;padding:18px 28px;border-radius:999px;box-shadow:0 12px 30px rgba(142,43,51,.35)" data-hover="21"><span data-letter-label>Scrivimi su WhatsApp</span></a>
+          <span style="font-size:18px;line-height:1.5;color:#4A3727">oppure <a href="mailto:i.charig@gmail.com" style="color:#7A3B22;font-style:italic;border-bottom:1px solid rgba(122,59,34,.4)" data-hover="22">i.charig@gmail.com</a></span>
         </div>
       </div>
     </div>
@@ -299,232 +562,14 @@ input::placeholder{color:rgba(122,59,34,.45);font-style:italic}
     <div style="width:100%;max-width:1200px;padding-top:22px;border-top:1px solid rgba(216,178,110,.22);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.16em;color:#BDB6CF">
       <span>© 2026 Isacco Charig · Guida turistica autorizzata</span>
       <div style="display:flex;flex-wrap:wrap;gap:24px">
-        <a href="tel:+972546267521" style="color:#BDB6CF" style-hover="color:#F0D395">+972 54 626 7521</a>
-        <a href="mailto:i.charig@gmail.com" style="color:#BDB6CF" style-hover="color:#F0D395">i.charig@gmail.com</a>
+        <a href="tel:+972546267521" style="color:#BDB6CF" data-hover="23">+972 54 626 7521</a>
+        <a href="mailto:i.charig@gmail.com" style="color:#BDB6CF" data-hover="24">i.charig@gmail.com</a>
       </div>
     </div>
   </footer>
 </div>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Esperienza&quot;},&quot;stars&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Esperienza&quot;},&quot;chapterNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Esperienza&quot;}}">
-class Component extends DCLogic {
-  state = { filter: 'all', ch: 1, narrow: false, faq: 0, name: '', size: 'con un gruppo di 9–20 persone', period: '', dream: ['i luoghi della fede'] };
-  rootRef = React.createRef();
 
-  constructor(p) {
-    super(p);
-    this.starsHero = this.makeStars(150, 7, true, 0.72);
-    this.starsDawn = this.makeStars(70, 21, false, 1);
-    this.starsDusk = this.makeStars(60, 33, false, 1);
-    this.starsNight = this.makeStars(220, 51, true, 1);
-    this.dust = this.makeDust(26, 91);
-  }
 
-  rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
-
-  makeStars(n, seed, shooting, spread) {
-    const r = this.rng(seed), h = React.createElement, kids = [];
-    for (let i = 0; i < n; i++) {
-      const s = r() < 0.08 ? 2.4 + r() * 1.4 : 0.8 + r() * 1.4;
-      kids.push(h('span', { key: i, style: { position: 'absolute', left: (r() * 100) + '%', top: (Math.pow(r(), 1.3) * 100 * spread) + '%', width: s, height: s, borderRadius: '50%', background: '#FFF6E0', boxShadow: s > 2.2 ? '0 0 8px 2px rgba(255,236,200,.6)' : 'none', animation: `tw ${2.5 + r() * 4}s ease-in-out ${r() * 6}s infinite` } }));
-    }
-    if (shooting) kids.push(h('span', { key: 'sh', style: { position: 'absolute', right: '12%', top: '10%', width: 130, height: 1, background: 'linear-gradient(90deg,rgba(255,246,224,1),transparent)', animation: 'shoot 11s linear 3s infinite', opacity: 0 } }));
-    return h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } }, kids);
-  }
-
-  makeDust(n, seed) {
-    const r = this.rng(seed), h = React.createElement, kids = [];
-    for (let i = 0; i < n; i++) {
-      const s = 1.5 + r() * 2.5;
-      kids.push(h('span', { key: i, style: { position: 'absolute', left: (30 + r() * 40) + '%', bottom: (r() * 20) + '%', width: s, height: s, borderRadius: '50%', background: '#F0D395', boxShadow: '0 0 6px 1px rgba(240,211,149,.7)', '--dx': ((r() - 0.5) * 120) + 'px', animation: `drift ${9 + r() * 9}s linear ${-r() * 18}s infinite` } }));
-    }
-    return h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } }, kids);
-  }
-
-  componentDidMount() {
-    this.reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    this.onScroll = () => { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.update(); }); };
-    this.onResize = () => { this.setNarrow(); this.layoutRoute(); this.update(); };
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    window.addEventListener('resize', this.onResize);
-    window.addEventListener('load', this.onResize);
-    this.setNarrow();
-    this.t = setTimeout(() => { this.initReveal(); this.layoutRoute(); this.update(); }, 60);
-    this.t2 = setTimeout(() => { this.layoutRoute(); this.update(); }, 1200);
-  }
-  componentDidUpdate(pp) {
-    const ps = this.previousLayoutState || {};
-    this.previousLayoutState = this.state;
-    if (ps.filter !== this.state.filter || ps.narrow !== this.state.narrow || pp.motion !== this.props.motion)
-      requestAnimationFrame(() => { this.initReveal(); this.layoutRoute(); this.update(); });
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    window.removeEventListener('resize', this.onResize);
-    window.removeEventListener('load', this.onResize);
-    clearTimeout(this.t); clearTimeout(this.t2);
-  }
-
-  motionOn() { return (this.props.motion ?? true) && !this.reduce; }
-  setNarrow() { const n = window.innerWidth < 860; if (n !== this.state.narrow) this.setState({ narrow: n }); }
-  q(s) { return this.rootRef.current ? this.rootRef.current.querySelector(s) : null; }
-  qa(s) { return this.rootRef.current ? Array.from(this.rootRef.current.querySelectorAll(s)) : []; }
-
-  initReveal() {
-    const vh = innerHeight, on = this.motionOn();
-    this.qa('[data-rv]').forEach(el => {
-      if (el.dataset.rvInit) return;
-      el.dataset.rvInit = '1';
-      if (!on) return;
-      const d = parseInt(el.getAttribute('data-rv') || '0', 10);
-      el.style.transition = `opacity 1.2s ease ${d}ms, transform 1.4s cubic-bezier(.16,.8,.24,1) ${d}ms, filter 1.2s ease ${d}ms`;
-      if (el.getBoundingClientRect().top > vh * 0.92) {
-        el.style.opacity = '0'; el.style.transform = 'translateY(44px)'; el.style.filter = 'blur(6px)';
-        el.setAttribute('data-rv-hidden', '1');
-      }
-    });
-  }
-
-  layoutRoute() {
-    const map = this.q('[data-map]'), svg = this.q('[data-route-svg]'), path = this.q('[data-route]'), faint = this.q('[data-route-faint]');
-    if (!map || !svg || !path) { this.routeLen = 0; return; }
-    const mr = map.getBoundingClientRect(), W = mr.width, H = mr.height;
-    const pts = this.qa('[data-stop]').map(el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2 - mr.left, r.top + r.height / 2 - mr.top]; });
-    const all = [[W / 2, 0], ...pts, [W / 2, H]];
-    let d = `M${all[0][0]},${all[0][1]}`;
-    for (let i = 1; i < all.length; i++) {
-      const [x1, y1] = all[i - 1], [x2, y2] = all[i], dy = (y2 - y1) * 0.55;
-      d += ` C${x1},${y1 + dy} ${x2},${y2 - dy} ${x2},${y2}`;
-    }
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('width', W); svg.setAttribute('height', H);
-    path.setAttribute('d', d); faint.setAttribute('d', d);
-    this.routeLen = path.getTotalLength();
-    path.style.strokeDasharray = this.routeLen;
-  }
-
-  update() {
-    const vh = innerHeight, vw = document.documentElement.clientWidth, on = this.motionOn();
-    const cl = v => Math.max(0, Math.min(1, v)), ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    const hero = this.q('[data-hero]');
-    if (hero) {
-      const r = hero.getBoundingClientRect(), total = Math.max(1, hero.offsetHeight - vh);
-      const p = on ? cl(-r.top / total) : 0, e = ease(cl(p / 0.78));
-      const h0 = vh * 0.54, w0 = Math.min(vw * 0.8, h0 * 0.64);
-      const w = w0 + (vw - w0) * e, h = h0 + (vh - h0) * e, L = (vw - w) / 2, T = vh - h;
-      const rad = (w0 / 2) * Math.pow(1 - e, 1.4);
-      const clip = this.q('[data-arch-clip]'), frame = this.q('[data-arch-frame]'), img = this.q('[data-hero-img]');
-      if (clip) clip.style.clipPath = `inset(${T}px ${L}px 0px ${L}px round ${rad}px ${rad}px 0px 0px)`;
-      if (frame) Object.assign(frame.style, { left: L + 'px', top: T + 'px', width: w + 'px', height: h + 'px', borderRadius: `${rad}px ${rad}px 0 0`, opacity: String(1 - e) });
-      if (img) img.style.transform = `scale(${1.18 - 0.18 * e})`;
-      const fade = 1 - cl(p * 3);
-      this.qa('[data-hero-title],[data-hero-flank]').forEach(el => { el.style.opacity = String(fade); el.style.transform = `translateY(${-p * 160}px)`; });
-      const cap = cl((p - 0.72) / 0.2), capEl = this.q('[data-hero-cap]'), shade = this.q('[data-hero-shade]');
-      if (capEl) { capEl.style.opacity = String(cap); capEl.style.transform = `translateY(${(1 - cap) * 40}px)`; }
-      if (shade) shade.style.opacity = String(cap);
-    }
-    if (on) this.qa('[data-par]').forEach(el => {
-      const f = parseFloat(el.dataset.par), r = el.parentElement.getBoundingClientRect();
-      if (r.bottom < -vh || r.top > vh * 2) return;
-      el.style.transform = `translate3d(0,${(r.top + r.height / 2 - vh / 2) * f}px,0)`;
-    });
-    this.qa('[data-rv-hidden]').forEach(el => {
-      if (el.getBoundingClientRect().top < vh * 0.9) { el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none'; el.removeAttribute('data-rv-hidden'); }
-    });
-    const map = this.q('[data-map]'), path = this.q('[data-route]'), lantern = this.q('[data-lantern]');
-    if (map && path && this.routeLen) {
-      const r = map.getBoundingClientRect(), p = on ? cl((vh * 0.6 - r.top) / r.height) : 1;
-      path.style.strokeDashoffset = String(this.routeLen * (1 - p));
-      if (lantern) { const pt = path.getPointAtLength(this.routeLen * p); lantern.style.transform = `translate(${pt.x}px,${pt.y}px)`; }
-    }
-    let ch = 1;
-    this.qa('[data-ch]').forEach(el => { if (el.getBoundingClientRect().top < vh * 0.5) ch = +el.dataset.ch; });
-    if (ch !== this.state.ch) this.setState({ ch });
-  }
-
-  renderVals() {
-    const S = this.state, base = 'images/home/';
-    const waOf = t => `https://wa.me/972546267521?text=${encodeURIComponent(t)}`;
-    const R = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
-    const paths = { fede: 'Il sentiero della fede', deserto: 'Il sentiero del deserto', mare: 'Il sentiero del mare' };
-    const raw = [
-      ['gerusalemme-antica', 'fede', 'Il viaggio più spirituale', 'Gerusalemme Antica', 'Dentro le mura, quattro quartieri e tre fedi condividono meno di un chilometro quadrato. Qui ogni pietra custodisce una preghiera.', 'Santo Sepolcro · Via Dolorosa · Muro Occidentale · Monte degli Ulivi'],
-      ['gerusalemme-moderna', 'mare', 'Il volto di un paese', 'Gerusalemme Moderna', 'Accanto alla città eterna vive una capitale giovane: musei, mercati che profumano di spezie e i luoghi della memoria.', 'Museo d’Israele · Yad Vashem · Mercato di Mahane Yehuda'],
-      ['mar-morto', 'deserto', 'Tra i luoghi più suggestivi del pianeta', 'Mar Morto e Masada', 'Nel punto più basso della Terra l’acqua ti sostiene come una mano. Sopra, la fortezza di Erode veglia sul deserto.', 'Masada · Qumran · Ein Gedi'],
-      ['neghev', 'deserto', 'A spasso nel deserto', 'Deserto della Giudea e Neghev', 'Il deserto dei profeti e dei carovanieri: monasteri aggrappati alla roccia, crateri immensi, silenzi che parlano.', 'Wadi Qelt · Mitzpe Ramon · Ein Avdat'],
-      ['eilat-petra', 'deserto', 'Le meraviglie del Mar Rosso', 'Eilat e Petra', 'Dove il deserto si tuffa nel Mar Rosso, coralli e pesci di mille colori. Oltre il confine, la città rosa scolpita dai Nabatei.', 'Eilat · Timna · Petra'],
-      ['telaviv-haifa', 'mare', 'In viaggio lungo la costa', 'Da Tel Aviv a Haifa', 'Lungo il Mediterraneo, i porti antichi di marinai e mercanti e le città moderne che non dormono mai.', 'Giaffa · Cesarea · Acri · Haifa'],
-      ['nazaret', 'fede', 'Le origini della cristianità', 'Nazaret', 'Tra i vicoli della città vecchia, sulle tracce dell’infanzia di Gesù e del luogo dell’Annunciazione.', 'Basilica dell’Annunciazione · Chiesa di San Giuseppe · Cana'],
-      ['galilea', 'fede', 'Verso il Monte Tabor', 'Alta e Bassa Galilea', 'Il lago di Tiberiade, le barche dei pescatori, i colli delle Beatitudini — fino alla vetta del Tabor.', 'Cafarnao · Tabgha · Monte delle Beatitudini · Monte Tabor']
-    ];
-    const all = raw.map((r, i) => ({ img: base + r[0] + '.jpg', theme: r[1], path: paths[r[1]], kicker: r[2], title: r[3], desc: r[4], places: r[5], roman: R[i],
-      wa: waOf(`Shalom Isacco! Vorrei informazioni sull’itinerario “${r[3]}”.`) }));
-    const narrow = S.narrow;
-    const stops = all.filter(it => S.filter === 'all' || it.theme === S.filter)
-      .map((it, i) => ({ ...it, imgOrder: narrow ? 0 : (i % 2 ? 2 : 0) }));
-
-    const filters = [['all', 'Tutti i sentieri'], ['fede', 'La fede'], ['deserto', 'Il deserto'], ['mare', 'Il mare e le città']].map(([k, label]) => {
-      const on = S.filter === k;
-      return { label, onClick: () => this.setState({ filter: k }), color: on ? '#F1E4C6' : '#2B1D14', bg: on ? '#2B1D14' : 'transparent', border: on ? '#2B1D14' : 'rgba(43,29,20,.35)' };
-    });
-
-    const chNames = ['La soglia', 'Il narratore', 'Le meraviglie', 'La mappa', 'Una finestra', 'Le voci', 'L’inizio', 'Domande', 'Il tuo capitolo'];
-    const chapters = chNames.map((name, i) => ({ name, num: R[i], href: '#cap-' + (i + 1), color: S.ch === i + 1 ? '#0B0F2A' : '#BDB6CF', bg: S.ch === i + 1 ? '#D8B26E' : 'transparent' }));
-
-    const faqRaw = [
-      ['Accompagni gruppi di pellegrini e parrocchie?', 'Sì. Accompagno famiglie, piccoli gruppi e gruppi organizzati, adattando ritmo, soste e contenuti alle esigenze di ciascuno.'],
-      ['Si possono prevedere momenti di preghiera?', 'Certo. Nei luoghi santi possiamo inserire momenti di raccoglimento e celebrazioni, da concordare in anticipo con il vostro accompagnatore spirituale.'],
-      ['Non sono credente: questo viaggio fa per me?', 'Assolutamente. Israele è un incrocio di storia, culture e religioni: racconto ogni luogo con rispetto e senza pregiudizi, a chi crede e a chi è semplicemente curioso.'],
-      ['Quanto costa un tour?', 'Dipende da durata, numero di partecipanti e periodo. Scrivimi su WhatsApp o via email e ti invierò costi e disponibilità.'],
-      ['Le visite sono in italiano?', 'Sempre. Sono specializzato nell’accompagnamento di viaggiatori italiani, dall’arrivo alla partenza.']
-    ];
-    const faq = faqRaw.map(([q, a], i) => ({ q, a, open: S.faq === i, rot: S.faq === i ? '45deg' : '0deg', onClick: () => this.setState({ faq: S.faq === i ? -1 : i }) }));
-
-    const dreamOpts = ['i luoghi della fede', 'il deserto e il Mar Morto', 'le città e il mare', 'la storia e l’archeologia'];
-    const dreams = dreamOpts.map(l => {
-      const on = S.dream.includes(l);
-      return { label: l, onClick: () => this.setState(s => ({ dream: on ? s.dream.filter(x => x !== l) : [...s.dream, l] })), color: on ? '#FFF4E2' : '#7A3B22', bg: on ? '#7A3B22' : 'transparent', border: on ? '#7A3B22' : 'rgba(122,59,34,.45)' };
-    });
-    const nm = S.name.trim(), per = S.period.trim();
-    const ds = S.dream.length ? S.dream.join(', ').replace(/, ([^,]*)$/, ' e $1') : '';
-    const letter = `Shalom Isacco! Mi chiamo ${nm || '…'} e vorrei venire in Israele ${S.size}${per ? ', nel periodo: ' + per : ''}.${ds ? ' Sogno soprattutto ' + ds + '.' : ''} Potresti inviarmi una proposta con costi e disponibilità? Grazie!`;
-
-    const motion = this.motionOn ? ((this.props.motion ?? true)) : true;
-    return {
-      rootRef: this.rootRef,
-      wa: waOf('Shalom Isacco! Vorrei informazioni su un viaggio in Israele.'),
-      narrow, wide: !narrow,
-      showNav: !narrow && S.ch > 1 && (this.props.chapterNav ?? true),
-      heroH: motion ? '260vh' : '100vh',
-      starsHero: (this.props.stars ?? true) ? this.starsHero : null,
-      starsDawn: (this.props.stars ?? true) ? this.starsDawn : null,
-      starsDusk: (this.props.stars ?? true) ? this.starsDusk : null,
-      starsNight: (this.props.stars ?? true) ? this.starsNight : null,
-      dust: motion ? this.dust : null,
-      chapters,
-      wonders: [
-        'castelli crociati, eretti contro il vento;',
-        'porti dove marinai, pellegrini e mercanti sostavano prima di riprendere il largo;',
-        'deserti, dimora di tribù nomadi, eserciti dimenticati e carovanieri;',
-        'tombe di sceicchi dalle cupole imbiancate;',
-        'monasteri silenziosi e antiche sinagoghe ricche di mosaici.'
-      ].map((t, i) => ({ t, n: R[i], delay: String(i * 90) })),
-      filters, stops, rowCols: narrow ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)',
-      steps: [
-        { n: 'I', t: 'Scrivimi', d: 'Su WhatsApp o via email: raccontami chi sei, quando vorresti partire e cosa sogni di vedere.', delay: '0' },
-        { n: 'II', t: 'Tracciamo la mappa', d: 'Ti propongo un itinerario su misura, con costi e disponibilità, da rifinire insieme.', delay: '150' },
-        { n: 'III', t: 'Partiamo insieme', d: 'Ti accompagno giorno per giorno, sempre in italiano, nei luoghi che hai scelto.', delay: '300' }
-      ],
-      faq,
-      name: S.name, period: S.period, size: S.size,
-      sizes: ['da solo', 'in coppia', 'con un piccolo gruppo di 3–8 persone', 'con un gruppo di 9–20 persone', 'con un grande gruppo, oltre 20 persone'],
-      onName: e => this.setState({ name: e.target.value }),
-      onPeriod: e => this.setState({ period: e.target.value }),
-      onSize: e => this.setState({ size: e.target.value }),
-      dreams, signature: nm || '…', waLetter: waOf(letter)
-    };
-  }
-}
-</script>
 </body>
 </html>
