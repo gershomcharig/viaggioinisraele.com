@@ -22,7 +22,6 @@
     button.addEventListener('click', () => {
       const selected = button.getAttribute('aria-pressed') !== 'true';
       button.setAttribute('aria-pressed', String(selected));
-      Object.assign(button.style, {color:selected?'#FFF4E2':'#7A3B22',background:selected?'#7A3B22':'transparent',borderColor:selected?'#7A3B22':'rgba(122,59,34,.45)'});
       updateLetter();
     });
     button.disabled = false;
@@ -38,7 +37,6 @@
       qa('[data-filter]').forEach(el => {
         const selected = el === button;
         el.setAttribute('aria-pressed', String(selected));
-        Object.assign(el.style,{color:selected?'#F1E4C6':'#2B1D14',background:selected?'#2B1D14':'transparent',borderColor:selected?'#2B1D14':'rgba(43,29,20,.35)'});
       });
       animation?.layoutRoute();
       animation?.update();
@@ -49,6 +47,7 @@
   // Build decorative elements only. No content depends on this code.
   function element(tag, props, children = []) {
     const el = document.createElement(tag);
+    if (props.className) el.className = props.className;
     for (const [key,value] of Object.entries(props.style || {})) {
       const cssKey = key.startsWith('--') ? key : key.replace(/[A-Z]/g,c=>'-'+c.toLowerCase());
       el.style.setProperty(cssKey, typeof value === 'number' && !['opacity','zIndex'].includes(key) ? value+'px' : String(value));
@@ -91,19 +90,19 @@
     const r = this.rng(seed), h = element, kids = [];
     for (let i = 0; i < n; i++) {
       const s = r() < 0.08 ? 2.4 + r() * 1.4 : 0.8 + r() * 1.4;
-      kids.push(h('span', { key: i, style: { position: 'absolute', left: (r() * 100) + '%', top: (Math.pow(r(), 1.3) * 100 * spread) + '%', width: s, height: s, borderRadius: '50%', background: '#FFF6E0', boxShadow: s > 2.2 ? '0 0 8px 2px rgba(255,236,200,.6)' : 'none', animation: `tw ${2.5 + r() * 4}s ease-in-out ${r() * 6}s infinite` } }));
+      kids.push(h('span', { className: 'star', style: { left: (r() * 100) + '%', top: (Math.pow(r(), 1.3) * 100 * spread) + '%', width: s, height: s, boxShadow: s > 2.2 ? '0 0 8px 2px rgba(255,236,200,.6)' : 'none', animation: `tw ${2.5 + r() * 4}s ease-in-out ${r() * 6}s infinite` } }));
     }
-    if (shooting) kids.push(h('span', { key: 'sh', style: { position: 'absolute', right: '12%', top: '10%', width: 130, height: 1, background: 'linear-gradient(90deg,rgba(255,246,224,1),transparent)', animation: 'shoot 11s linear 3s infinite', opacity: 0 } }));
-    return h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } }, kids);
+    if (shooting) kids.push(h('span', { className: 'shooting-star' }));
+    return h('div', { className: 'particle-layer' }, kids);
   }
 
   makeDust(n, seed) {
     const r = this.rng(seed), h = element, kids = [];
     for (let i = 0; i < n; i++) {
       const s = 1.5 + r() * 2.5;
-      kids.push(h('span', { key: i, style: { position: 'absolute', left: (30 + r() * 40) + '%', bottom: (r() * 20) + '%', width: s, height: s, borderRadius: '50%', background: '#F0D395', boxShadow: '0 0 6px 1px rgba(240,211,149,.7)', '--dx': ((r() - 0.5) * 120) + 'px', animation: `drift ${9 + r() * 9}s linear ${-r() * 18}s infinite` } }));
+      kids.push(h('span', { className: 'dust-particle', style: { left: (30 + r() * 40) + '%', bottom: (r() * 20) + '%', width: s, height: s, '--dx': ((r() - 0.5) * 120) + 'px', animation: `drift ${9 + r() * 9}s linear ${-r() * 18}s infinite` } }));
     }
-    return h('div', { style: { position: 'absolute', inset: 0, pointerEvents: 'none' } }, kids);
+    return h('div', { className: 'particle-layer' }, kids);
   }
 
   initReveal() {
@@ -175,7 +174,7 @@
     let ch = 1;
     this.qa('[data-ch]').forEach(el => { if (el.getBoundingClientRect().top < vh * 0.5) ch = +el.dataset.ch; });
     document.querySelector('.chapter-nav').hidden = ch === 1;
-    this.qa('.chapter-nav a').forEach((a,i)=>{a.style.color=i+1===ch?'#0B0F2A':'#BDB6CF';a.style.background=i+1===ch?'#D8B26E':'transparent'; if(i+1===ch)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+    this.qa('.chapter-nav a').forEach((a,i)=>{if(i+1===ch)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
   }
 
   }
