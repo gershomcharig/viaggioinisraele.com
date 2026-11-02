@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="{{lang}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            {{copy.site_title}}
+        </title>
+        <meta
+            name="description"
+            content="{{copy.site_description}}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon.png?v=2"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            sizes="any"
+            href="/images/favicon.svg"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png"
+        />
+        {{seo}}
+        <script src="/js/language.js" defer></script>
+        <script src="/js/letter.js?v=20261102-i18n-2" defer></script>
+        <script src="/js/home.js?v=20261102-i18n-2" defer></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap"
+        />
+        <link rel="stylesheet" href="/css/home.css?v=20261102-i18n-2" />
+        <script type="application/json" id="locale-data">{{runtime}}</script>
+    </head>
+    <body>
+        <div id="page" lang="{{lang}}" class="page">
+            <header class="site-header">
+                <a href="#cap-1" class="brand">
+                    <span class="brand-name"
+                        >{{copy.site_name}}</span
+                    >
+                </a>
+                <div class="wide-only display-contents">
+                    <nav class="main-nav">
+                        <a href="#cap-2" class="nav-link hover-gold"
+                            >{{copy.the_storyteller}}</a
+                        >
+                        <a href="#cap-4" class="nav-link hover-gold"
+                            >{{copy.the_map}}</a
+                        >
+                        <a href="#cap-8" class="nav-link hover-gold">{{copy.questions}}</a>
+                    </nav>
+                </div>
+                <a
+                    href="{{wa.general_enquiry}}"
+                    target="_blank"
+                    rel="noopener"
+                    class="whatsapp-button hover-whatsapp"
+                    >{{copy.message_me_on_whatsapp}}</a
+                >
+            </header>
+
+            <div class="chapter-nav display-contents" hidden>
+                <nav class="chapter-links">
+                    <a
+                        href="#cap-1"
+                        title="{{copy.the_threshold}}"
+                        aria-current="location"
+                        class="chapter-link hover-gold"
+                        >I</a
+                    >
+
+                    <a
+                        href="#cap-2"
+                        title="{{copy.the_storyteller}}"
+                        class="chapter-link hover-gold"
+                        >II</a
+                    >
+
+                    <a
+                        href="#cap-3"
+                        title="{{copy.the_wonders}}"
+                        class="chapter-link hover-gold"
+                        >III</a
+                    >
+
+                    <a
+                        href="#cap-4"
+                        title="{{copy.the_map}}"
+                        class="chapter-link hover-gold"
+                        >IV</a
+                    >
+
+                    <a
+                        href="#cap-5"
+                        title="{{copy.a_window}}"
+                        class="chapter-link hover-gold"
+                        >V</a
+                    >
+
+                    <a
+                        href="#cap-6"
+                        title="{{copy.travellers_voices}}"
+                        class="chapter-link hover-gold"
+                        >VI</a
+                    >
+
+                    <a
+                        href="#cap-7"
+                        title="{{copy.the_beginning}}"
+                        class="chapter-link hover-gold"
+                        >VII</a
+                    >
+
+                    <a
+                        href="#cap-8"
+                        title="{{copy.questions}}"
+                        class="chapter-link hover-gold"
+                        >VIII</a
+                    >
+
+                    <a
+                        href="#cap-9"
+                        title="{{copy.your_chapter}}"
+                        class="chapter-link hover-gold"
+                        >IX</a
+                    >
+                </nav>
+            </div>
+
+            <section
+                id="cap-1"
+                data-ch="1"
+                data-hero
+                data-screen-label="{{copy.i_the_threshold}}"
+                class="hero"
+            >
+                <div class="hero-sticky">
+                    <div class="hero-moon"></div>
+                    <div data-decoration="starsHero" aria-hidden="true"></div>
+                    <div data-decoration="dust" aria-hidden="true"></div>
+                    <div data-arch-clip class="hero-arch">
+                        <img
+                            data-hero-img
+                            src="/images/jerusalem-1.webp"
+                            alt="{{copy.jerusalem_s_old_city}}"
+                            class="hero-image"
+                        />
+                        <div data-hero-shade class="hero-shade"></div>
+                    </div>
+                    <div data-arch-frame class="hero-frame"></div>
+
+                    <div data-hero-title class="hero-title">
+                        <div class="chapter-label">
+                            <span class="chapter-rule"></span>{{copy.chapter_i_the_threshold}}<span class="chapter-rule"></span>
+                        </div>
+                        <h1 class="hero-heading">
+                            <em class="hero-emphasis">{{copy.once_upon_a_time}}</em
+                            ><br />{{copy.in_a_land_far_away}}
+                        </h1>
+                        <div class="narrow-only display-contents">
+                            <p class="hero-mobile-intro">
+                                {{copy.isacco_charig_a_licensed_guide_takes_you_on}}
+                            </p>
+                            <a href="#cap-2" class="scroll-cue">{{copy.scroll_to_begin_the_journey}} <span aria-hidden="true">↓</span></a>
+                        </div>
+                    </div>
+                    <div class="wide-only display-contents">
+                        <div data-hero-flank class="hero-flanks">
+                            <p class="hero-intro">
+                                {{copy.across_the_sea_where_the_desert_meets_the}}
+                            </p>
+                            <div class="hero-guide">
+                                <p class="hero-guide-text">
+                                    {{copy.isacco_charig_a_guide_licensed_by_israel_s}}
+                                </p>
+                                <a href="#cap-2" class="scroll-cue"
+                                    >{{copy.scroll_to_begin_the_journey}}
+                                    <span aria-hidden="true">↓</span></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div data-hero-cap class="hero-caption">
+                        <span class="hero-caption-label">{{copy.old_city}}</span>
+                        <span class="hero-city">{{copy.jerusalem}}</span>
+                        <span class="hero-caption-text"
+                            >{{copy.your_journey_begins_here}}</span
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <section
+                id="cap-2"
+                data-ch="2"
+                data-screen-label="{{copy.ii_the_storyteller}}"
+                class="narrator"
+            >
+                <div class="narrator-layout">
+                    <div class="portrait-collage">
+                        <div data-rv="0" class="portrait-frame">
+                            <img
+                                data-par="0.06"
+                                src="/images/isacco-1.webp"
+                                alt="{{copy.isacco_charig}}"
+                                class="portrait-image"
+                            />
+                        </div>
+                        <div class="portrait-secondary">
+                            <div data-par="-0.12" class="portrait-circle">
+                                <img
+                                    src="/images/group-1.webp"
+                                    alt="{{copy.isacco_with_a_group_of_travellers}}"
+                                    class="image-cover"
+                                />
+                            </div>
+                        </div>
+                        <div class="portrait-tertiary">
+                            <div data-par="0.16" class="portrait-circle-small">
+                                <img
+                                    src="/images/isacco-2.webp"
+                                    alt="{{copy.isacco_leading_a_tour}}"
+                                    class="image-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="narrator-copy">
+                        <div data-rv="0" class="chapter-label">
+                            <span class="chapter-rule"></span>{{copy.chapter_ii_the_storyteller}}
+                        </div>
+                        <h2 data-rv="100" class="narrator-heading">
+                            {{copy.every_story_needs}}
+                            <em class="text-gold">{{copy.someone_to_tell_it}}</em>
+                        </h2>
+                        <div data-rv="200" class="narrator-body">
+                            <p class="margin-zero">
+                                <span class="drop-cap">{{copy.intro_drop_cap}}</span>{{copy.intro_after_drop_cap}}
+                            </p>
+                            <p class="margin-zero">
+                                {{copy.for_pilgrims_i_bring_places_of_faith_to}}
+                            </p>
+                        </div>
+                        <div data-rv="300" class="promises">
+                            <div class="promise-first">
+                                <span class="promise-label">{{copy.my_first_promise}}</span
+                                ><span class="promise-text"
+                                    >{{copy.a_ministry_licensed_guide}}</span
+                                >
+                            </div>
+                            <div class="promise-middle">
+                                <span class="promise-label">{{copy.my_second}}</span
+                                ><span class="promise-text"
+                                    >{{copy.every_word_in_english}}</span
+                                >
+                            </div>
+                            <div class="promise-last">
+                                <span class="promise-label">{{copy.my_third}}</span
+                                ><span class="promise-text"
+                                    >{{copy.a_journey_shaped_around_you}}</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                id="cap-3"
+                data-ch="3"
+                data-screen-label="{{copy.iii_the_wonders}}"
+                class="wonders"
+            >
+                <div class="dawn-stars">
+                    <div data-decoration="starsDawn" aria-hidden="true"></div>
+                </div>
+                <div class="sunrise-position">
+                    <div data-par="0.42" class="sunrise"></div>
+                </div>
+                <div class="wonders-content">
+                    <div class="wonders-intro">
+                        <div data-rv="0" class="chapter-label">
+                            <span class="chapter-rule"></span>{{copy.chapter_iii_the_wonders}}<span class="chapter-rule"></span>
+                        </div>
+                        <h2 data-rv="100" class="wonders-heading">
+                            {{copy.to_travel_through_israel_is_to_walk}}
+                            <em class="text-gold">{{copy.through_history}}</em>
+                        </h2>
+                    </div>
+                    <p data-rv="0" class="wonders-lead">
+                        {{copy.and_as_the_sun_rises_over_the_hills}}
+                    </p>
+                    <div class="wonders-layout">
+                        <ol class="wonders-list">
+                            <li data-rv="0" class="wonder">
+                                <span class="wonder-number">I</span>
+                                <span class="wonder-text"
+                                    >{{copy.crusader_castles_standing_against_the_wind}}</span
+                                >
+                            </li>
+
+                            <li data-rv="90" class="wonder">
+                                <span class="wonder-number">II</span>
+                                <span class="wonder-text"
+                                    >{{copy.harbours_where_sailors_pilgrims_and_merchants_rested_before}}</span
+                                >
+                            </li>
+
+                            <li data-rv="180" class="wonder">
+                                <span class="wonder-number">III</span>
+                                <span class="wonder-text"
+                                    >{{copy.deserts_once_home_to_nomadic_tribes_forgotten_armies}}</span
+                                >
+                            </li>
+
+                            <li data-rv="270" class="wonder">
+                                <span class="wonder-number">IV</span>
+                                <span class="wonder-text"
+                                    >{{copy.sheikhs_tombs_with_whitewashed_domes}}</span
+                                >
+                            </li>
+
+                            <li data-rv="360" class="wonder">
+                                <span class="wonder-number">V</span>
+                                <span class="wonder-text"
+                                    >{{copy.quiet_monasteries_and_ancient_synagogues_rich_in_mosaics}}</span
+                                >
+                            </li>
+                        </ol>
+                        <div class="landscape-collage">
+                            <div class="landscape-main">
+                                <div data-par="-0.1" class="landscape-arch">
+                                    <img
+                                        src="/images/jerusalem-2.webp"
+                                        alt="{{copy.a_view_of_israel}}"
+                                        class="image-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div class="landscape-secondary">
+                                <div data-par="0.08" class="landscape-frame">
+                                    <img
+                                        src="/images/jerusalem-wall.webp"
+                                        alt="{{copy.a_view_of_israel}}"
+                                        class="image-cover"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                id="cap-4"
+                data-ch="4"
+                data-screen-label="{{copy.iv_the_map}}"
+                class="map-section"
+            >
+                <div class="section-stack">
+                    <div class="section-intro">
+                        <div data-rv="0" class="chapter-label-earth">
+                            <span class="chapter-rule-earth"></span>{{copy.chapter_iv_the_map}}<span class="chapter-rule-earth"></span>
+                        </div>
+                        <h2 data-rv="100" class="section-heading">
+                            {{copy.eight_paths}}
+                            <em class="text-clay">{{copy.one_land}}</em>
+                        </h2>
+                        <p data-rv="200" class="section-lead">
+                            {{copy.each_path_is_a_chapter_follow_the_one}}
+                        </p>
+                        <div data-rv="300" class="filter-list">
+                            <button
+                                data-filter="all"
+                                hidden
+                                aria-pressed="true"
+                                class="filter-button"
+                            >
+                                {{copy.all_paths}}
+                            </button>
+
+                            <button
+                                data-filter="fede"
+                                hidden
+                                aria-pressed="false"
+                                class="filter-button"
+                            >
+                                {{copy.faith}}
+                            </button>
+
+                            <button
+                                data-filter="deserto"
+                                hidden
+                                aria-pressed="false"
+                                class="filter-button"
+                            >
+                                {{copy.the_desert}}
+                            </button>
+
+                            <button
+                                data-filter="mare"
+                                hidden
+                                aria-pressed="false"
+                                class="filter-button"
+                            >
+                                {{copy.coast_and_cities}}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div data-map class="relative">
+                        <div class="wide-only display-contents">
+                            <svg
+                                data-route-svg
+                                width="10"
+                                height="10"
+                                class="route-svg"
+                            >
+                                <path
+                                    data-route-faint
+                                    d="M0,0"
+                                    fill="none"
+                                    class="route-faint"
+                                ></path>
+                                <path
+                                    data-route
+                                    d="M0,0"
+                                    fill="none"
+                                    class="route-path"
+                                ></path>
+                            </svg>
+                            <div data-lantern class="route-lantern"></div>
+                        </div>
+                        <div class="itinerary-list">
+                            <article data-theme="fede" class="itinerary">
+                                <div data-stop class="itinerary-image-first">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/jerusalem-1-square.webp"
+                                                alt="{{copy.ancient_jerusalem}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number">I</span>
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_i_the_path_of_faith}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.a_journey_of_the_spirit}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.ancient_jerusalem}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.within_the_walls_four_quarters_and_three_faiths}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.church_of_the_holy_sepulchre_via_dolorosa_western}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_67}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="mare" class="itinerary">
+                                <div data-stop class="itinerary-image-last">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/jerusalem-modern.webp"
+                                                alt="{{copy.modern_jerusalem}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number">II</span>
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_ii_the_coastal_path}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.the_face_of_a_country}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.modern_jerusalem}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.alongside_the_ancient_city_is_a_modern_capital}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.israel_museum_yad_vashem_mahane_yehuda_market}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_74}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="deserto" class="itinerary">
+                                <div data-stop class="itinerary-image-first">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/dead-sea.webp"
+                                                alt="{{copy.the_dead_sea_and_masada}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number"
+                                            >III</span
+                                        >
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_iii_the_desert_path}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.among_the_world_s_most_remarkable_places}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.the_dead_sea_and_masada}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.at_the_lowest_point_on_earth_the_water}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.masada_qumran_ein_gedi}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_80}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="deserto" class="itinerary">
+                                <div data-stop class="itinerary-image-last">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/desert-2.webp"
+                                                alt="{{copy.the_judean_desert_and_the_negev}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number">IV</span>
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_iv_the_desert_path}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.wandering_through_the_desert}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.the_judean_desert_and_the_negev}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.the_desert_of_prophets_and_caravans_monasteries_clinging}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.wadi_qelt_mitzpe_ramon_ein_avdat}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_86}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="deserto" class="itinerary">
+                                <div data-stop class="itinerary-image-first">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/petra.webp"
+                                                alt="{{copy.eilat_and_petra}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number">V</span>
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_v_the_desert_path}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.the_wonders_of_the_red_sea}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.eilat_and_petra}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.where_the_desert_meets_the_red_sea_corals}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.eilat_timna_petra}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_92}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="mare" class="itinerary">
+                                <div data-stop class="itinerary-image-last">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/haifa.webp"
+                                                alt="{{copy.from_tel_aviv_to_haifa}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number">VI</span>
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_vi_the_coastal_path}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.a_journey_along_the_coast}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.from_tel_aviv_to_haifa}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.along_the_mediterranean_discover_the_ancient_ports_of}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.jaffa_caesarea_acre_haifa}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_98}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="fede" class="itinerary">
+                                <div data-stop class="itinerary-image-first">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/nazareth.webp"
+                                                alt="{{copy.nazareth}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number"
+                                            >VII</span
+                                        >
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_vii_the_path_of_faith}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.the_beginnings_of_christianity}}</span
+                                    >
+                                    <h3 class="itinerary-heading">{{copy.nazareth}}</h3>
+                                    <p class="itinerary-description">
+                                        {{copy.through_the_lanes_of_the_old_city_follow}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.basilica_of_the_annunciation_st_joseph_s_church}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_104}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article data-theme="fede" class="itinerary">
+                                <div data-stop class="itinerary-image-last">
+                                    <div
+                                        data-rv="0"
+                                        class="itinerary-image-wrap"
+                                    >
+                                        <div class="itinerary-frame">
+                                            <img
+                                                data-par="0.07"
+                                                src="/images/galilee.webp"
+                                                alt="{{copy.upper_and_lower_galilee}}"
+                                                class="itinerary-image"
+                                            />
+                                        </div>
+                                        <span class="itinerary-number"
+                                            >VIII</span
+                                        >
+                                    </div>
+                                </div>
+                                <div data-rv="150" class="itinerary-copy">
+                                    <span class="itinerary-path"
+                                        >{{copy.stop_viii_the_path_of_faith}}</span
+                                    >
+                                    <span class="itinerary-kicker"
+                                        >{{copy.towards_mount_tabor}}</span
+                                    >
+                                    <h3 class="itinerary-heading">
+                                        {{copy.upper_and_lower_galilee}}
+                                    </h3>
+                                    <p class="itinerary-description">
+                                        {{copy.the_sea_of_galilee_fishing_boats_and_the}}
+                                    </p>
+                                    <p class="itinerary-places">
+                                        {{copy.capernaum_tabgha_mount_of_beatitudes_mount_tabor}}
+                                    </p>
+                                    <a
+                                        href="{{wa.shalom_isacco_i_d_like_to_find_out_110}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="itinerary-link hover-earth"
+                                        >{{copy.ask_isacco_about_this_stop}}</a
+                                    >
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                id="cap-5"
+                data-ch="5"
+                data-screen-label="{{copy.v_a_window}}"
+                class="video-section"
+            >
+                <div class="dusk-stars">
+                    <div data-decoration="starsDusk" aria-hidden="true"></div>
+                </div>
+                <div class="video-content">
+                    <p data-rv="0" class="video-lead">
+                        {{copy.day_slips_into_evening_and_the_sky_above}}
+                    </p>
+                    <div data-rv="0" class="chapter-label-light">
+                        <span class="chapter-rule-light"></span>{{copy.chapter_v_a_window}}<span class="chapter-rule-light"></span>
+                    </div>
+                    <h2 data-rv="100" class="video-heading">
+                        {{copy.see_for_yourself}}
+                        <em class="text-gold">{{copy.before_you_set_off}}</em>
+                    </h2>
+                    <div data-rv="200" class="video-frame">
+                        <iframe
+                            src="https://www.youtube.com/embed/FYtk8JMMZRE?rel=0"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            title="{{copy.travel_in_israel_with_isacco_video}}"
+                            allow="
+                                accelerometer;
+                                encrypted-media;
+                                picture-in-picture;
+                            "
+                            allowfullscreen
+                            class="video-embed"
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <div class="night-section">
+                <div class="decoration-layer">
+                    <div data-decoration="starsNight" aria-hidden="true"></div>
+                </div>
+
+                <section
+                    id="cap-6"
+                    data-ch="6"
+                    data-screen-label="{{copy.vi_travellers_voices}}"
+                    class="testimonial"
+                >
+                    <figure class="testimonial-content">
+                        <div data-rv="0" class="chapter-label">
+                            <span class="chapter-rule"></span>{{copy.chapter_vi_travellers_voices}}<span class="chapter-rule"></span>
+                        </div>
+                        <span data-rv="100" class="quote-mark">“</span>
+                        <blockquote data-rv="150" class="quote-text">
+                            {{copy.isacco_skilfully_taught_us_to_reflect_and_exchange}}
+                            <span class="text-gold">{{copy.without_prejudice}}</span>
+                            {{copy.about_jewish_customs_his_knowledge_makes_him_a}}
+                        </blockquote>
+                        <figcaption data-rv="250" class="quote-author">
+                            <span class="quote-name">{{copy.emilio_m}}</span
+                            ><span class="quote-city">{{copy.genoa}}</span>
+                        </figcaption>
+                    </figure>
+                </section>
+
+                <section
+                    id="cap-7"
+                    data-ch="7"
+                    data-screen-label="{{copy.vii_the_beginning}}"
+                    class="steps-section"
+                >
+                    <div class="steps-content">
+                        <div class="section-intro">
+                            <div data-rv="0" class="chapter-label">
+                                <span class="chapter-rule"></span>{{copy.chapter_vii_the_beginning}}<span class="chapter-rule"></span>
+                            </div>
+                            <h2 data-rv="100" class="steps-heading">
+                                {{copy.every_journey_begins}}
+                                <em class="text-gold">{{copy.with_a_message}}</em>
+                            </h2>
+                        </div>
+                        <div class="steps-grid">
+                            <div class="wide-only display-contents">
+                                <div class="steps-line"></div>
+                            </div>
+
+                            <div data-rv="0" class="step">
+                                <span class="step-dot"></span>
+                                <span class="step-number">I</span>
+                                <h3 class="step-heading">{{copy.get_in_touch}}</h3>
+                                <p class="step-description">
+                                    {{copy.send_me_a_whatsapp_message_or_an_email}}
+                                </p>
+                            </div>
+
+                            <div data-rv="150" class="step">
+                                <span class="step-dot"></span>
+                                <span class="step-number">II</span>
+                                <h3 class="step-heading">{{copy.let_s_draw_the_map}}</h3>
+                                <p class="step-description">
+                                    {{copy.i_ll_suggest_a_tailor_made_itinerary_with}}
+                                </p>
+                            </div>
+
+                            <div data-rv="300" class="step">
+                                <span class="step-dot"></span>
+                                <span class="step-number">III</span>
+                                <h3 class="step-heading">{{copy.let_s_set_off_together}}</h3>
+                                <p class="step-description">
+                                    {{copy.i_ll_guide_you_day_by_day_always}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    id="cap-8"
+                    data-ch="8"
+                    data-screen-label="{{copy.viii_questions}}"
+                    class="faq-section"
+                >
+                    <div class="faq-layout">
+                        <div class="faq-intro">
+                            <div data-rv="0" class="chapter-label">
+                                <span class="chapter-rule"></span>{{copy.chapter_viii}}
+                            </div>
+                            <h2 data-rv="100" class="faq-heading">
+                                {{copy.a_traveller_s}}
+                                <em class="text-gold">{{copy.questions_137}}</em>
+                            </h2>
+                            <p data-rv="200" class="faq-description">
+                                {{copy.have_another_question}}
+                                <a
+                                    href="{{wa.general_enquiry}}"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="faq-contact"
+                                    >{{copy.ask_me_on_whatsapp}}</a
+                                >
+                            </p>
+                        </div>
+                        <div class="faq-list">
+                            <details
+                                data-rv="0"
+                                name="faq"
+                                open
+                                class="faq-item"
+                            >
+                                <summary class="faq-question">
+                                    <span
+                                        >{{copy.do_you_guide_pilgrimage_and_parish_groups}}</span
+                                    >
+                                    <span class="faq-icon">+</span>
+                                </summary>
+
+                                <p class="faq-answer">
+                                    {{copy.yes_i_guide_families_small_groups_and_organised}}
+                                </p>
+                            </details>
+                            <details data-rv="100" name="faq" class="faq-item">
+                                <summary class="faq-question">
+                                    <span
+                                        >{{copy.can_we_include_time_for_prayer}}</span
+                                    >
+                                    <span class="faq-icon">+</span>
+                                </summary>
+
+                                <p class="faq-answer">
+                                    {{copy.of_course_we_can_include_time_for_reflection}}
+                                </p>
+                            </details>
+                            <details data-rv="200" name="faq" class="faq-item">
+                                <summary class="faq-question">
+                                    <span
+                                        >{{copy.i_m_not_religious_is_this_trip_for}}</span
+                                    >
+                                    <span class="faq-icon">+</span>
+                                </summary>
+
+                                <p class="faq-answer">
+                                    {{copy.absolutely_israel_is_a_crossroads_of_history_cultures}}
+                                </p>
+                            </details>
+                            <details data-rv="300" name="faq" class="faq-item">
+                                <summary class="faq-question">
+                                    <span>{{copy.how_much_does_a_tour_cost}}</span>
+                                    <span class="faq-icon">+</span>
+                                </summary>
+
+                                <p class="faq-answer">
+                                    {{copy.it_depends_on_the_length_of_the_trip}}
+                                </p>
+                            </details>
+                            <details data-rv="400" name="faq" class="faq-item">
+                                <summary class="faq-question">
+                                    <span>{{copy.are_the_tours_in_english}}</span>
+                                    <span class="faq-icon">+</span>
+                                </summary>
+
+                                <p class="faq-answer">
+                                    {{copy.yes_i_guide_english_speaking_travellers_throughout_their}}
+                                </p>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    id="cap-9"
+                    data-ch="9"
+                    data-screen-label="{{copy.ix_your_chapter}}"
+                    class="letter-section"
+                >
+                    <div class="letter-content">
+                        <div class="section-intro">
+                            <div data-rv="0" class="chapter-label">
+                                <span class="chapter-rule"></span>{{copy.chapter_ix_your_chapter}}<span
+                                    class="chapter-rule"
+                                ></span>
+                            </div>
+                            <h2 data-rv="100" class="letter-heading">
+                                {{copy.the_rest_of_the_story}}
+                                <em class="text-gold">{{copy.we_ll_write_together}}</em>
+                            </h2>
+                        </div>
+                        <div data-rv="200" class="letter-paper">
+                            <div class="letter-seal" aria-hidden="true">
+                                <svg
+                                    viewBox="0 0 48 48"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M24 4 42 35H6ZM24 44 6 13H42Z" />
+                                </svg>
+                            </div>
+                            <div class="letter-body">
+                                <span class="letter-greeting"
+                                    >{{copy.dear_isacco}}</span
+                                >
+                                <p class="margin-zero">
+                                    {{copy.my_name_is}}
+                                    <input
+                                        value=""
+                                        id="traveller-name"
+                                        disabled
+                                        placeholder="{{copy.name_placeholder}}"
+                                        aria-label="{{copy.name_label}}"
+                                        class="name-input"
+                                    />
+                                    {{copy.and_i_d_like_to_visit_israel}}
+                                    <select
+                                        value="{{copy.with_a_group_of_9_20_people}}"
+                                        id="travel-size"
+                                        disabled
+                                        aria-label="{{copy.who_you_re_travelling_with}}"
+                                        class="group-select"
+                                    >
+                                        <option value="{{copy.on_my_own}}">{{copy.on_my_own}}</option>
+                                        <option value="{{copy.as_a_couple}}">
+                                            {{copy.as_a_couple}}
+                                        </option>
+                                        <option
+                                            value="{{copy.with_a_small_group_of_3_8_people}}"
+                                        >
+                                            {{copy.with_a_small_group_of_3_8_people}}
+                                        </option>
+                                        <option
+                                            selected
+                                            value="{{copy.with_a_group_of_9_20_people}}"
+                                        >
+                                            {{copy.with_a_group_of_9_20_people}}
+                                        </option>
+                                        <option
+                                            value="{{copy.with_a_large_group_of_more_than_20}}"
+                                        >
+                                            {{copy.with_a_large_group_of_more_than_20}}
+                                        </option></select
+                                    >{{copy.around}}
+                                    <input
+                                        value=""
+                                        id="travel-period"
+                                        disabled
+                                        placeholder="{{copy.e_g_easter_2027}}"
+                                        aria-label="{{copy.travel_dates}}"
+                                        class="period-input"
+                                    />.
+                                </p>
+                                <div class="dream-section">
+                                    <span>{{copy.i_dream_of_discovering}}</span>
+                                    <div class="dream-list">
+                                        <button
+                                            data-dream="{{copy.places_of_faith}}"
+                                            aria-pressed="true"
+                                            disabled
+                                            class="dream-button"
+                                        >
+                                            {{copy.places_of_faith}}
+                                        </button>
+
+                                        <button
+                                            data-dream="{{copy.the_desert_and_the_dead_sea}}"
+                                            aria-pressed="false"
+                                            disabled
+                                            class="dream-button"
+                                        >
+                                            {{copy.the_desert_and_the_dead_sea}}
+                                        </button>
+
+                                        <button
+                                            data-dream="{{copy.cities_and_the_coast}}"
+                                            aria-pressed="false"
+                                            disabled
+                                            class="dream-button"
+                                        >
+                                            {{copy.cities_and_the_coast}}
+                                        </button>
+
+                                        <button
+                                            data-dream="{{copy.history_and_archaeology}}"
+                                            aria-pressed="false"
+                                            disabled
+                                            class="dream-button"
+                                        >
+                                            {{copy.history_and_archaeology}}
+                                        </button>
+                                    </div>
+                                </div>
+                                <span class="letter-signoff"
+                                    >{{copy.with_thanks}}
+                                    <span class="text-clay"
+                                        ><span data-signature>…</span></span
+                                    ></span
+                                >
+                            </div>
+                            <div class="letter-actions">
+                                <a
+                                    data-letter
+                                    href="{{wa.general_enquiry}}"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="letter-button hover-letter"
+                                    ><span data-letter-label
+                                        >{{copy.message_me_on_whatsapp}}</span
+                                    ></a
+                                >
+                                <span class="letter-alternative"
+                                    >{{copy.or}}
+                                    <a
+                                        href="mailto:i.charig@gmail.com"
+                                        class="email-link hover-earth-text"
+                                        >{{copy.i_charig_gmail_com}}</a
+                                    ></span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="site-footer">
+                    <div class="footer-title">
+                        <span class="footer-end">{{copy.the_end}}</span>
+                        <span class="footer-subtitle"
+                            >{{copy.or_perhaps_just_the_beginning}}</span
+                        >
+                    </div>
+                    {{languageSwitcher}}
+                    <div class="footer-bottom">
+                        <span
+                            >{{copy.copyright}}</span
+                        >
+                        <div class="footer-contacts">
+                            <a
+                                href="tel:+972546267521"
+                                class="footer-link hover-gold"
+                                >+972 54 626 7521</a
+                            >
+                            <a
+                                href="mailto:i.charig@gmail.com"
+                                class="footer-link hover-gold"
+                                >{{copy.i_charig_gmail_com}}</a
+                            >
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

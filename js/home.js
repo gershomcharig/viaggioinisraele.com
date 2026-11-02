@@ -1,8 +1,9 @@
-/* Optional interactions. All page content and contact links are in index.html. */
+/* Optional interactions. Page content and contact links are generated from src/home.html. */
 (() => {
   'use strict';
   const q = selector => document.querySelector(selector);
   const qa = selector => Array.from(document.querySelectorAll(selector));
+  const locale = JSON.parse(document.getElementById('locale-data').textContent);
   const waOf = text => `https://wa.me/972546267521?text=${encodeURIComponent(text)}`;
 
   // Keep details open during collapse so its content can shrink smoothly.
@@ -76,8 +77,8 @@
   function updateLetter() {
     const name = q('#traveller-name').value.trim();
     const period = q('#travel-period').value.trim();
-    const dreams = qa('[data-dream][aria-pressed="true"]').map(el => el.dataset.dream).join(', ').replace(/, ([^,]*)$/, ' e $1');
-    const letter = `Shalom Isacco! Mi chiamo ${name || '…'} e vorrei venire in Israele ${q('#travel-size').value}${period ? ', nel periodo: ' + period : ''}.${dreams ? ' Sogno soprattutto ' + dreams + '.' : ''} Potresti inviarmi una proposta con costi e disponibilità? Grazie!`;
+    const dreams = qa('[data-dream][aria-pressed="true"]').map(el => el.dataset.dream);
+    const letter = TourLetter.build(locale.letter, { name, period, dreams, size: q('#travel-size').value });
     q('[data-signature]').textContent = name || '…';
     q('[data-letter]').href = waOf(letter);
   }
@@ -95,7 +96,7 @@
     button.disabled = false;
   });
   updateLetter();
-  q('[data-letter-label]').textContent = 'Invia la lettera su WhatsApp';
+  q('[data-letter-label]').textContent = locale.letter.send;
 
   let animation;
   qa('[data-filter]').forEach(button => {

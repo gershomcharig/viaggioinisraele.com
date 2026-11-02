@@ -1,0 +1,11 @@
+{
+  "name": "viaggio-in-israele",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "test": "node --test"
+  }
+}

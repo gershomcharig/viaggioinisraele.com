@@ -520,6 +520,7 @@ input::placeholder {
 }
 
 .narrator-copy {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -564,7 +565,7 @@ input::placeholder {
 
 .promises {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 0;
   border-top: 1px solid rgba(216,178,110,.3);
   border-bottom: 1px solid rgba(216,178,110,.3);
@@ -605,6 +606,13 @@ input::placeholder {
   flex-direction: column;
   gap: 6px;
   border-left: 1px solid rgba(216,178,110,.3);
+}
+
+/* Stack narrow narrator columns rather than leaving an orphaned third cell. */
+@container (max-width: 480px) {
+  .promises { grid-template-columns: 1fr; }
+  .promises > div { padding: 18px 0; border-left: 0; }
+  .promises > div + div { border-top: 1px solid rgba(216,178,110,.3); }
 }
 
 .wonders {
@@ -1697,4 +1705,75 @@ details[open] summary:not([aria-expanded="false"]) span:last-child {
   border-radius: 50%;
   background: var(--gold-light);
   box-shadow: 0 0 6px 1px rgba(240,211,149,.7);
+}
+
+/* Language links remain available at every viewport width. */
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+
+.language-switcher a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 999px;
+}
+
+.language-switcher [aria-current="page"] {
+  color: var(--ivory);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+
+.language-entry {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.language-chooser {
+  max-width: 650px;
+  padding: clamp(24px, 6vw, 64px);
+  text-align: center;
+  border: 1px solid var(--gold);
+  border-radius: 24px;
+}
+
+.language-chooser h1 { font-size: clamp(32px, 6vw, 48px); }
+.language-chooser p { font-size: 22px; }
+.language-chooser .language-switcher { justify-content: center; font-size: 16px; }
+
+@media (min-width: 860px) and (max-width: 1199px) {
+  .site-header { gap: 12px; }
+  .main-nav { gap: 14px; font-size: 10px; letter-spacing: .08em; }
+  .brand-name { font-size: 23px; }
+  .site-header .whatsapp-button { padding: 12px; font-size: 10px; letter-spacing: .06em; }
+}
+
+.site-footer .language-switcher { justify-content: center; font-size: 12px; gap: 16px; }
+
+@media (max-width: 859px) {
+  .site-header .brand { min-width: 0; }
+  .site-header .brand-name { font-size: clamp(17px, 3.5vw, 24px); }
+  .site-header .whatsapp-button {
+    min-height: 44px;
+    max-width: 50%;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
 }
