@@ -143,14 +143,7 @@ input::placeholder {
   font-style: italic;
   font-weight: 500;
   font-size: 26px;
-  line-height: 1;
-}
-
-.brand-subtitle {
-  font-family: var(--font-display);
-  font-size: 10.5px;
-  letter-spacing: .22em;
-  color: var(--gold);
+  line-height: 1.1;
 }
 
 .display-contents {
@@ -362,10 +355,28 @@ input::placeholder {
 }
 
 .scroll-cue {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 12px 18px;
+  border: 1px solid var(--gold-light);
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--night);
   font-family: var(--font-display);
   font-size: 11px;
-  letter-spacing: .3em;
-  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.5;
+  transition: background .2s ease, box-shadow .2s ease;
+}
+
+.scroll-cue:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 24px rgba(216,178,110,.3);
 }
 
 .hero-caption {
@@ -1574,8 +1585,13 @@ details[open] summary span:last-child {
     gap:12px;
     padding-left:16px
   }
-  header>a:first-child>span:last-child {
-    display:none
+  .brand-name {
+    font-size:clamp(18px,3vw,24px)
+  }
+  .site-header .whatsapp-button {
+    font-size:10px;
+    letter-spacing:.08em;
+    padding:10px 12px
   }
 }
 

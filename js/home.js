@@ -5,6 +5,30 @@
   const qa = selector => Array.from(document.querySelectorAll(selector));
   const waOf = text => `https://wa.me/972546267521?text=${encodeURIComponent(text)}`;
 
+  q('.scroll-cue').addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    event.preventDefault();
+    const start = window.scrollY;
+    const target = q('#cap-2');
+    const end = Math.min(start + target.getBoundingClientRect().top,
+      document.documentElement.scrollHeight - window.innerHeight);
+    const startedAt = performance.now();
+    const duration = 3000;
+    function step(now) {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const eased = progress < .5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
+      window.scrollTo({ top: start + (end - start) * eased, behavior: 'instant' });
+      if (progress < 1) requestAnimationFrame(step);
+      else {
+        history.pushState(null, '', '#cap-2');
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+    }
+    requestAnimationFrame(step);
+  });
+
   function updateLetter() {
     const name = q('#traveller-name').value.trim();
     const period = q('#travel-period').value.trim();
