@@ -5,6 +5,50 @@
   const qa = selector => Array.from(document.querySelectorAll(selector));
   const waOf = text => `https://wa.me/972546267521?text=${encodeURIComponent(text)}`;
 
+  // Keep details open during collapse so its content can shrink smoothly.
+  const faqItems = qa('.faq-item');
+  const faqStates = new WeakMap();
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  function setFaqOpen(item, expanded) {
+    const state = faqStates.get(item);
+    if (state.expanded === expanded) return;
+    state.expanded = expanded;
+    const startHeight = item.getBoundingClientRect().height;
+    state.animation?.cancel();
+    item.open = true;
+    const summary = item.querySelector('summary');
+    summary.setAttribute('aria-expanded', String(expanded));
+    const borders = parseFloat(getComputedStyle(item).borderTopWidth) +
+      parseFloat(getComputedStyle(item).borderBottomWidth);
+    const endHeight = expanded ? item.getBoundingClientRect().height : summary.offsetHeight + borders;
+    const finish = () => {
+      item.open = state.expanded;
+      item.style.overflow = '';
+      state.animation = null;
+    };
+    if (reducedMotion.matches) { finish(); return; }
+    item.style.overflow = 'hidden';
+    const animation = item.animate([
+      { height: `${startHeight}px` },
+      { height: `${endHeight}px` }
+    ], { duration: 380, easing: 'cubic-bezier(.25,.1,.25,1)' });
+    state.animation = animation;
+    animation.onfinish = finish;
+  }
+  faqItems.forEach(item => {
+    faqStates.set(item, { expanded: item.open, animation: null });
+    // Manage exclusivity ourselves so the previous answer can animate closed.
+    item.removeAttribute('name');
+    const summary = item.querySelector('summary');
+    summary.setAttribute('aria-expanded', String(item.open));
+    summary.addEventListener('click', event => {
+      event.preventDefault();
+      const expanded = !faqStates.get(item).expanded;
+      if (expanded) faqItems.forEach(other => { if (other !== item) setFaqOpen(other, false); });
+      setFaqOpen(item, expanded);
+    });
+  });
+
   q('.scroll-cue').addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -199,6 +243,8 @@
     this.qa('[data-ch]').forEach(el => { if (el.getBoundingClientRect().top < vh * 0.5) ch = +el.dataset.ch; });
     document.querySelector('.chapter-nav').hidden = ch === 1;
     this.qa('.chapter-nav a').forEach((a,i)=>{if(i+1===ch)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+    const activeChapter = this.q('.chapter-link[aria-current="location"]');
+    if (ch !== 1 && activeChapter) this.q('.chapter-links').style.setProperty('--chapter-y', `${activeChapter.offsetTop}px`);
   }
 
   }

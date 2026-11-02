@@ -10,15 +10,17 @@
             name="description"
             content="Scopri Israele con Isacco Charig, guida turistica autorizzata in italiano. Itinerari su misura tra Gerusalemme, Galilea, deserto e Mar Morto."
         />
-        <link rel="icon" href="images/favicon.png" />
-        <script src="js/home.js?v=20261102-2" defer></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png?v=2" />
+        <link rel="icon" type="image/svg+xml" sizes="any" href="images/favicon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+        <script src="js/home.js?v=20261102-4" defer></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap"
         />
-        <link rel="stylesheet" href="css/home.css?v=20261102-2" />
+        <link rel="stylesheet" href="css/home.css?v=20261102-4" />
     </head>
     <body>
         <div id="page" lang="it" class="page">
@@ -981,7 +983,7 @@
                             </p>
                         </div>
                         <div class="faq-list">
-                            <details name="faq" open class="faq-item">
+                            <details data-rv="0" name="faq" open class="faq-item">
                                 <summary class="faq-question">
                                     <span
                                         >Accompagni gruppi di pellegrini e
@@ -996,7 +998,7 @@
                                     contenuti alle esigenze di ciascuno.
                                 </p>
                             </details>
-                            <details name="faq" class="faq-item">
+                            <details data-rv="100" name="faq" class="faq-item">
                                 <summary class="faq-question">
                                     <span
                                         >Si possono prevedere momenti di
@@ -1012,7 +1014,7 @@
                                     accompagnatore spirituale.
                                 </p>
                             </details>
-                            <details name="faq" class="faq-item">
+                            <details data-rv="200" name="faq" class="faq-item">
                                 <summary class="faq-question">
                                     <span
                                         >Non sono credente: questo viaggio fa
@@ -1028,7 +1030,7 @@
                                     crede e a chi è semplicemente curioso.
                                 </p>
                             </details>
-                            <details name="faq" class="faq-item">
+                            <details data-rv="300" name="faq" class="faq-item">
                                 <summary class="faq-question">
                                     <span>Quanto costa un tour?</span>
                                     <span class="faq-icon">+</span>
@@ -1040,7 +1042,7 @@
                                     ti invierò costi e disponibilità.
                                 </p>
                             </details>
-                            <details name="faq" class="faq-item">
+                            <details data-rv="400" name="faq" class="faq-item">
                                 <summary class="faq-question">
                                     <span>Le visite sono in italiano?</span>
                                     <span class="faq-icon">+</span>
@@ -1076,7 +1078,11 @@
                             </h2>
                         </div>
                         <div data-rv="200" class="letter-paper">
-                            <div class="letter-seal">I</div>
+                            <div class="letter-seal" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
+                                    <path d="M24 4 42 35H6ZM24 44 6 13H42Z" />
+                                </svg>
+                            </div>
                             <div class="letter-body">
                                 <span class="letter-greeting"
                                     >Caro Isacco,</span

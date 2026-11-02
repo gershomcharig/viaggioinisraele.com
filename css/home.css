@@ -175,6 +175,7 @@ input::placeholder {
 }
 
 .chapter-links {
+  animation: chapter-bar-enter .45s ease-out both;
   position: fixed;
   right: 18px;
   top: 50%;
@@ -191,7 +192,28 @@ input::placeholder {
   border: 1px solid rgba(216,178,110,.22);
 }
 
+.chapter-links::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 34px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--gold);
+  transform: translateY(var(--chapter-y,10px));
+  transition: transform .4s cubic-bezier(.22,.68,.3,1);
+  pointer-events: none;
+}
+
+@keyframes chapter-bar-enter {
+  from { opacity: 0; translate: 12px 0; }
+  to { opacity: 1; translate: 0 0; }
+}
+
 .chapter-link {
+  position: relative;
+  transition: color .3s ease;
   display: grid;
   place-items: center;
   width: 34px;
@@ -1138,6 +1160,14 @@ input::placeholder {
   gap: clamp(40px,5vw,72px);
 }
 
+.steps-content { container-type: inline-size; }
+
+@container (min-width: 560px) and (max-width: 959px) {
+  .steps-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .step { grid-column: span 2; }
+  .step:last-child { grid-column: 2 / span 2; }
+}
+
 .steps-line {
   position: absolute;
   left: 16%;
@@ -1228,6 +1258,7 @@ input::placeholder {
 }
 
 .faq-list {
+  overflow-anchor: none;
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid rgba(216,178,110,.28);
@@ -1321,8 +1352,14 @@ input::placeholder {
   place-items: center;
   font-family: var(--font-display);
   font-size: 30px;
-  color: #F3C9B5;
+  color: #651D29;
   transform: rotate(8deg);
+}
+
+.letter-seal svg {
+  width: 42px;
+  height: 42px;
+  filter: drop-shadow(0 1px 0 rgba(243,201,181,.3));
 }
 
 .letter-body {
@@ -1500,7 +1537,6 @@ input::placeholder {
 /* Selected controls use their accessible state as the styling source. */
 .chapter-link[aria-current="location"] {
   color: var(--night);
-  background: var(--gold);
 }
 
 .filter-button[aria-pressed="true"] {
@@ -1559,7 +1595,7 @@ details summary span:last-child {
   transform:rotate(0)
 }
 
-details[open] summary span:last-child {
+details[open] summary:not([aria-expanded="false"]) span:last-child {
   transform:rotate(45deg)
 }
 
