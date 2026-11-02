@@ -28,7 +28,7 @@ WhatsApp message formatting, and adding another locale.
   WhatsApp enquiries, and interactive letter messages. Keys are shared across locales.
 - `src/site.json` defines the production origin, supported languages, their labels
   and paths, and the default language (Italian at `/`). The canonical origin defaults to
-  `https://viaggioinisraele.com`; change this if the production hostname changes.
+  `https://www.viaggioinisraele.com`; change this if the production hostname changes.
 - The repository’s `index.html` only provides local preview instructions and is
   not published. The build renders `src/home.html` at every configured language path.
 - `css/home.css`, `js/`, and `images/` are shared assets. Keep asset URLs root-relative.
