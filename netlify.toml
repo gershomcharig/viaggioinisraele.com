@@ -1,0 +1,86 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Permanent migration of published legacy pages.
+# No destination fragment on itinerari: browsers retain old stop bookmarks.
+
+[[redirects]]
+  from = "/chi-sono.html"
+  to = "/#cap-2"
+  status = 301
+
+[[redirects]]
+  from = "/chi-sono"
+  to = "/#cap-2"
+  status = 301
+
+[[redirects]]
+  from = "/scopri-israele.html"
+  to = "/#cap-3"
+  status = 301
+
+[[redirects]]
+  from = "/scopri-israele"
+  to = "/#cap-3"
+  status = 301
+
+[[redirects]]
+  from = "/itinerari.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/itinerari"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contatti.html"
+  to = "/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/contatti"
+  to = "/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/en/contact-me.html"
+  to = "/en/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/en/contact-me"
+  to = "/en/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/thankyou.html"
+  to = "/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/thankyou"
+  to = "/#cap-9"
+  status = 301
+
+# The Italian homepage is at the root. Keep query strings and fragments.
+
+[[redirects]]
+from = "/it"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/it/"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/it/index.html"
+to = "/"
+status = 301
