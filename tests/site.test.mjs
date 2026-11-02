@@ -5,9 +5,11 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import vm from 'node:vm';
 import { build, renderTemplate, escapeHtml } from '../scripts/build.mjs';
+import { createPreviewServer } from '../scripts/preview.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = relative => readFile(new URL(relative, root), 'utf8');
+const pagePath = code => `dist${config.languages.find(language => language.code === code).path}index.html`;
 const config = JSON.parse(await read('src/site.json'));
 const languageScript = await read('js/language.js');
 const letterScript = await read('js/letter.js');
@@ -46,49 +48,46 @@ function formatLetter(locale, values) {
   return context.TourLetter.build(locale.letter, values);
 }
 
-test('root selects the first supported preference, including regional variants', () => {
-  for (const [preferences, expected] of [
-    [['it-IT', 'en-GB'], '/it/'], [['en-US', 'it'], '/en/'],
-    [['fr-FR', 'it-CH', 'en'], '/it/'], [['de', 'fr'], '/en/'], [[], '/en/'],
-  ]) {
-    assert.deepEqual(simulateLanguage({ preferences }).redirects, [expected]);
+test('Italian homepage never redirects for browser preferences or a previous language choice', () => {
+  for (const preferences of [['en-US'], ['it-IT'], ['fr'], []]) {
+    for (const saved of ['en', 'it', 'removed', null]) {
+      const page = simulateLanguage({ preferences, saved, search: '?ref=old', hash: '#cap-4' });
+      assert.deepEqual(page.redirects, []);
+      assert.deepEqual(page.writes, []);
+    }
   }
 });
 
-test('saved choice overrides browser settings; unknown saved choices are ignored', () => {
-  assert.deepEqual(simulateLanguage({ saved: 'it' }).redirects, ['/it/']);
-  assert.deepEqual(simulateLanguage({ saved: 'en', preferences: ['it'] }).redirects, ['/en/']);
-  assert.deepEqual(simulateLanguage({ saved: 'removed', preferences: ['it'] }).redirects, ['/it/']);
-});
-
-test('blocked storage preserves selection and old root anchors and query strings', () => {
-  assert.deepEqual(simulateLanguage({ blocked: true, preferences: ['it-IT'], search: '?ref=old&x=1', hash: '#cap-4' }).redirects,
-    ['/it/?ref=old&x=1#cap-4']);
-  assert.deepEqual(simulateLanguage({ pathname: '/index.html', hash: '#cap-9' }).redirects, ['/en/#cap-9']);
+test('root and language pages do not use storage or automatic language selection', () => {
+  for (const pathname of ['/', '/index.html', '/en/', '/en/index.html']) {
+    const page = simulateLanguage({ pathname, blocked: true });
+    assert.deepEqual(page.redirects, []);
+    assert.deepEqual(page.writes, []);
+  }
 });
 
 test('explicit language pages never redirect, even with conflicting saved preferences', () => {
-  for (const pathname of ['/it/', '/en/', '/it/index.html', '/en/index.html']) {
+  for (const pathname of ['/', '/en/', '/index.html', '/en/index.html']) {
     assert.deepEqual(simulateLanguage({ pathname, saved: pathname.includes('it') ? 'en' : 'it' }).redirects, []);
   }
 });
 
-test('switching records only explicit choices and preserves current URL context', () => {
+test('explicit switching preserves current URL context without saving preferences', () => {
   const page = simulateLanguage({ pathname: '/en/', search: '?source=test', hash: '#cap-2' });
   assert.deepEqual(page.writes, []);
-  assert.equal(page.links[0].href, '/it/?source=test#cap-2');
+  assert.equal(page.links[0].href, '/?source=test#cap-2');
   // history.pushState can update the chapter without firing hashchange.
   page.location.hash = '#cap-9';
   page.links[0].events.click();
-  assert.equal(page.links[0].href, '/it/?source=test#cap-9');
-  assert.deepEqual(page.writes, [['isacco.language', 'it']]);
+  assert.equal(page.links[0].href, '/?source=test#cap-9');
+  assert.deepEqual(page.writes, []);
 });
 
 test('switcher still navigates when storage is denied and waits for DOM readiness', () => {
   const page = simulateLanguage({ pathname: '/en/', blocked: true, readyState: 'loading', hash: '#cap-8' });
   page.events.DOMContentLoaded();
   assert.doesNotThrow(() => page.links[0].events.click());
-  assert.equal(page.links[0].href, '/it/#cap-8');
+  assert.equal(page.links[0].href, '/#cap-8');
 });
 
 test('letters support translated grammar, multiple interests, and literal user input', () => {
@@ -133,13 +132,13 @@ test('generated pages have readable content, correct SEO, localised enquiries an
     assert.ok(html.includes('https://www.youtube.com/embed/FYtk8JMMZRE?rel=0'));
   }
   const html = await read('dist/en/index.html');
-  // The shared social artwork includes both names; the English page copy uses Isaac.
+  // The sharing artwork uses Italian branding; the English page copy uses Isaac.
   assert.doesNotMatch(html.split('<body>')[1], /Translated from Italian|Isacco|Travel in Israel with/);
   assert.match(html, /<title>\s*English-speaking Israel Tour Guide \| Isaac Charig/);
   assert.match(html, /content="Travel Israel with Isaac Charig/);
   assert.match(html, /Message on Whatsapp/);
   for (const code of ['it', 'en']) {
-    const page = await read(`dist/${code}/index.html`);
+    const page = await read(pagePath(code));
     const header = page.match(/<header[^>]*>([\s\S]*?)<\/header>/)[1];
     const footer = page.match(/<footer[^>]*>([\s\S]*?)<\/footer>/)[1];
     assert.doesNotMatch(header, /language-switcher/);
@@ -150,12 +149,16 @@ test('generated pages have readable content, correct SEO, localised enquiries an
   assert.doesNotMatch(html, /Vorrei|Scrivimi|in italiano/);
 });
 
-test('root retains usable no-JavaScript language links; sitemap lists the full set', async () => {
+test('root contains the complete Italian page without JavaScript; sitemap has only canonical pages', async () => {
   const html = await read('dist/index.html');
   for (const language of config.languages) assert.ok(html.includes(`href="${language.path}"`));
-  assert.match(html, /Choose your language/);
+  assert.match(html, /<html lang="it">/);
+  assert.match(html, /Guida turistica in Israele/);
+  assert.match(html, /<section[\s\S]*id="cap-2"/);
+  assert.doesNotMatch(html, /Choose your language|language-chooser/);
+  await assert.rejects(access(new URL('dist/it/index.html', root)), { code: 'ENOENT' });
   const sitemap = await read('dist/sitemap.xml');
-  assert.equal((sitemap.match(/<url>/g) || []).length, 3);
+  assert.equal((sitemap.match(/<url>/g) || []).length, 2);
   for (const language of config.languages) assert.ok(sitemap.includes(`<loc>${config.origin}${language.path}</loc>`));
   assert.ok((await read('dist/robots.txt')).includes(`${config.origin}/sitemap.xml`));
 });
@@ -178,7 +181,7 @@ test('build fails for missing translations and mismatched letter parameters', as
   const directory = await fixture(t);
   const filename = path.join(directory, 'src/locales/it.json');
   const locale = structuredClone(italian);
-  delete locale.copy.site_title;
+  locale.copy.site_title = '';
   await writeFile(filename, JSON.stringify(locale));
   await assert.rejects(build(directory), /Missing translation: it.copy.site_title/);
   locale.copy.site_title = italian.copy.site_title;
@@ -198,8 +201,8 @@ test('a new locale needs only its translation file and configuration entry', asy
   const html = await readFile(path.join(directory, 'dist/fr/index.html'), 'utf8');
   assert.match(html, /<html lang="fr">/);
   assert.match(html, /Français/);
-  const chooser = await readFile(path.join(directory, 'dist/index.html'), 'utf8');
-  assert.match(chooser, /href="\/fr\/"/);
+  const homepage = await readFile(path.join(directory, 'dist/index.html'), 'utf8');
+  assert.match(homepage, /href="\/fr\/"/);
   assert.ok(html.includes(`hreflang="fr" href="${config.origin}/fr/"`));
   assert.ok(html.includes(`property="og:url" content="${config.origin}/fr/"`));
   const graph = schema(html);
@@ -213,21 +216,21 @@ const unescape = value => value.replace(/&(amp|lt|gt|quot|#39);/g, (_, entity) =
 
 test('social metadata uses localised copy and absolute canonical and image URLs', async () => {
   for (const [code, locale] of [['it', italian], ['en', english]]) {
-    const html = await read(`dist/${code}/index.html`);
+    const html = await read(pagePath(code));
     const meta = Object.fromEntries([...html.matchAll(/<meta (?:property|name)="([^"]+)" content="([^"]*)"/g)].map(([, key, value]) => [key, unescape(value)]));
     assert.equal(meta['og:title'], locale.copy.site_title);
     assert.equal(meta['twitter:title'], locale.copy.site_title);
     assert.equal(meta['og:description'], locale.copy.site_description);
     assert.equal(meta['twitter:description'], locale.copy.site_description);
-    assert.equal(meta['og:url'], `${config.origin}/${code}/`);
-    assert.equal(meta['og:image'], `${config.origin}/images/social-card.jpg`);
+    assert.equal(meta['og:url'], `${config.origin}${config.languages.find(language => language.code === code).path}`);
+    assert.equal(meta['og:image'], `${config.origin}/images/social-card-it.jpg`);
     assert.equal(meta['twitter:image'], meta['og:image']);
     assert.equal(meta['og:image:alt'], locale.copy.social_image_alt);
     assert.equal(meta['twitter:image:alt'], meta['og:image:alt']);
     assert.equal(meta['og:image:type'], 'image/jpeg');
     assert.equal(meta['og:image:width'], '1200');
     assert.equal(meta['og:image:height'], '630');
-    await access(new URL('dist/images/social-card.jpg', root));
+    await access(new URL('dist/images/social-card-it.jpg', root));
     assert.equal(meta['twitter:card'], 'summary_large_image');
     assert.equal((html.match(/<title>/g) || []).length, 1);
   }
@@ -237,7 +240,7 @@ test('social metadata uses localised copy and absolute canonical and image URLs'
 test('schema links localised pages and services to one guide identity and matches visible FAQs', async () => {
   const identities = [];
   for (const [code, locale] of [['it', italian], ['en', english]]) {
-    const html = await read(`dist/${code}/index.html`);
+    const html = await read(pagePath(code));
     const graph = schema(html);
     const byType = type => graph.find(item => item['@type'] === type);
     assert.equal(graph.length, 5);
@@ -337,6 +340,34 @@ test('legacy page redirects point to existing chapters and preserve itinerary bo
       }
     }
   }
+});
+
+test('HTTP routing serves Italian at root and permanently redirects former Italian URLs', async t => {
+  const server = createPreviewServer();
+  await new Promise((resolve, reject) => {
+    server.once('error', reject);
+    server.listen(0, '127.0.0.1', resolve);
+  });
+  t.after(() => new Promise(resolve => server.close(resolve)));
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  const homepage = await fetch(`${origin}/`, { headers: { 'Accept-Language': 'en-US' }, redirect: 'manual' });
+  assert.equal(homepage.status, 200);
+  assert.equal(homepage.headers.get('location'), null);
+  assert.match(await homepage.text(), /<html lang="it">/);
+  for (const oldPath of ['/it', '/it/', '/it/index.html']) {
+    const response = await fetch(`${origin}${oldPath}?ref=old&x=1`, { redirect: 'manual' });
+    assert.equal(response.status, 301);
+    // No destination fragment: the browser inherits the old bookmark.
+    assert.equal(response.headers.get('location'), '/?ref=old&x=1');
+    await response.text();
+  }
+  const englishPage = await fetch(`${origin}/en/`);
+  assert.equal(englishPage.status, 200);
+  assert.match(await englishPage.text(), /<html lang="en">/);
+  const card = await fetch(`${origin}/images/social-card-it.jpg`);
+  assert.equal(card.status, 200);
+  assert.equal(card.headers.get('content-type'), 'image/jpeg');
+  await card.arrayBuffer();
 });
 
 test('responsive photo candidates exist, keep aspect ratio, and reduce transfer size', async () => {

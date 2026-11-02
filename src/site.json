@@ -1,8 +1,8 @@
 {
   "origin": "https://viaggioinisraele.com",
-  "fallbackLanguage": "en",
+  "defaultLanguage": "it",
   "languages": [
-    { "code": "it", "name": "Italiano", "path": "/it/" },
+    { "code": "it", "name": "Italiano", "path": "/" },
     { "code": "en", "name": "English", "path": "/en/" }
   ]
 }

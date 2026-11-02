@@ -1,21 +1,21 @@
-# Social sharing image
+# Italian social sharing image
 
-Final asset: `images/social-card.jpg`, 1200×630, used by Open Graph and Twitter
-cards on the root, Italian, and English pages. The page hero is unchanged.
+Current asset: `images/social-card-it.jpg`, 1200×630 JPEG. Open Graph and Twitter
+cards on both `/` and `/en/` use this Italian branding. Titles and descriptions
+remain in the page's language, and alternative text describes the actual artwork.
+The versioned image URL avoids reusing the cached bilingual preview image.
 
-Created with the built-in imagegen tool using `images/jerusalem-1.webp` as the
-photographic reference. Shared bilingual branding avoids maintaining separate
-images for each locale; image alternative text is translated in the locale files.
+Created with the built-in imagegen tool by editing the previous
+`images/social-card.jpg`. That original asset is retained as the reference.
+The generated output was resized to 1200×630 and JPEG-encoded with sips.
+The page hero is unchanged.
 
-## Generation prompt
+## Edit prompt
 
-Use case: ads-marketing.
-Create a polished Open Graph sharing card for viaggioinisraele.com. Output exactly 1200 x 630 pixels, landscape.
-Input image: the attached existing Jerusalem photograph is the photographic source. Preserve its real architecture and landmarks faithfully; crop and composite it, do not invent new buildings or alter the skyline.
-Design matches an elegant literary travel website: deep midnight navy #0B0F2A, warm muted gold #D8B26E, ivory #FFF6DC, sophisticated high-contrast editorial serif typography similar to Cormorant Garamond.
-Composition: left 52% clean midnight-navy typography panel; right 48% the supplied photograph in a tall rounded arch with a thin gold outline, cropped to retain the golden dome and Western Wall. A subtle navy blend connects the photo to the panel. Keep crucial content at least 60px from every edge. Restrained, beautiful and readable as a small link preview.
-Exact text, and no other text:
-"ISRAEL" (large elegant ivory serif on left, main focal headline)
-"Isaac · Isacco Charig" (smaller warm-gold serif beneath)
-"viaggioinisraele.com" (small ivory text near bottom left).
-This single card serves both the English and Italian site. No invented slogans, no buttons, no UI, no additional logos, no watermark, no extra writing. Finished flat graphic, not a mockup.
+Use case: text-localization. Edit the supplied social sharing card into Italian. Output exactly 1200 x 630 pixels.
+Keep the midnight navy background, gold-framed Jerusalem photograph on the right, real architecture, colors, crop, elegant editorial serif typography, and overall layout. Change the left-hand typography to the following exact text:
+"VIAGGIO IN" as a small ivory serif line above the main headline;
+"ISRAELE" as the large ivory serif main headline, fitted comfortably into the left panel;
+"con Isacco Charig" as the smaller gold serif line below;
+"viaggioinisraele.com" as the small ivory domain near the bottom left, same as original.
+Remove all English text and the name Isaac. Keep generous spacing, a minimum 45px left safe margin and crisp legibility at small social preview size. Do not add slogans, buttons, logos or any other text. Do not change the photograph or invent landmarks. Flat finished graphic, not a mockup.

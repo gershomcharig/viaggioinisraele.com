@@ -1,8 +1,8 @@
 # Travel Israel with Isaac
 
 Static multilingual website for Isacco Charig, a licensed tour guide in Israel.
-Italian lives at `/it/`, English at `/en/`. The root `/` selects a language or
-shows language links when JavaScript is disabled.
+Italian is the complete homepage at `/`; English lives at `/en/`. Language
+selection is explicit. Former `/it/` URLs permanently redirect to `/`.
 
 ## Develop and preview
 
@@ -13,7 +13,7 @@ npm run build
 npm run preview
 ```
 
-Open http://127.0.0.1:4173/ (or `/it/` and `/en/`). Rebuild and reload after edits.
+Open http://127.0.0.1:4173/ (or `/en/`). Rebuild and reload after edits.
 Opening the repository’s `index.html` directly shows preview instructions; `file://`
 URLs do not run the build or serve root-relative assets. Use the HTTP preview above.
 
@@ -27,10 +27,10 @@ WhatsApp message formatting, and adding another locale.
 - `src/locales/it.json` and `src/locales/en.json` contain copy, accessible labels,
   WhatsApp enquiries, and interactive letter messages. Keys are shared across locales.
 - `src/site.json` defines the production origin, supported languages, their labels
-  and paths, and the fallback language. The canonical origin defaults to
+  and paths, and the default language (Italian at `/`). The canonical origin defaults to
   `https://viaggioinisraele.com`; change this if the production hostname changes.
-- `src/entry.html` is the published root language chooser template. The repository’s
-  `index.html` only provides local preview instructions and is not published.
+- The repository’s `index.html` only provides local preview instructions and is
+  not published. The build renders `src/home.html` at every configured language path.
 - `css/home.css`, `js/`, and `images/` are shared assets. Keep asset URLs root-relative.
 
 Copy placeholders such as `{{copy.site_title}}` are HTML-escaped at build time.
@@ -46,18 +46,19 @@ The English copy uses “Isaac” and advertises English-speaking tours. Italian
 
 ## Language behaviour
 
-Only `/` and `/index.html` select a language automatically. Selection checks an
-explicit choice saved as `isacco.language` in local storage, then the browser’s
-ordered language preferences (including regional variants such as `en-GB` and
-`it-CH`), then falls back to English. Redirects use `location.replace` and retain
-query strings and chapter anchors from old root links.
+Italian is always served at `/`, even when the browser prefers English or an old
+`isacco.language` preference exists. There is no automatic language detection,
+client-side redirect, or storage access. English remains at `/en/`.
 
-Direct language URLs always win. The footer language switcher saves an explicit choice
-and carries the current query string and chapter anchor into the selected page.
-If storage is blocked, navigation still works, but the choice cannot be remembered.
-Without JavaScript, the root shows ordinary language links and language pages
-contain complete content and usable contact links. As before, filters and the
-personalised letter controls require JavaScript; a general WhatsApp link remains.
+The footer's ordinary language links work without JavaScript. JavaScript carries
+the current query string and chapter anchor into a clicked language link. Without
+JavaScript, both pages contain complete content, usable contact links, and native
+FAQ accordions. Filters and personalised letter controls require JavaScript; a
+general WhatsApp link remains available.
+
+`/it`, `/it/`, and `/it/index.html` return 301 redirects to `/`, preserving query
+strings and browser bookmarks. The local preview server reads the project's
+exact-path Netlify redirects too; restart it after changing redirect configuration.
 
 ## Add a language
 
@@ -67,7 +68,7 @@ personalised letter controls require JavaScript; a general WhatsApp link remains
    array in `src/site.json`. Each code and path must be unique.
 3. Run `npm test` and review the new page at desktop and mobile sizes.
 
-The build adds the new page, chooser and switcher links, reciprocal `hreflang`
+The build adds the new page, switcher links, reciprocal `hreflang`
 annotations, and sitemap entries automatically. Adding a language with a different
 writing direction may also need typography and layout work.
 
@@ -84,15 +85,16 @@ SEO URLs intentionally point at the configured production origin.
 
 Before publishing, review `/`, `/it/`, `/en/`, `/sitemap.xml`, and `/robots.txt` in
 a Netlify deploy preview. Check switching with a chapter anchor, translated
-WhatsApp enquiries, and mobile layout. No server redirects, edge functions,
-geolocation, or translation service are required.
+WhatsApp enquiries, and mobile layout. Confirm `/it/` returns a 301 redirect to
+`/`. No edge functions, geolocation, or translation service are required.
 
 ## SEO and answer-engine maintenance
 
 Search titles use `copy.site_title`; descriptions use `copy.site_description` in
-each locale. These also supply Open Graph and Twitter cards. The language chooser
-keeps its bilingual metadata. Social image URLs are absolute and use the dedicated
-1200×630 `/images/social-card.jpg`, shared across languages, with translated
+each locale. These also supply Open Graph and Twitter cards. The root uses Italian
+metadata and `/en/` uses English metadata. Social image URLs are absolute and use
+the dedicated 1200×630 `/images/social-card-it.jpg`, with Italian artwork on both
+language pages and translated
 `copy.social_image_alt` descriptions. Its source and generation prompt are recorded
 in `docs/social-card.md`. Update its measured dimensions in `scripts/seo.mjs` if
 that asset changes. The page hero remains the original Jerusalem photograph.
@@ -123,8 +125,8 @@ separate check; valid schema does not guarantee indexing or AI citations.
 
 After deployment:
 
-1. Check `/`, `/it/`, `/en/`, shared images, `/robots.txt`, and `/sitemap.xml`
-   return successful HTTP responses on the production hostname.
+1. Check `/`, `/en/`, shared images, `/robots.txt`, and `/sitemap.xml` return
+   successful HTTP responses. Check `/it/` permanently redirects to `/`.
 2. Confirm canonical/social URLs and hreflang resolve to production pages, and
    that hosting/CDN rules allow search crawlers to retrieve HTML and assets.
 3. Submit the sitemap in Google Search Console and inspect both language URLs
@@ -143,12 +145,12 @@ file; clearer answer coverage and stronger authority would require content work.
 
 `netlify.toml` permanently redirects the retired Italian pages and English contact
 page to the matching language and chapter. Both `.html` and extensionless forms
-are covered. `/itinerari.html` goes to `/it/` without a destination fragment so
+are covered. `/itinerari.html` goes to `/` without a destination fragment so
 browsers retain old stop bookmarks (for example `#mar-morto`). The eight original
 stop IDs remain on the corresponding itinerary articles. An itinerary URL without
-a bookmark opens the Italian homepage. Root language selection remains unchanged.
-These hosting redirects need a Netlify preview to verify HTTP responses; the plain
-local preview server only serves files.
+a bookmark opens the Italian homepage. Redirects point directly to the canonical
+language page, without an extra `/it/` hop. The local preview server also applies
+these exact-path redirects; confirm them again in a Netlify deploy preview.
 
 Photos have committed variants in `images/responsive/`. `srcset` and `sizes` let
 browsers select a smaller file for the viewport and pixel density, while original

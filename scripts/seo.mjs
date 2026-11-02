@@ -8,7 +8,7 @@ const faqKeys = [
 ];
 
 export const heroImage = { path: '/images/jerusalem-1.webp', width: 1500, height: 900 };
-const socialImage = { path: '/images/social-card.jpg', width: 1200, height: 630 };
+const socialImage = { path: '/images/social-card-it.jpg', width: 1200, height: 630 };
 
 export function faqsFor(copy) {
   return faqKeys.map(([question, answer]) => {

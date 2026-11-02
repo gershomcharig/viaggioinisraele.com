@@ -31,24 +31,28 @@ export function renderTemplate(template, values) {
 
 export async function build(root = projectRoot) {
   const config = await json(path.join(root, 'src/site.json'));
-  const { origin, languages, fallbackLanguage } = config;
+  const { origin, languages, defaultLanguage } = config;
   if (new URL(origin).origin !== origin) throw new Error('origin must be an HTTPS origin without a trailing slash');
   if (!origin.startsWith('https://')) throw new Error('origin must use HTTPS');
-  if (!languages.length || !languages.some(language => language.code === fallbackLanguage)) {
-    throw new Error('A supported fallback language is required');
+  if (!languages.length || !languages.some(language => language.code === defaultLanguage)) {
+    throw new Error('A supported default language is required');
   }
   const codes = new Set(), paths = new Set();
   for (const { code, name, path: languagePath } of languages) {
     if (!/^[a-z]{2,3}(?:-[A-Za-z0-9]+)*$/.test(code) || !name ||
-        !/^\/[a-zA-Z0-9-]+\/$/.test(languagePath) || codes.has(code) || paths.has(languagePath)) {
+        !/^\/(?:[a-zA-Z0-9-]+\/)?$/.test(languagePath) || codes.has(code) || paths.has(languagePath)) {
       throw new Error(`Invalid or duplicate language: ${code}`);
     }
     codes.add(code); paths.add(languagePath);
   }
 
+  if (languages.find(language => language.code === defaultLanguage).path !== '/') {
+    throw new Error('The default language must be served at /');
+  }
+
   const template = await readFile(path.join(root, 'src/home.html'), 'utf8');
   const locales = await Promise.all(languages.map(({ code }) => json(path.join(root, `src/locales/${code}.json`))));
-  const reference = flatten(locales[languages.findIndex(language => language.code === fallbackLanguage)]);
+  const reference = flatten(locales[languages.findIndex(language => language.code === defaultLanguage)]);
   for (const [index, locale] of locales.entries()) {
     const flat = flatten(locale);
     for (const key of Object.keys(reference)) {
@@ -68,7 +72,7 @@ export async function build(root = projectRoot) {
   const alternates = languages.map(({ code, path: languagePath }) =>
     `<link rel="alternate" hreflang="${code}" href="${origin}${languagePath}" />`
   ).concat(`<link rel="alternate" hreflang="x-default" href="${origin}/" />`).join('\n        ');
-  const runtime = { languages, fallbackLanguage };
+  const runtime = { languages, defaultLanguage };
   const pages = languages.map((language, index) => {
     const locale = locales[index];
     const faqs = faqsFor(locale.copy);
@@ -103,22 +107,10 @@ export async function build(root = projectRoot) {
     await mkdir(directory, { recursive: true });
     await writeFile(path.join(directory, 'index.html'), html);
   }
-  const chooser = await readFile(path.join(root, 'src/entry.html'), 'utf8');
-  const chooserSocial = socialMetadata({
-    title: 'Travel Israel with Isaac · Viaggio in Israele con Isacco',
-    description: 'Explore Israel with Isaac Charig. Choose your language: English or Italiano.',
-    name: 'Travel Israel with Isaac · Viaggio in Israele con Isacco',
-    url: `${origin}/`, origin, imageAlt: 'Israel — Isaac · Isacco Charig. Jerusalem’s Old City / Città Vecchia di Gerusalemme.',
-  }, escapeHtml);
-  await writeFile(path.join(dist, 'index.html'), renderTemplate(chooser, {
-    seo: `<link rel="canonical" href="${origin}/" />\n    ${alternates}\n    ${chooserSocial}`,
-    runtime: safeJson(runtime),
-    languageLinks: languages.map(language => `<a href="${language.path}" lang="${language.code}" hreflang="${language.code}" data-language="${language.code}">${escapeHtml(language.name)}</a>`).join('\n        '),
-  }));
   await Promise.all(['css', 'js', 'images'].map(directory => cp(path.join(root, directory), path.join(dist, directory), { recursive: true })));
   const sitemapAlternates = languages.map(language => `<xhtml:link rel="alternate" hreflang="${language.code}" href="${origin}${language.path}"/>`)
     .concat(`<xhtml:link rel="alternate" hreflang="x-default" href="${origin}/"/>`).join('');
-  const urls = ['/', ...languages.map(language => language.path)].map(url =>
+  const urls = languages.map(language => language.path).map(url =>
     `  <url><loc>${origin}${url}</loc>${sitemapAlternates}</url>`).join('\n');
   await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`);
   await writeFile(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
@@ -126,5 +118,5 @@ export async function build(root = projectRoot) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   await build();
-  console.log('Built language chooser and localised pages in dist/');
+  console.log('Built Italian homepage and localised pages in dist/');
 }
