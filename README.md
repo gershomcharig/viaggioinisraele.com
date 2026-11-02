@@ -138,3 +138,21 @@ References: [Sanity SEO/AEO skill](https://github.com/sanity-io/agent-toolkit/bl
 and [Schema.org](https://schema.org/). Current primary documentation takes precedence
 over generic skill recommendations. Google requires no special AI markup or text
 file; clearer answer coverage and stronger authority would require content work.
+
+## Legacy links and responsive photos
+
+`netlify.toml` permanently redirects the retired Italian pages and English contact
+page to the matching language and chapter. Both `.html` and extensionless forms
+are covered. `/itinerari.html` goes to `/it/` without a destination fragment so
+browsers retain old stop bookmarks (for example `#mar-morto`). The eight original
+stop IDs remain on the corresponding itinerary articles. An itinerary URL without
+a bookmark opens the Italian homepage. Root language selection remains unchanged.
+These hosting redirects need a Netlify preview to verify HTTP responses; the plain
+local preview server only serves files.
+
+Photos have committed variants in `images/responsive/`. `srcset` and `sizes` let
+browsers select a smaller file for the viewport and pixel density, while original
+photos remain available. After replacing a source photo or its dimensions, run
+`node scripts/optimise-images.mjs` (requires `cwebp`, available via `brew install webp`)
+and update its `srcset` if the source width changed. Ordinary builds require no
+image tooling. Inspect the regenerated photos before committing them.

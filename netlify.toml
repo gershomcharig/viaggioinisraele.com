@@ -4,3 +4,66 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Permanent migration of published legacy pages.
+# No destination fragment on itinerari: browsers retain old stop bookmarks.
+
+[[redirects]]
+  from = "/chi-sono.html"
+  to = "/it/#cap-2"
+  status = 301
+
+[[redirects]]
+  from = "/chi-sono"
+  to = "/it/#cap-2"
+  status = 301
+
+[[redirects]]
+  from = "/scopri-israele.html"
+  to = "/it/#cap-3"
+  status = 301
+
+[[redirects]]
+  from = "/scopri-israele"
+  to = "/it/#cap-3"
+  status = 301
+
+[[redirects]]
+  from = "/itinerari.html"
+  to = "/it/"
+  status = 301
+
+[[redirects]]
+  from = "/itinerari"
+  to = "/it/"
+  status = 301
+
+[[redirects]]
+  from = "/contatti.html"
+  to = "/it/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/contatti"
+  to = "/it/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/en/contact-me.html"
+  to = "/en/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/en/contact-me"
+  to = "/en/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/thankyou.html"
+  to = "/it/#cap-9"
+  status = 301
+
+[[redirects]]
+  from = "/thankyou"
+  to = "/it/#cap-9"
+  status = 301

@@ -313,3 +313,55 @@ test('schema and FAQ rendering preserve special characters without script inject
   assert.ok(html.includes(escapeHtml(special)));
   assert.doesNotMatch(html, /<script>alert\(1\)<\/script>/);
 });
+
+test('legacy page redirects point to existing chapters and preserve itinerary bookmarks', async () => {
+  const redirects = [...(await read('netlify.toml')).matchAll(/\[\[redirects\]\]([\s\S]*?)(?=\n\[|$)/g)].map(([, block]) => ({
+    from: block.match(/from = "([^"]+)"/)[1],
+    to: block.match(/to = "([^"]+)"/)[1],
+    status: Number(block.match(/status = (\d+)/)[1]),
+  }));
+  for (const slug of ['chi-sono', 'scopri-israele', 'itinerari', 'contatti', 'en/contact-me', 'thankyou']) {
+    for (const suffix of ['', '.html']) {
+      const rule = redirects.find(rule => rule.from === `/${slug}${suffix}`);
+      assert.ok(rule, `Missing legacy redirect for ${slug}${suffix}`);
+      assert.equal(rule.status, 301);
+      const [destination, fragment] = rule.to.split('#');
+      const html = await read(`dist${destination}index.html`);
+      if (fragment) assert.ok(html.includes(`id="${fragment}"`));
+      if (slug === 'itinerari') {
+        // An explicit destination fragment would overwrite the old stop bookmark.
+        assert.equal(fragment, undefined);
+        for (const id of ['telaviv-haifa', 'gerusalemme-antica', 'mar-morto', 'nazaret', 'eilat-petra', 'galilea', 'gerusalemme-moderna', 'neghev']) {
+          assert.ok(html.includes(`<article id="${id}"`), `Missing old stop ${id}`);
+        }
+      }
+    }
+  }
+});
+
+test('responsive photo candidates exist, keep aspect ratio, and reduce transfer size', async () => {
+  const { stat } = await import('node:fs/promises');
+  const html = await read('dist/en/index.html');
+  const images = [...html.matchAll(/<img\b[^>]+>/g)].map(([tag]) => tag);
+  for (const tag of images) {
+    const source = tag.match(/\bsrc="([^"]+)"/)[1];
+    const width = Number(tag.match(/\bwidth="(\d+)"/)[1]);
+    if (width <= 480) continue;
+    assert.match(tag, /\bsizes="[^"]+"/);
+    const candidates = tag.match(/\bsrcset="([^"]+)"/)[1].split(', ');
+    for (const candidate of candidates) {
+      const [url, descriptor] = candidate.split(' ');
+      const candidateWidth = Number(descriptor.slice(0, -1));
+      assert.ok(candidateWidth <= width, 'Do not upscale photos');
+      const file = new URL(`dist${url}`, root);
+      assert.ok((await stat(file)).size < (await stat(new URL(`dist${source}`, root))).size);
+      // cwebp emits VP8 lossy files; read their encoded dimensions directly.
+      const data = await readFile(file);
+      assert.equal(data.toString('ascii', 12, 16), 'VP8 ');
+      assert.equal(data.readUInt16LE(26) & 0x3fff, candidateWidth);
+      const height = data.readUInt16LE(28) & 0x3fff;
+      const sourceHeight = Number(tag.match(/\bheight="(\d+)"/)[1]);
+      assert.ok(Math.abs(height - sourceHeight * candidateWidth / width) <= 1);
+    }
+  }
+});
