@@ -134,7 +134,7 @@ test('generated pages have readable content, correct SEO, localised enquiries an
   }
   const html = await read('dist/en/index.html');
   assert.doesNotMatch(html, /Translated from Italian|Isacco|Travel in Israel with/);
-  assert.match(html, /<title>\s*Travel Israel with Isaac — Your story begins here/);
+  assert.match(html, /<title>\s*English-speaking Israel Tour Guide \| Isaac Charig/);
   assert.match(html, /content="Travel Israel with Isaac Charig/);
   assert.match(html, /Message on Whatsapp/);
   for (const code of ['it', 'en']) {
@@ -199,4 +199,114 @@ test('a new locale needs only its translation file and configuration entry', asy
   assert.match(html, /Français/);
   const chooser = await readFile(path.join(directory, 'dist/index.html'), 'utf8');
   assert.match(chooser, /href="\/fr\/"/);
+  assert.ok(html.includes(`hreflang="fr" href="${config.origin}/fr/"`));
+  assert.ok(html.includes(`property="og:url" content="${config.origin}/fr/"`));
+  const graph = schema(html);
+  assert.equal(graph.find(item => item['@type'] === 'WebPage').inLanguage, 'fr');
+  assert.equal(graph.find(item => item['@type'] === 'FAQPage').mainEntity.length, 5);
+  assert.ok((await readFile(path.join(directory, 'dist/sitemap.xml'), 'utf8')).includes(`<loc>${config.origin}/fr/</loc>`));
+});
+
+const schema = html => JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1])['@graph'];
+const unescape = value => value.replace(/&(amp|lt|gt|quot|#39);/g, (_, entity) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" })[entity]);
+
+test('social metadata uses localised copy and absolute canonical and image URLs', async () => {
+  for (const [code, locale] of [['it', italian], ['en', english]]) {
+    const html = await read(`dist/${code}/index.html`);
+    const meta = Object.fromEntries([...html.matchAll(/<meta (?:property|name)="([^"]+)" content="([^"]*)"/g)].map(([, key, value]) => [key, unescape(value)]));
+    assert.equal(meta['og:title'], locale.copy.site_title);
+    assert.equal(meta['twitter:title'], locale.copy.site_title);
+    assert.equal(meta['og:description'], locale.copy.site_description);
+    assert.equal(meta['twitter:description'], locale.copy.site_description);
+    assert.equal(meta['og:url'], `${config.origin}/${code}/`);
+    assert.equal(meta['og:image'], `${config.origin}/images/jerusalem-1.webp`);
+    assert.equal(meta['twitter:image'], meta['og:image']);
+    assert.equal(meta['og:image:alt'], locale.copy.jerusalem_s_old_city);
+    assert.equal(meta['twitter:image:alt'], meta['og:image:alt']);
+    assert.equal(meta['og:image:width'], '1500');
+    assert.equal(meta['og:image:height'], '900');
+    assert.equal(meta['twitter:card'], 'summary_large_image');
+    assert.equal((html.match(/<title>/g) || []).length, 1);
+  }
+  assert.ok((await read('dist/index.html')).includes(`property="og:url" content="${config.origin}/"`));
+});
+
+test('schema links localised pages and services to one guide identity and matches visible FAQs', async () => {
+  const identities = [];
+  for (const [code, locale] of [['it', italian], ['en', english]]) {
+    const html = await read(`dist/${code}/index.html`);
+    const graph = schema(html);
+    const byType = type => graph.find(item => item['@type'] === type);
+    assert.equal(graph.length, 5);
+    const person = byType('Person'), page = byType('WebPage'), service = byType('Service'), faq = byType('FAQPage');
+    identities.push(person['@id']);
+    assert.equal(person.name, locale.copy.isacco_charig);
+    assert.equal(person.description, locale.copy.intro_drop_cap + locale.copy.intro_after_drop_cap);
+    assert.equal(person.telephone, '+972546267521');
+    assert.equal(person.email, 'i.charig@gmail.com');
+    assert.equal(page.inLanguage, code);
+    assert.equal(page.name, locale.copy.site_title);
+    assert.equal(page.description, locale.copy.site_description);
+    assert.equal(page.mainEntity['@id'], service['@id']);
+    assert.equal(page.hasPart['@id'], faq['@id']);
+    assert.equal(page.isPartOf['@id'], byType('WebSite')['@id']);
+    assert.equal(service.provider['@id'], person['@id']);
+    const ids = new Set(graph.map(item => item['@id']));
+    for (const node of graph) {
+      assert.equal(new URL(node['@id']).origin, config.origin);
+      assert.equal(new URL(node.url).origin, config.origin);
+    }
+    const checkRefs = value => {
+      if (!value || typeof value !== 'object') return;
+      if (value['@id']) assert.ok(ids.has(value['@id']), `Unresolved entity: ${value['@id']}`);
+      Object.values(value).forEach(checkRefs);
+    };
+    checkRefs(graph);
+    const details = [...html.matchAll(/<details\b[^>]*>([\s\S]*?)<\/details>/g)];
+    assert.equal(details.length, 5);
+    assert.equal(faq.mainEntity.length, 5);
+    details.forEach(([, body], index) => {
+      const question = unescape(body.match(/<summary[^>]*><span>([^<]+)<\/span>/)[1]);
+      const answer = unescape(body.match(/<p class="faq-answer">([^<]+)<\/p>/)[1]);
+      assert.equal(faq.mainEntity[index].name, question);
+      assert.equal(faq.mainEntity[index].acceptedAnswer.text, answer);
+    });
+    assert.ok(html.includes('href="tel:+972546267521"'));
+    assert.ok(html.includes('href="mailto:i.charig@gmail.com"'));
+    assert.doesNotMatch(JSON.stringify(graph), /aggregateRating|priceCurrency|dateModified|sameAs|PostalAddress/);
+  }
+  assert.equal(identities[0], identities[1]);
+});
+
+test('media has intrinsic dimensions and appropriate loading priorities', async () => {
+  const html = await read('dist/en/index.html');
+  const images = [...html.matchAll(/<img\b[^>]+>/g)].map(match => match[0]);
+  assert.equal(images.length, 14);
+  for (const image of images) {
+    assert.match(image, /width="[1-9]\d*" height="[1-9]\d*"/);
+    if (image.includes('data-hero-img')) {
+      assert.match(image, /width="1500" height="900"/);
+      assert.match(image, /fetchpriority="high" loading="eager"/);
+    } else assert.match(image, /loading="lazy"/);
+  }
+  assert.match(html, /<iframe\s+loading="lazy"/);
+});
+
+test('schema and FAQ rendering preserve special characters without script injection', async t => {
+  const directory = await fixture(t);
+  const locale = structuredClone(english);
+  const special = 'Quotes " & apostrophes \' <tag> </script><script>alert(1)</script> \\ \u2028';
+  locale.copy.site_title = special;
+  locale.copy.how_much_does_a_tour_cost = special;
+  locale.copy.it_depends_on_the_length_of_the_trip = special;
+  await writeFile(path.join(directory, 'src/locales/en.json'), JSON.stringify(locale));
+  await build(directory);
+  const html = await readFile(path.join(directory, 'dist/en/index.html'), 'utf8');
+  const graph = schema(html);
+  assert.equal(graph.find(item => item['@type'] === 'WebPage').name, special);
+  const question = graph.find(item => item['@type'] === 'FAQPage').mainEntity[3];
+  assert.equal(question.name, special);
+  assert.equal(question.acceptedAnswer.text, special);
+  assert.ok(html.includes(escapeHtml(special)));
+  assert.doesNotMatch(html, /<script>alert\(1\)<\/script>/);
 });

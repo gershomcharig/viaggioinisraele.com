@@ -153,6 +153,7 @@
                             src="/images/jerusalem-1.webp"
                             alt="{{copy.jerusalem_s_old_city}}"
                             class="hero-image"
+                            width="1500" height="900" fetchpriority="high" loading="eager"
                         />
                         <div data-hero-shade class="hero-shade"></div>
                     </div>
@@ -213,6 +214,7 @@
                                 src="/images/isacco-1.webp"
                                 alt="{{copy.isacco_charig}}"
                                 class="portrait-image"
+                                width="1920" height="1280" loading="lazy"
                             />
                         </div>
                         <div class="portrait-secondary">
@@ -221,6 +223,7 @@
                                     src="/images/group-1.webp"
                                     alt="{{copy.isacco_with_a_group_of_travellers}}"
                                     class="image-cover"
+                                    width="1770" height="1770" loading="lazy"
                                 />
                             </div>
                         </div>
@@ -230,6 +233,7 @@
                                     src="/images/isacco-2.webp"
                                     alt="{{copy.isacco_leading_a_tour}}"
                                     class="image-cover"
+                                    width="286" height="358" loading="lazy"
                                 />
                             </div>
                         </div>
@@ -343,6 +347,7 @@
                                         src="/images/jerusalem-2.webp"
                                         alt="{{copy.a_view_of_israel}}"
                                         class="image-cover"
+                                        width="1920" height="1257" loading="lazy"
                                     />
                                 </div>
                             </div>
@@ -352,6 +357,7 @@
                                         src="/images/jerusalem-wall.webp"
                                         alt="{{copy.a_view_of_israel}}"
                                         class="image-cover"
+                                        width="1920" height="1276" loading="lazy"
                                     />
                                 </div>
                             </div>
@@ -453,6 +459,7 @@
                                                 src="/images/jerusalem-1-square.webp"
                                                 alt="{{copy.ancient_jerusalem}}"
                                                 class="itinerary-image"
+                                                width="1440" height="1440" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number">I</span>
@@ -496,6 +503,7 @@
                                                 src="/images/jerusalem-modern.webp"
                                                 alt="{{copy.modern_jerusalem}}"
                                                 class="itinerary-image"
+                                                width="768" height="768" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number">II</span>
@@ -539,6 +547,7 @@
                                                 src="/images/dead-sea.webp"
                                                 alt="{{copy.the_dead_sea_and_masada}}"
                                                 class="itinerary-image"
+                                                width="1920" height="1920" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number"
@@ -584,6 +593,7 @@
                                                 src="/images/desert-2.webp"
                                                 alt="{{copy.the_judean_desert_and_the_negev}}"
                                                 class="itinerary-image"
+                                                width="1172" height="1657" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number">IV</span>
@@ -627,6 +637,7 @@
                                                 src="/images/petra.webp"
                                                 alt="{{copy.eilat_and_petra}}"
                                                 class="itinerary-image"
+                                                width="960" height="1200" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number">V</span>
@@ -670,6 +681,7 @@
                                                 src="/images/haifa.webp"
                                                 alt="{{copy.from_tel_aviv_to_haifa}}"
                                                 class="itinerary-image"
+                                                width="750" height="750" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number">VI</span>
@@ -713,6 +725,7 @@
                                                 src="/images/nazareth.webp"
                                                 alt="{{copy.nazareth}}"
                                                 class="itinerary-image"
+                                                width="499" height="499" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number"
@@ -756,6 +769,7 @@
                                                 src="/images/galilee.webp"
                                                 alt="{{copy.upper_and_lower_galilee}}"
                                                 class="itinerary-image"
+                                                width="898" height="898" loading="lazy"
                                             />
                                         </div>
                                         <span class="itinerary-number"
@@ -815,6 +829,7 @@
                     </h2>
                     <div data-rv="200" class="video-frame">
                         <iframe
+                            loading="lazy"
                             src="https://www.youtube.com/embed/FYtk8JMMZRE?rel=0"
                             referrerpolicy="strict-origin-when-cross-origin"
                             title="{{copy.travel_in_israel_with_isacco_video}}"
@@ -936,67 +951,7 @@
                             </p>
                         </div>
                         <div class="faq-list">
-                            <details
-                                data-rv="0"
-                                name="faq"
-                                open
-                                class="faq-item"
-                            >
-                                <summary class="faq-question">
-                                    <span
-                                        >{{copy.do_you_guide_pilgrimage_and_parish_groups}}</span
-                                    >
-                                    <span class="faq-icon">+</span>
-                                </summary>
-
-                                <p class="faq-answer">
-                                    {{copy.yes_i_guide_families_small_groups_and_organised}}
-                                </p>
-                            </details>
-                            <details data-rv="100" name="faq" class="faq-item">
-                                <summary class="faq-question">
-                                    <span
-                                        >{{copy.can_we_include_time_for_prayer}}</span
-                                    >
-                                    <span class="faq-icon">+</span>
-                                </summary>
-
-                                <p class="faq-answer">
-                                    {{copy.of_course_we_can_include_time_for_reflection}}
-                                </p>
-                            </details>
-                            <details data-rv="200" name="faq" class="faq-item">
-                                <summary class="faq-question">
-                                    <span
-                                        >{{copy.i_m_not_religious_is_this_trip_for}}</span
-                                    >
-                                    <span class="faq-icon">+</span>
-                                </summary>
-
-                                <p class="faq-answer">
-                                    {{copy.absolutely_israel_is_a_crossroads_of_history_cultures}}
-                                </p>
-                            </details>
-                            <details data-rv="300" name="faq" class="faq-item">
-                                <summary class="faq-question">
-                                    <span>{{copy.how_much_does_a_tour_cost}}</span>
-                                    <span class="faq-icon">+</span>
-                                </summary>
-
-                                <p class="faq-answer">
-                                    {{copy.it_depends_on_the_length_of_the_trip}}
-                                </p>
-                            </details>
-                            <details data-rv="400" name="faq" class="faq-item">
-                                <summary class="faq-question">
-                                    <span>{{copy.are_the_tours_in_english}}</span>
-                                    <span class="faq-icon">+</span>
-                                </summary>
-
-                                <p class="faq-answer">
-                                    {{copy.yes_i_guide_english_speaking_travellers_throughout_their}}
-                                </p>
-                            </details>
+                            {{faqs}}
                         </div>
                     </div>
                 </section>

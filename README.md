@@ -86,3 +86,52 @@ Before publishing, review `/`, `/it/`, `/en/`, `/sitemap.xml`, and `/robots.txt`
 a Netlify deploy preview. Check switching with a chapter anchor, translated
 WhatsApp enquiries, and mobile layout. No server redirects, edge functions,
 geolocation, or translation service are required.
+
+## SEO and answer-engine maintenance
+
+Search titles use `copy.site_title`; descriptions use `copy.site_description` in
+each locale. These also supply Open Graph and Twitter cards. The language chooser
+keeps its bilingual metadata. Social image URLs are absolute and use the existing
+Jerusalem hero photograph; update its measured dimensions in `scripts/seo.mjs`
+and the template if that asset changes. Image width/height attributes describe
+the source files; CSS continues to control their displayed size and cropping.
+
+`scripts/seo.mjs` builds a JSON-LD graph for each language page: WebSite, WebPage,
+Person, Service, and the existing FAQ section as FAQPage. A shared guide ID links
+Isaac and Isacco across languages. Identity, biography, service description, and
+contact details come from existing site content. Keep phone/email values in the
+schema aligned with the template and WhatsApp links when changing contacts.
+The five FAQ translation-key pairs drive both the accordion and structured data;
+edit the locale strings to update both, or the shared mapping to add/remove a pair.
+FAQ markup describes the content and does not guarantee a search rich result.
+
+Do not add unverified qualifications, social profiles, prices, ratings, or dates
+to structured data. New locales receive metadata and schema automatically from
+their translations. The generated HTML contains all copy, FAQs, and JSON-LD
+without requiring JavaScript. Existing canonical URLs, reciprocal hreflang,
+sitemap entries, and permissive robots rules remain the indexing foundation;
+there are no special AI files or separate training/search crawler policies.
+
+Before deployment, run `npm test`, inspect both language pages at desktop/mobile
+sizes, and paste their generated HTML into [Schema.org Validator](https://validator.schema.org/).
+The tests check metadata, linked entities, FAQ agreement, JSON escaping, media
+attributes, contact links, and new-locale generation. External validation is a
+separate check; valid schema does not guarantee indexing or AI citations.
+
+After deployment:
+
+1. Check `/`, `/it/`, `/en/`, shared images, `/robots.txt`, and `/sitemap.xml`
+   return successful HTTP responses on the production hostname.
+2. Confirm canonical/social URLs and hreflang resolve to production pages, and
+   that hosting/CDN rules allow search crawlers to retrieve HTML and assets.
+3. Submit the sitemap in Google Search Console and inspect both language URLs
+   using its live URL test. Check indexing and rendered content after recrawling.
+4. Monitor Search Console search performance and any existing AI referral data.
+   Assess loading performance with PageSpeed Insights once deployed; local
+   loading-attribute checks are not a field Core Web Vitals measurement.
+
+References: [Sanity SEO/AEO skill](https://github.com/sanity-io/agent-toolkit/blob/main/skills/seo-aeo-best-practices/SKILL.md),
+[Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features),
+and [Schema.org](https://schema.org/). Current primary documentation takes precedence
+over generic skill recommendations. Google requires no special AI markup or text
+file; clearer answer coverage and stronger authority would require content work.

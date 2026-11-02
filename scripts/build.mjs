@@ -1,6 +1,7 @@
 import { readFile, mkdir, writeFile, cp, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { faqsFor, renderFaqs, socialMetadata, structuredData } from './seo.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({
@@ -70,6 +71,12 @@ export async function build(root = projectRoot) {
   const runtime = { languages, fallbackLanguage };
   const pages = languages.map((language, index) => {
     const locale = locales[index];
+    const faqs = faqsFor(locale.copy);
+    const social = socialMetadata({
+      title: locale.copy.site_title, description: locale.copy.site_description,
+      name: locale.copy.site_name, url: `${origin}${language.path}`, origin,
+      imageAlt: locale.copy.jerusalem_s_old_city,
+    }, escapeHtml);
     const flat = flatten(locale);
     const values = Object.fromEntries(Object.entries(flat).map(([key, value]) => [key, escapeHtml(value)]));
     for (const [key, value] of Object.entries(locale.copy)) {
@@ -77,7 +84,8 @@ export async function build(root = projectRoot) {
     }
     Object.assign(values, {
       lang: language.code,
-      seo: `<link rel="canonical" href="${origin}${language.path}" />\n        ${alternates}`,
+      seo: `<link rel="canonical" href="${origin}${language.path}" />\n        ${alternates}\n        ${social}\n        <script type="application/ld+json">${safeJson(structuredData({ origin, languages, language, copy: locale.copy, faqs }))}</script>`,
+      faqs: renderFaqs(faqs, escapeHtml),
       runtime: safeJson({ ...runtime, letter: locale.letter }),
       languageSwitcher: `<nav class="language-switcher" aria-label="${escapeHtml(locale.ui.language)}">${languages.map(other =>
         `<a href="${other.path}" lang="${other.code}" hreflang="${other.code}" data-language="${other.code}"${other.code === language.code ? ' aria-current="page"' : ''}>${escapeHtml(other.name)}</a>`
@@ -96,8 +104,14 @@ export async function build(root = projectRoot) {
     await writeFile(path.join(directory, 'index.html'), html);
   }
   const chooser = await readFile(path.join(root, 'src/entry.html'), 'utf8');
+  const chooserSocial = socialMetadata({
+    title: 'Travel Israel with Isaac · Viaggio in Israele con Isacco',
+    description: 'Explore Israel with Isaac Charig. Choose your language: English or Italiano.',
+    name: 'Travel Israel with Isaac · Viaggio in Israele con Isacco',
+    url: `${origin}/`, origin, imageAlt: 'Jerusalem’s Old City · Città Vecchia di Gerusalemme',
+  }, escapeHtml);
   await writeFile(path.join(dist, 'index.html'), renderTemplate(chooser, {
-    seo: `<link rel="canonical" href="${origin}/" />\n    ${alternates}`,
+    seo: `<link rel="canonical" href="${origin}/" />\n    ${alternates}\n    ${chooserSocial}`,
     runtime: safeJson(runtime),
     languageLinks: languages.map(language => `<a href="${language.path}" lang="${language.code}" hreflang="${language.code}" data-language="${language.code}">${escapeHtml(language.name)}</a>`).join('\n        '),
   }));
