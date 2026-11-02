@@ -154,6 +154,7 @@ input::placeholder {
   display: flex;
   gap: 26px;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 11.5px;
   letter-spacing: .16em;
 }
@@ -165,7 +166,7 @@ input::placeholder {
 .whatsapp-button {
   font-family: var(--font-display);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: .14em;
   color: var(--night);
   background: var(--gold);
@@ -219,6 +220,7 @@ input::placeholder {
   width: 34px;
   height: 30px;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 10.5px;
   letter-spacing: .04em;
   border-radius: 999px;
@@ -304,6 +306,7 @@ input::placeholder {
   align-items: center;
   gap: 14px;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: .32em;
   color: var(--gold);
@@ -390,7 +393,7 @@ input::placeholder {
   color: var(--night);
   font-family: var(--font-display);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: .14em;
   line-height: 1.5;
   transition: background .2s ease, box-shadow .2s ease;
@@ -418,6 +421,7 @@ input::placeholder {
 
 .hero-caption-label {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: .32em;
   color: var(--gold-light);
@@ -551,6 +555,7 @@ input::placeholder {
 .drop-cap {
   float: left;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 76px;
   line-height: .82;
   padding: 8px 12px 0 0;
@@ -575,6 +580,7 @@ input::placeholder {
 
 .promise-label {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: .2em;
   color: var(--gold);
@@ -697,6 +703,7 @@ input::placeholder {
 
 .wonder-number {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 14px;
   letter-spacing: .12em;
   color: var(--clay);
@@ -775,6 +782,7 @@ input::placeholder {
   align-items: center;
   gap: 14px;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: .32em;
   color: var(--ochre);
@@ -816,6 +824,7 @@ input::placeholder {
 
 .filter-button {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: .14em;
   padding: 12px 20px;
@@ -922,6 +931,7 @@ input::placeholder {
   background: var(--parchment);
   border: 1px solid var(--ochre);
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 14px;
   color: var(--clay);
   z-index: 2;
@@ -937,6 +947,7 @@ input::placeholder {
 
 .itinerary-path {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 11.5px;
   letter-spacing: .24em;
   color: var(--ochre);
@@ -967,6 +978,7 @@ input::placeholder {
 .itinerary-places {
   margin: 0;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 11.5px;
   letter-spacing: .12em;
   line-height: 1.9;
@@ -1029,6 +1041,7 @@ input::placeholder {
   align-items: center;
   gap: 14px;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 12px;
   letter-spacing: .32em;
   color: var(--gold-light);
@@ -1120,6 +1133,7 @@ input::placeholder {
 
 .quote-name {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 14px;
   letter-spacing: .24em;
   color: var(--cream);
@@ -1196,6 +1210,7 @@ input::placeholder {
 
 .step-number {
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 13px;
   letter-spacing: .3em;
   color: var(--gold);
@@ -1351,6 +1366,7 @@ input::placeholder {
   display: grid;
   place-items: center;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 30px;
   color: #651D29;
   transform: rotate(8deg);
@@ -1458,7 +1474,7 @@ input::placeholder {
 .letter-button {
   font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: .16em;
   color: var(--ivory);
   background: var(--wax);
@@ -1519,6 +1535,7 @@ input::placeholder {
   justify-content: space-between;
   gap: 16px;
   font-family: var(--font-display);
+  font-weight: 500;
   font-size: 11px;
   letter-spacing: .16em;
   color: var(--lavender);
@@ -1605,6 +1622,16 @@ details[open] summary:not([aria-expanded="false"]) span:last-child {
 }
 
 @media(max-width:859px) {
+  .promises {
+    grid-template-columns: 1fr;
+  }
+  .promises > div {
+    padding: 18px 0;
+    border-left: 0;
+  }
+  .promises > div + div {
+    border-top: 1px solid rgba(216,178,110,.3);
+  }
   .narrow-only {
     display:contents
   }

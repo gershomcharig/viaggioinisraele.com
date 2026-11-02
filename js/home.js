@@ -49,7 +49,7 @@
     });
   });
 
-  q('.scroll-cue').addEventListener('click', event => {
+  qa('.scroll-cue').forEach(link => link.addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     event.preventDefault();
@@ -71,7 +71,7 @@
       }
     }
     requestAnimationFrame(step);
-  });
+  }));
 
   function updateLetter() {
     const name = q('#traveller-name').value.trim();
