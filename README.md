@@ -91,9 +91,12 @@ geolocation, or translation service are required.
 
 Search titles use `copy.site_title`; descriptions use `copy.site_description` in
 each locale. These also supply Open Graph and Twitter cards. The language chooser
-keeps its bilingual metadata. Social image URLs are absolute and use the existing
-Jerusalem hero photograph; update its measured dimensions in `scripts/seo.mjs`
-and the template if that asset changes. Image width/height attributes describe
+keeps its bilingual metadata. Social image URLs are absolute and use the dedicated
+1200×630 `/images/social-card.jpg`, shared across languages, with translated
+`copy.social_image_alt` descriptions. Its source and generation prompt are recorded
+in `docs/social-card.md`. Update its measured dimensions in `scripts/seo.mjs` if
+that asset changes. The page hero remains the original Jerusalem photograph.
+Image width/height attributes describe
 the source files; CSS continues to control their displayed size and cropping.
 
 `scripts/seo.mjs` builds a JSON-LD graph for each language page: WebSite, WebPage,

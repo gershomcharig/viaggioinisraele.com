@@ -133,7 +133,8 @@ test('generated pages have readable content, correct SEO, localised enquiries an
     assert.ok(html.includes('https://www.youtube.com/embed/FYtk8JMMZRE?rel=0'));
   }
   const html = await read('dist/en/index.html');
-  assert.doesNotMatch(html, /Translated from Italian|Isacco|Travel in Israel with/);
+  // The shared social artwork includes both names; the English page copy uses Isaac.
+  assert.doesNotMatch(html.split('<body>')[1], /Translated from Italian|Isacco|Travel in Israel with/);
   assert.match(html, /<title>\s*English-speaking Israel Tour Guide \| Isaac Charig/);
   assert.match(html, /content="Travel Israel with Isaac Charig/);
   assert.match(html, /Message on Whatsapp/);
@@ -219,12 +220,14 @@ test('social metadata uses localised copy and absolute canonical and image URLs'
     assert.equal(meta['og:description'], locale.copy.site_description);
     assert.equal(meta['twitter:description'], locale.copy.site_description);
     assert.equal(meta['og:url'], `${config.origin}/${code}/`);
-    assert.equal(meta['og:image'], `${config.origin}/images/jerusalem-1.webp`);
+    assert.equal(meta['og:image'], `${config.origin}/images/social-card.jpg`);
     assert.equal(meta['twitter:image'], meta['og:image']);
-    assert.equal(meta['og:image:alt'], locale.copy.jerusalem_s_old_city);
+    assert.equal(meta['og:image:alt'], locale.copy.social_image_alt);
     assert.equal(meta['twitter:image:alt'], meta['og:image:alt']);
-    assert.equal(meta['og:image:width'], '1500');
-    assert.equal(meta['og:image:height'], '900');
+    assert.equal(meta['og:image:type'], 'image/jpeg');
+    assert.equal(meta['og:image:width'], '1200');
+    assert.equal(meta['og:image:height'], '630');
+    await access(new URL('dist/images/social-card.jpg', root));
     assert.equal(meta['twitter:card'], 'summary_large_image');
     assert.equal((html.match(/<title>/g) || []).length, 1);
   }

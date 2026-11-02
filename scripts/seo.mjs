@@ -8,6 +8,7 @@ const faqKeys = [
 ];
 
 export const heroImage = { path: '/images/jerusalem-1.webp', width: 1500, height: 900 };
+const socialImage = { path: '/images/social-card.jpg', width: 1200, height: 630 };
 
 export function faqsFor(copy) {
   return faqKeys.map(([question, answer]) => {
@@ -24,7 +25,7 @@ export function renderFaqs(faqs, escape) {
 }
 
 export function socialMetadata({ title, description, name, url, origin, imageAlt }, escape) {
-  const image = `${origin}${heroImage.path}`;
+  const image = `${origin}${socialImage.path}`;
   const tags = [
     ['property', 'og:type', 'website'],
     ['property', 'og:title', title],
@@ -32,9 +33,9 @@ export function socialMetadata({ title, description, name, url, origin, imageAlt
     ['property', 'og:site_name', name],
     ['property', 'og:url', url],
     ['property', 'og:image', image],
-    ['property', 'og:image:type', 'image/webp'],
-    ['property', 'og:image:width', heroImage.width],
-    ['property', 'og:image:height', heroImage.height],
+    ['property', 'og:image:type', 'image/jpeg'],
+    ['property', 'og:image:width', socialImage.width],
+    ['property', 'og:image:height', socialImage.height],
     ['property', 'og:image:alt', imageAlt],
     ['name', 'twitter:card', 'summary_large_image'],
     ['name', 'twitter:title', title],

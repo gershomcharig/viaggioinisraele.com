@@ -75,7 +75,7 @@ export async function build(root = projectRoot) {
     const social = socialMetadata({
       title: locale.copy.site_title, description: locale.copy.site_description,
       name: locale.copy.site_name, url: `${origin}${language.path}`, origin,
-      imageAlt: locale.copy.jerusalem_s_old_city,
+      imageAlt: locale.copy.social_image_alt,
     }, escapeHtml);
     const flat = flatten(locale);
     const values = Object.fromEntries(Object.entries(flat).map(([key, value]) => [key, escapeHtml(value)]));
@@ -108,7 +108,7 @@ export async function build(root = projectRoot) {
     title: 'Travel Israel with Isaac · Viaggio in Israele con Isacco',
     description: 'Explore Israel with Isaac Charig. Choose your language: English or Italiano.',
     name: 'Travel Israel with Isaac · Viaggio in Israele con Isacco',
-    url: `${origin}/`, origin, imageAlt: 'Jerusalem’s Old City · Città Vecchia di Gerusalemme',
+    url: `${origin}/`, origin, imageAlt: 'Israel — Isaac · Isacco Charig. Jerusalem’s Old City / Città Vecchia di Gerusalemme.',
   }, escapeHtml);
   await writeFile(path.join(dist, 'index.html'), renderTemplate(chooser, {
     seo: `<link rel="canonical" href="${origin}/" />\n    ${alternates}\n    ${chooserSocial}`,
