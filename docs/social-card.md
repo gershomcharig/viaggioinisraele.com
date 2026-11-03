@@ -6,7 +6,7 @@ remain in the page's language, and alternative text describes the actual artwork
 The versioned image URL avoids reusing the cached bilingual preview image.
 
 Created with the built-in imagegen tool by editing the previous
-`images/social-card.jpg`. That original asset is retained as the reference.
+`images/social-card.jpg`. That unused original asset has since been removed.
 The generated output was resized to 1200×630 and JPEG-encoded with sips.
 The page hero is unchanged.
 
